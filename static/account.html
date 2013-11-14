@@ -8,8 +8,8 @@
   <title>Activecell Virtual Office</title>
 
   <!-- le styles -->
-  <link rel="stylesheet" href="../stylesheets/activecell-branding.css">
-  <link href="../stylesheets/virtual-office.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/activecell-branding.css">
+  <link href="stylesheets/virtual-office.css" rel="stylesheet">
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,17 +35,17 @@
       </div>
       <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation" style="height: 1px;">
         <ul class="nav navbar-nav">
-          <li class='active'>
-            <a href="#"><i class="fa fa-tasks"></i> Task boards</a>
+          <li>
+            <a href="boards/index.html"><i class="fa fa-tasks"></i> Task boards</a>
           </li>
           <li>
-            <a href="../recipes/index.html"><i class="fa fa-cutlery"></i> Recipes</a>
+            <a href="recipes/index.html"><i class="fa fa-cutlery"></i> Recipes</a>
           </li>
           <li>
-            <a href="../resources.html"><i class="fa fa-fighter-jet"></i> Resources</a>
+            <a href="resources.html"><i class="fa fa-fighter-jet"></i> Resources</a>
           </li>
           <li>
-            <a href="../discount.html"><i class="fa fa-thumbs-up"></i> Discount:</a>
+            <a href="discount.html"><i class="fa fa-thumbs-up"></i> Discount:</a>
           </li>
           <li id="discount-meter">
             <div class="nav navbar-text progress" style="width: 100px; margin-bottom: 0px;">
@@ -53,10 +53,10 @@
               <span class="sr-only">60% Complete</span>
             </div>
           </li>
-          <li class="dropdown">
+          <li class="dropdown active">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class='fa fa-gears'></i></a>
             <ul class="dropdown-menu">
-              <li><a href="../account.html">Account</a></li>
+              <li><a href="#">Account</a></li>
               <li><a href="#">Logout</a></li>
             </ul>
           </li>
@@ -68,47 +68,75 @@
   <div class="container">
     <div class="row">
       <div class = "col-lg-8">
-        <h2><i class="fa fa-tasks"></i> Your task boards</h2>
-        <p class="lead">Task boards help you manage sets of tasks</p>
+        <h2><i class="fa fa-tasks"></i> You</h2>
+        <div class="media">
+          <a class="pull-left" href="#">
+            <img class="media-object" src="images/jason.png" alt="Jason Hill">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">Jason Hill</h4>
+            Jason is a badass for this reason and that reason.
+          </div>
+        </div>
+        <h4>Email settings</h4>
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-1 control-label">Email</label>
+            <div class="col-sm-4">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Email me when a board is completed.
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Email me when someone references me in a comment.
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Email me when someone comments on a task assigned to me.
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <h2><i class="fa fa-tasks"></i> Your company</h2>
         <table class="table">
           <thead>
             <tr>
-              <th>Board</th>
-              <th>Recipe</th>
-              <th>Status</th>
-              <th></th>
+              <th>User</th>
+              <th>Last logged in</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><a href='view.html'>October 2013</a></td>
-              <td><a href='../recipes/view.html'>Monthly bookkeeping</a></td>
-              <td><span class="label label-info">In progress</span></td>
-              <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+              <td>Don Draper</td>
+              <td>Oct 1, 2013</td>
             </tr>
             <tr>
-              <td><a href='view.html'>Virtual assistant tasks</a></td>
-              <td></td>
-              <td><span class="label label-primary">Ongoing</span></td>
-              <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+              <td>Roger Sterling</td>
+              <td>Sep 4, 2013</td>
             </tr>
             <tr>
-              <td><a href='view.html'>September 2013</a></td>
-              <td><a href='../recipes/view.html'>Monthly bookkeeping</a></td>
-              <td><span class="label label-success">Complete</span></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a href='view.html'>August 2013</a></td>
-              <td><a href='../recipes/view.html'>Monthly bookkeeping</a></td>
-              <td><span class="label label-success">Complete</span></td>
-              <td></td>
+              <td>Peggy Olson</td>
+              <td><button class="btn btn-sm btn-default">Invite now</button></td>
             </tr>
           </tbody>
         </table>
-        <a data-toggle="modal" href="#addBoard" class='btn btn-primary'>
-          <i class="fa fa-plus"></i> Add a new board
-        </a>
+        <div class="text-right">
+          <button class='btn btn-default btn-sm'>Update credit card</button><br />
+          <small>This account is billed to: <strong>Amex 1003</strong></small>
+        </div>
+        <div class="text-left">
+          <a href="#" class='text-danger'>Close this account…</a>
+        </div>
       </div>
     </div>
 
@@ -171,8 +199,8 @@
 
   <!-- le javascript -->
   <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="../javascripts/activecell-branding.js"></script>
-  <script src="../javascripts/virtual-office.js"></script>
+  <script src="javascripts/activecell-branding.js"></script>
+  <script src="javascripts/virtual-office.js"></script>
 
   <!-- Typekit -->
   <script type="text/javascript" src="//use.typekit.net/xff3ece.js"></script>
