@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Activecell Virtual Office</title>
+
+  <!-- le styles -->
+  <link rel="stylesheet" href="../stylesheets/activecell-branding.css">
+  <link href="../stylesheets/virtual-office.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+  <!-- le main nav -->
+  <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.activecell.com">Activecell Virtual Office</a>
+      </div>
+      <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation" style="height: 1px;">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="../boards/index.html"><i class="fa fa-tasks"></i> Task boards</a>
+          </li>
+          <li class='active'>
+            <a href="#"><i class="fa fa-cutlery"></i> Recipes</a>
+          </li>
+          <li>
+            <a href="../resources.html"><i class="fa fa-fighter-jet"></i> Resources</a>
+          </li>
+          <li>
+            <a href="../discount.html"><i class="fa fa-thumbs-up"></i> Discount:</a>
+          </li>
+        </ul>
+          <div class="nav navbar-text progress" style="width: 100px; margin-bottom: 0px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+            <span class="sr-only">60% Complete</span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class = "col-lg-8">
+        <h2><i class="fa fa-tasks"></i> Your Recipes</h2>
+        <p class="lead">Recipes are recurring sets of task lists</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Recipe</th>
+              <th>Frequency</th>
+              <th>On</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href='view.html'>Monthly bookkeeping</a></td>
+              <td>Monthly</td>
+              <td>5th day of the month</td>
+              <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+            </tr>
+            <tr>
+              <td><a href='view.html'>Forecast review</a></td>
+              <td>Quarter</td>
+              <td>1st day of the quarter</td>
+              <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+            </tr>
+            <tr>
+              <td><a href='view.html'>Update competitive analysis</a></td>
+              <td>Quarter</td>
+              <td>15th day of the quarter</td>
+              <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+            </tr>
+            <tr>
+              <td><a href='view.html'>Build market survey for a new product</a></td>
+              <td>As needed</td>
+              <td>--</td>
+              <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <a data-toggle="modal" href="#addBoard" class='btn btn-primary'>
+          <i class="fa fa-plus"></i> Add a new recipe
+        </a>
+      </div>
+    </div>
+
+    <!-- le footer -->
+    <div class="footer">
+      <p>&copy; Profitably, Inc. 2013</p>
+    </div>
+  </div><!-- end .container -->
+
+  <!-- le notification modal -->
+  <div class="modal fade" id="notifications" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Notifications</h4>
+        </div>
+        <div class="modal-body">
+          <div class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=40">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading"><span class="label label-primary">adamneary</span> commented on a tasks
+                <a data-toggle="modal" href="#itemDetail">#1 Jack-in-the-box lorem</a></h4>
+              <hr>
+             <p>
+               <span class="label label-primary">@kusic</span>
+               Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <span title="11/8/2013 7:30:07 PM">Nov 8 at 7:30 pm</span>
+            </div>
+          </div>
+          <div class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=40">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading"><span class="label label-primary">@kusic</span> commented on a tasks
+                <a data-toggle="modal" href="#itemDetail">#1 Jack-in-the-box lorem</a></h4>
+              <hr>
+              <p>
+                <span class="label label-primary">@adamneary</span>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+              <span title="11/8/2013 7:32:07 PM">Nov 8 at 7:32 pm</span>
+            </div>
+        </div><!-- end .modal-body -->
+      </div><!-- end .modal-content -->
+    </div><!-- end .modal-dialog -->
+  </div><!-- end .modal -->
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger">Close</button>
+  </div><!-- end .modal-footer -->
+
+  <!-- le javascript -->
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="../javascripts/activecell-branding.js"></script>
+  <script src="../javascripts/virtual-office.js"></script>
+
+  <!-- Typekit -->
+  <script type="text/javascript" src="//use.typekit.net/xff3ece.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</body>
+</html>
