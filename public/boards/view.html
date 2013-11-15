@@ -20,6 +20,7 @@
 
 </head>
 <body>
+<script type="text/x-handlebars" data-template-name="tasks">
 
   <!-- le main nav -->
   <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
@@ -66,80 +67,40 @@
     <a href='index.html'> <i class="fa fa-arrow-circle-o-left"></i> Back to task board list</a>
     <!-- le tasks -->
     <div class="row">
+
       <!-- next up -->
       <div class="col-lg-4">
         <h3><i class="fa fa-tasks"></i> Next up</h3>
         <div class="list-group">
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">8</span>
-            <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-            #1: Jack-in-the-box lorem
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">3</span>
-            <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-            #2: Look nasty and stuff
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">8</span>
-            <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-            #3: Cocoon 'em in gaffer tape
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">1</span>
-            <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-            #4: Nick the van
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">2</span>
-            <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-            #5: Swap the gear
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">5</span>
-            <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-            #6: Bring it all back here
-          </a>
+          {{#each itemController="task"}}
+            {{#if isEditingName}}
+              <input class='editName'>
+            {{else}}
+              <a data-toggle="modal" href="#itemDetail" class="list-group-item">
+                <span class="badge">{{minutes}}</span>
+                <img {{bindAttr src="avatarSrc"}} height="20" width="20">
+                <span {{action "editTaskName" on="doubleClick"}}>{{name}}</span>
+              </a>
+            {{/if}}
+          {{/each}}
         </div>
-        <button class='btn btn-block btn-primary'>
-          <i class="fa fa-plus"></i> Add a task/question
-        </button>
+
+        {{input class="form-control" type="text" id="new-task" value=newName
+          placeholder="What needs to be done?" action="createTask"}}
+
       </div><!-- end next up -->
 
       <!-- in progress -->
       <div class="col-lg-4">
         <h3><i class="fa fa-puzzle-piece"></i> In progress</h3>
         <div class="list-group">
+        {{#each}}
           <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">8</span>
-            <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-            #1: Jack-in-the-box
+            <span class="badge">{{minutes}}</span>
+            <img {{bindAttr src="avatarSrc"}} height="20" width="20">
+            {{name}}
           </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">3</span>
-            <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-            #2: Look nasty and stuff
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item active">
-            <span class="badge">8</span>
-            <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-            #3: Cocoon 'em in gaffer tape
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">1</span>
-            <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-            #4: Nick the van
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">2</span>
-            <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-            #5: Swap the gear
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">5</span>
-            <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-            #6: Bring it all back here
-          </a>
+        {{/each}}
         </div>
       </div><!-- end in progress -->
 
@@ -147,38 +108,16 @@
       <div class="col-lg-4">
         <h3><i class="fa fa-check"></i> Complete</h3>
         <div class="list-group">
+        {{#each}}
           <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">8</span>
-            <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-            #1: Jack-in-the-box
+            <span class="badge">{{minutes}}</span>
+            <img {{bindAttr src="avatarSrc"}} height="20" width="20">
+            {{name}}
           </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">3</span>
-            <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-            #2: Look nasty and stuff
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">8</span>
-            <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-            #3: Cocoon 'em in gaffer tape
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">1</span>
-            <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-            #4: Nick the van
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">2</span>
-            <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-            #5: Swap the gear
-          </a>
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-            <span class="badge">5</span>
-            <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-            #6: Bring it all back here
-          </a>
+        {{/each}}
         </div>
       </div><!-- end complete -->
+
     </div><!-- end le tasks -->
 
     <!-- le task modal -->
@@ -365,13 +304,23 @@
     <p>&copy; Profitably, Inc. 2013</p>
   </div>
 
+</script>
+
   <!-- le javascript -->
   <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="../javascripts/activecell-branding.js"></script>
-  <script src="../javascripts/virtual-office.js"></script>
+  <script src="../javascripts/vendor/activecell-branding.js"></script>
+  <script src="../javascripts/vendor/handlebars-1.0.0.js"></script>
+  <script src="../javascripts/vendor/ember.js"></script>
+  <script src="../javascripts/vendor/ember-data.js"></script>
+
+  <script src="../javascripts/application.js"></script>
+  <script src="../javascripts/router.js"></script>
+  <script src="../javascripts/models/task.js"></script>
+  <script src="../javascripts/controllers/task_controller.js"></script>
+  <script src="../javascripts/controllers/tasks_controller.js"></script>
 
   <!-- Typekit -->
-  <script type="text/javascript" src="//use.typekit.net/xff3ece.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<!--  <script type="text/javascript" src="http://use.typekit.net/xff3ece.js"></script> -->
+<!--  <script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
 </body>
 </html>
