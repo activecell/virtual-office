@@ -5,6 +5,15 @@
 1. Run `npm test` to run the test suite
 1. Run `npm dev` to run the app locally with test watchers
 
+## Style
+
+We want to keep styles simple and consistent so that anyone
+can drop in and out of the project seamlessly.
+
+* All javascript should be written in coffeescript
+* All markup should be in templates (and all templates written in handlebars)
+* All css should be written in scss
+
 ## Making changes
 
 1. Make changes in a branch
