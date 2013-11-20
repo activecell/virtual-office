@@ -19,7 +19,7 @@ describe "Task board list", ->
     it "creates the board and navigates to it"
     it "can cancel with ESC, the 'x', or the close button"
 
-  describe "Deleting a board"
+  describe "Deleting a board", ->
     it "should allow the user to delete a board with a REMOVE button in the row"
     it "should alert the user if the board has tasks"
 
@@ -61,4 +61,4 @@ describe "Tasks", ->
     it "should open a task dialog"
     it "should start with the cursor in the name box"
     it "should cancel with ESC the 'x', or close button in the footer"
-    it "should insert a task at the bottom of the 'Next up' queue
+    it "should insert a task at the bottom of the 'Next up' queue"

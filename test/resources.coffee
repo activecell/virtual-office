@@ -49,7 +49,7 @@ describe "Resources", ->
     it "should show discount from discount page (and link to it)"
     it "should calculate final total after discount"
 
-    describe 'apply changes button'
+    describe 'apply changes button', ->
       it "should disable if no changes have been made"
       it "should enable if changes have been made"
       it "should record changes on click, then disable"
