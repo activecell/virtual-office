@@ -1,17 +1,37 @@
 (function() {
-  var App;
+  window.VirtualOffice = Ember.Application.create();
 
-  App = Ember.Application.create();
+  window.VirtualOffice.Controllers = {};
 
-  module.exports = App;
+  window.VirtualOffice.Routes = {};
+
+  window.VirtualOffice.Views = {};
 
 }).call(this);
 
 (function() {
-  var App;
-
-  App = require('./app');
-
-  App.Router.map(function() {});
+  VirtualOffice.Router.map(function() {
+    this.route("login", {
+      path: "/login"
+    });
+    this.route("index", {
+      path: "/"
+    });
+    this.route("boards", {
+      path: "/boards"
+    });
+    this.route("recipes", {
+      path: "/recipes"
+    });
+    this.route("resources", {
+      path: "/resources"
+    });
+    this.route("account", {
+      path: "/account"
+    });
+    return this.route("discounts", {
+      path: "/discounts"
+    });
+  });
 
 }).call(this);

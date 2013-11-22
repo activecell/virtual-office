@@ -11,13 +11,17 @@ module.exports = (grunt) ->
         tasks: ['emberTemplates']
       
       coffee:
-        files: ['app/**/**/*.coffee', 'test/**/*.coffee']
+        files: ['app/**/*.coffee', 'test/**/*.coffee']
         tasks: ['coffee']
+      
+      vendor:
+        files: ['vendor/javascripts/**/*.js', 'vendor/stylesheets/**/*.css']
+        tasks: ['concat']
     
     emberTemplates:
       compile:
         options:
-          amd: true,
+          amd: false,
           templateBasePath: /app\/templates\//
           templateFileExtensions: /\.hbs/
         files: 'public/javascripts/templates.js': 'app/templates/**/*.hbs'
@@ -25,7 +29,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'public/javascripts/application.js': ['app/**/**/*.coffee']
+          'public/javascripts/application.js': ['app/*.coffee', 'app/controllers/**/*.coffee', 'app/routes/**/*.coffee', 'app/views/**/*.coffee']
           'public/javascripts/tests.js': ['test/**/*.coffee']
     
     sass:
@@ -33,11 +37,33 @@ module.exports = (grunt) ->
         files:
           'public/stylesheets/application.css': ['app/stylesheets/**/*.scss']
     
+    concat:
+      vendor_js:
+        src: [
+          'vendor/javascripts/handlebars-1.0.0.js',
+          'vendor/javascripts/ember.js',
+          'vendor/javascripts/ember-data.js',
+          'vendor/javascripts/profitably-branding.js'
+        ]
+        dest: 'public/javascripts/vendor.js'
+      vendor_css:
+        src: [
+          'vendor/stylesheets/profitably-branding.css'
+        ]
+        dest: 'public/stylesheets/vendor.css'
+    
+    express:
+      server:
+        options:
+          port: 9000
+          bases: 'public'
+    
+    grunt.loadNpmTasks 'grunt-contrib-concat'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-sass'
     grunt.loadNpmTasks 'grunt-ember-templates'
-    grunt.loadNpmTasks 'grunt-commonjs'
+    grunt.loadNpmTasks 'grunt-express'
     
     
-    grunt.registerTask 'default', ['emberTemplates', 'coffee', 'sass']
+    grunt.registerTask 'default', ['emberTemplates', 'coffee', 'sass', 'concat', 'express', 'watch']
