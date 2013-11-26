@@ -31,13 +31,163 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 });
 
-Ember.TEMPLATES["boards"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+Ember.TEMPLATES["boards/index"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashTypes, hashContexts, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
   
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n            ");
+  hashContexts = {'name': depth0,'recipe': depth0,'status': depth0};
+  hashTypes = {'name': "ID",'recipe': "ID",'status': "ID"};
+  options = {hash:{
+    'name': ("name"),
+    'recipe': ("recipe"),
+    'status': ("status")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['board-row'] || depth0['board-row']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "board-row", options))));
+  data.buffer.push("\n          ");
+  return buffer;
+  }
+
+  data.buffer.push("<div class=\"container\">\n  <div class=\"row\">\n    <div class = \"col-lg-8\">\n      <h2><i class=\"fa fa-tasks\"></i> Your task boards</h2>\n      <p class=\"lead\">Task boards help you manage sets of tasks</p>\n      <table class=\"table\">\n        <thead>\n          <tr>\n            <th>Board</th>\n            <th>Recipe</th>\n            <th>Status</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n        </tbody>\n      </table>\n      <a data-toggle=\"modal\" href=\"#addBoard\" class='btn btn-primary'>\n        <i class=\"fa fa-plus\"></i> Add a new board\n      </a>\n    </div>\n  </div>\n</div><!-- end .container -->");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["boards/show"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n          ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "isEditingName", {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n        ");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  
+  data.buffer.push("\n            <input class='editName'>\n          ");
+  }
+
+function program4(depth0,data) {
+  
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n            <a data-toggle=\"modal\" href=\"#itemDetail\" class=\"list-group-item\">\n              <span class=\"badge\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "minutes", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n              <img ");
+  hashContexts = {'src': depth0};
+  hashTypes = {'src': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'src': ("avatarSrc")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" height=\"20\" width=\"20\">\n              <span ");
+  hashContexts = {'on': depth0};
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "editTaskName", {hash:{
+    'on': ("doubleClick")
+  },contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n            </a>\n          ");
+  return buffer;
+  }
+
+function program6(depth0,data) {
+  
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n        <a data-toggle=\"modal\" href=\"#itemDetail\" class=\"list-group-item\">\n          <span class=\"badge\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "minutes", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n          <img ");
+  hashContexts = {'src': depth0};
+  hashTypes = {'src': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'src': ("avatarSrc")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" height=\"20\" width=\"20\">\n          ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n        </a>\n      ");
+  return buffer;
+  }
+
+  data.buffer.push("<div class=\"container\">\n  <h2>\n    <i class=\"fa fa-tasks\"></i>\n    October 2013\n    <small><a href='../recipes/view.html'>Monthly bookkeeping</a></small>\n  </h2>\n  <a href='index.html'> <i class=\"fa fa-arrow-circle-o-left\"></i> Back to task board list</a>\n  <!-- le tasks -->\n  <div class=\"row\">\n\n    <!-- next up -->\n    <div class=\"col-lg-4\">\n      <h3><i class=\"fa fa-tasks\"></i> Next up</h3>\n      <div class=\"list-group\">\n        ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n      </div>\n\n      ");
+  hashContexts = {'class': depth0,'type': depth0,'id': depth0,'value': depth0,'placeholder': depth0,'action': depth0};
+  hashTypes = {'class': "STRING",'type': "STRING",'id': "STRING",'value': "ID",'placeholder': "STRING",'action': "STRING"};
+  options = {hash:{
+    'class': ("form-control"),
+    'type': ("text"),
+    'id': ("new-task"),
+    'value': ("newName"),
+    'placeholder': ("What needs to be done?"),
+    'action': ("createTask")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n\n    </div><!-- end next up -->\n\n    <!-- in progress -->\n    <div class=\"col-lg-4\">\n      <h3><i class=\"fa fa-puzzle-piece\"></i> In progress</h3>\n      <div class=\"list-group\">\n      ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n      </div>\n    </div><!-- end in progress -->\n\n    <!-- complete -->\n    <div class=\"col-lg-4\">\n      <h3><i class=\"fa fa-check\"></i> Complete</h3>\n      <div class=\"list-group\">\n      ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n      </div>\n    </div><!-- end complete -->\n\n  </div><!-- end le tasks -->\n\n  <!-- le task modal -->\n  <div class=\"modal fade\" id=\"itemDetail\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n          <h4 class=\"modal-title\">#3: Cocoon 'em in gaffer tape</h4>\n        </div>\n        <div class=\"modal-body\">\n          <div class=\"panel-group\" id=\"accordion\">\n            <div class=\"panel panel-default\">\n              <div class=\"panel-heading\">\n                <h4 class=\"panel-title\">\n                  <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\">\n                    Description\n                  </a>\n                </h4>\n              </div>\n              <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n                <div class=\"panel-body\">\n                  <div contenteditable>\n                    <p>\n                      i am a big believer of starting with the html/css for features before\n                      plugging in the functionality. that way, you can agree to the interface\n                      before worrying about functionality.\n                    </p>\n                    <p>\n                      include:\n                    </p>\n                    <ul>\n                      <li>basic app layout</li>\n                      <li>multiple boards with add/remove/rename</li>\n                      <li>multiple columns for lists with add/remove/rename</li>\n                      <li>collapsed items in lists</li>\n                      <li>item detail modal</li>\n                    </ul>\n                    <p>more as we flesh out the first milestone features</p>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"panel panel-default\">\n              <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\">\n                <div class=\"panel-heading\">\n                  <h4 class=\"panel-title\">\n                    Details\n                  </h4>\n                </div>\n              </a>\n              <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n                <div class=\"panel-body\">\n                  <form class=\"form-horizontal\" role=\"form\">\n                    <div class=\"form-group\">\n                      <label for=\"selectAssignee\" class=\"col-lg-2 control-label\">Assignee</label>\n                      <div class=\"col-lg-10\">\n                        <select id=\"selectAssignee\" class=\"chosen-select\">\n                          <option>Adam Neary</option>\n                          <option>Sinisa</option>\n                          <option>Aleksey</option>\n                          <option>Daniel</option>\n                        </select>\n                      </div>\n                    </div>\n                    <div class=\"form-group\">\n                      <label for=\"selectMilestone\" class=\"col-lg-2 control-label\">Milestone</label>\n                      <div class=\"col-lg-10\">\n                        <select id=\"selectMilestone\" class=\"chosen-select\">\n                          <option>Milestone 1</option>\n                          <option>Milestone 2</option>\n                          <option>Milestone 3</option>\n                        </select>\n                      </div>\n                    </div>\n                    <div class=\"form-group\">\n                      <label for=\"multiLabels\" class=\"col-lg-2 control-label\">Labels</label>\n                      <div class=\"col-lg-10\">\n                        <select id=\"selectMilestone\" class=\"chosen-select\" multiple width=\"300\">\n                          <option>Label 1</option>\n                          <option>Label 2</option>\n                          <option>Label 3</option>\n                        </select>\n                      </div>\n                    </div>\n                  </form>\n                </div>\n              </div>\n            </div>\n            <div class=\"panel panel-default\">\n              <div class=\"panel-heading\">\n                <h4 class=\"panel-title\">\n                  <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\">\n                    Comments\n                  </a>\n                </h4>\n              </div>\n              <div id=\"collapseThree\" class=\"panel-collapse collapse\">\n                <div class=\"panel-body\">\n                  <textarea class=\"form-control\" rows=\"3\"></textarea>\n                  <div class=\"media\">\n                    <a class=\"pull-left\" href=\"#\">\n                      <img class=\"media-object\" src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=40\">\n                    </a>\n                    <div class=\"media-body\">\n                      <h4 class=\"media-heading\">adamneary</h4>\n                     <p>\n                       <span class=\"label label-primary\">@kusic</span>\n                       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                    </div>\n                  </div>\n                  <div class=\"media\">\n                    <a class=\"pull-left\" href=\"#\">\n                      <img class=\"media-object\" src=\"https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=40\">\n                    </a>\n                    <div class=\"media-body\">\n                      <h4 class=\"media-heading\">kusic</h4>\n                      <p>\n                        <span class=\"label label-primary\">@adamneary</span>\n                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div><!-- end .modal-body -->\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-success\">Save changes</button>\n          <button type=\"button\" class=\"btn btn-danger\">Close</button>\n        </div><!-- end .modal-footer -->\n      </div><!-- end .modal-content -->\n    </div><!-- end .modal-dialog -->\n  </div><!-- end .modal -->\n\n  <!-- le notification modal -->\n  <div class=\"modal fade\" id=\"notifications\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n          <h4 class=\"modal-title\">Notifications</h4>\n        </div>\n        <div class=\"modal-body\">\n          <div class=\"media\">\n            <a class=\"pull-left\" href=\"#\">\n              <img class=\"media-object\" src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=40\">\n            </a>\n            <div class=\"media-body\">\n              <h4 class=\"media-heading\"><span class=\"label label-primary\">adamneary</span> commented on a tasks\n                <a data-toggle=\"modal\" href=\"#itemDetail\">#1 Jack-in-the-box lorem</a></h4>\n              <hr>\n             <p>\n               <span class=\"label label-primary\">@kusic</span>\n               Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                <span title=\"11/8/2013 7:30:07 PM\">Nov 8 at 7:30 pm</span>\n            </div>\n          </div>\n          <div class=\"media\">\n            <a class=\"pull-left\" href=\"#\">\n              <img class=\"media-object\" src=\"https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=40\">\n            </a>\n            <div class=\"media-body\">\n              <h4 class=\"media-heading\"><span class=\"label label-primary\">@kusic</span> commented on a tasks\n                <a data-toggle=\"modal\" href=\"#itemDetail\">#1 Jack-in-the-box lorem</a></h4>\n              <hr>\n              <p>\n                <span class=\"label label-primary\">@adamneary</span>\n                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n              <span title=\"11/8/2013 7:32:07 PM\">Nov 8 at 7:32 pm</span>\n            </div>\n        </div><!-- end .modal-body -->\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-danger\">Close</button>\n        </div><!-- end .modal-footer -->\n      </div><!-- end .modal-content -->\n    </div><!-- end .modal-dialog -->\n  </div><!-- end .modal -->\n\n</div><!-- end .container -->");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["components/board-row"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', hashTypes, hashContexts, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<div class=\"container\">\n  <div class=\"row\">\n    <div class = \"col-lg-8\">\n      <h2><i class=\"fa fa-tasks\"></i> Your task boards</h2>\n      <p class=\"lead\">Task boards help you manage sets of tasks</p>\n      <table class=\"table\">\n        <thead>\n          <tr>\n            <th>Board</th>\n            <th>Recipe</th>\n            <th>Status</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td><a href='view.html'>October 2013</a></td>\n            <td><a href='../recipes/view.html'>Monthly bookkeeping</a></td>\n            <td><span class=\"label label-info\">In progress</span></td>\n            <td><button class='btn btn-danger btn-xs'><i class=\"fa fa-times-circle-o\"> Remove</button></td>\n          </tr>\n          <tr>\n            <td><a href='view.html'>Virtual assistant tasks</a></td>\n            <td></td>\n            <td><span class=\"label label-primary\">Ongoing</span></td>\n            <td><button class='btn btn-danger btn-xs'><i class=\"fa fa-times-circle-o\"> Remove</button></td>\n          </tr>\n          <tr>\n            <td><a href='view.html'>September 2013</a></td>\n            <td><a href='../recipes/view.html'>Monthly bookkeeping</a></td>\n            <td><span class=\"label label-success\">Complete</span></td>\n            <td></td>\n          </tr>\n          <tr>\n            <td><a href='view.html'>August 2013</a></td>\n            <td><a href='../recipes/view.html'>Monthly bookkeeping</a></td>\n            <td><span class=\"label label-success\">Complete</span></td>\n            <td></td>\n          </tr>\n        </tbody>\n      </table>\n      <a data-toggle=\"modal\" href=\"#addBoard\" class='btn btn-primary'>\n        <i class=\"fa fa-plus\"></i> Add a new board\n      </a>\n    </div>\n  </div>\n</div><!-- end .container -->");
+  data.buffer.push("<tr>\n  <td><a href='view.html'>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</a></td>\n  <td><a href='../recipes/view.html'>Recipe name</a></td>\n  <td><span class=\"label label-");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "statusClass", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "status", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "statusClass", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span></td>\n  <td><button class='btn btn-danger btn-xs'><i class=\"fa fa-times-circle-o\"> Remove</button></td>\n</tr>");
+  return buffer;
   
 });
 
@@ -139,23 +289,23 @@ function program7(depth0,data) {
   
 });
 
-Ember.TEMPLATES["recipe"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  
-
-
-  data.buffer.push("<h1>One recipe</h1>");
-  
-});
-
-Ember.TEMPLATES["recipes"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+Ember.TEMPLATES["recipes/index"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 
 
   data.buffer.push("<div class=\"container\">\n  <div class=\"row\">\n    <div class = \"col-lg-8\">\n      <h2><i class=\"fa fa-tasks\"></i> Your Recipes</h2>\n      <p class=\"lead\">Recipes are recurring sets of task lists</p>\n      <table class=\"table\">\n        <thead>\n          <tr>\n            <th>Recipe</th>\n            <th>Frequency</th>\n            <th>On</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td><a href='view.html'>Monthly bookkeeping</a></td>\n            <td>Monthly</td>\n            <td>5th day of the month</td>\n            <td><button class='btn btn-danger btn-xs'><i class=\"fa fa-times-circle-o\"> Remove</button></td>\n          </tr>\n          <tr>\n            <td><a href='view.html'>Forecast review</a></td>\n            <td>Quarter</td>\n            <td>1st day of the quarter</td>\n            <td><button class='btn btn-danger btn-xs'><i class=\"fa fa-times-circle-o\"> Remove</button></td>\n          </tr>\n          <tr>\n            <td><a href='view.html'>Update competitive analysis</a></td>\n            <td>Quarter</td>\n            <td>15th day of the quarter</td>\n            <td><button class='btn btn-danger btn-xs'><i class=\"fa fa-times-circle-o\"> Remove</button></td>\n          </tr>\n          <tr>\n            <td><a href='view.html'>Build market survey for a new product</a></td>\n            <td>As needed</td>\n            <td>--</td>\n            <td><button class='btn btn-danger btn-xs'><i class=\"fa fa-times-circle-o\"> Remove</button></td>\n          </tr>\n        </tbody>\n      </table>\n      <a data-toggle=\"modal\" href=\"#addBoard\" class='btn btn-primary'>\n        <i class=\"fa fa-plus\"></i> Add a new recipe\n      </a>\n    </div>\n  </div>\n</div><!-- end .container -->");
+  
+});
+
+Ember.TEMPLATES["recipes/show"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  
+
+
+  data.buffer.push("<div class=\"container\">\n  <h2>\n    <i class=\"fa fa-tasks\"></i>\n    Monthly bookkeeping\n  </h2>\n  <a href='index.html'> <i class=\"fa fa-arrow-circle-o-left\"></i> Back to recipe list</a>\n\n  <h3>\n    Use this recipe to create a task board\n    <select id=\"frequencySelector\" class=\"form-control\" value='Daily' style=\"display: inline; width: 125px;\">\n      <option>Daily</option>\n      <option>Weekly</option>\n      <option>Monthly</option>\n      <option>Quarterly</option>\n      <option>Annually</option>\n      <option>As needed</option>\n    </select>\n    on day\n    <input type=\"text\" class=\"form-control\" id=\"onText\" value='1' style=\"display: inline; width: 125px;\">\n    of the period.\n  </h3>\n\n  <!-- le tasks -->\n  <div class=\"row\">\n    <!-- next up -->\n    <div class=\"col-lg-4\">\n      <h3><i class=\"fa fa-tasks\"></i> Tasks to queue each time</h3>\n      <div class=\"list-group\">\n        <a data-toggle=\"modal\" href=\"#itemDetail\" class=\"list-group-item\">\n          <span class=\"badge\">8</span>\n          <img height=\"20\" src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140\" width=\"20\">\n          #1: Jack-in-the-box lorem\n        </a>\n        <a data-toggle=\"modal\" href=\"#itemDetail\" class=\"list-group-item\">\n          <span class=\"badge\">3</span>\n          <img height=\"20\" src=\"https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140\" width=\"20\">\n          #2: Look nasty and stuff\n        </a>\n        <a data-toggle=\"modal\" href=\"#itemDetail\" class=\"list-group-item\">\n          <span class=\"badge\">8</span>\n          <img height=\"20\" src=\"https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140\" width=\"20\">\n          #3: Cocoon 'em in gaffer tape\n        </a>\n        <a data-toggle=\"modal\" href=\"#itemDetail\" class=\"list-group-item\">\n          <span class=\"badge\">1</span>\n          <img height=\"20\" src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140\" width=\"20\">\n          #4: Nick the van\n        </a>\n        <a data-toggle=\"modal\" href=\"#itemDetail\" class=\"list-group-item\">\n          <span class=\"badge\">2</span>\n          <img height=\"20\" src=\"https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140\" width=\"20\">\n          #5: Swap the gear\n        </a>\n        <a data-toggle=\"modal\" href=\"#itemDetail\" class=\"list-group-item\">\n          <span class=\"badge\">5</span>\n          <img height=\"20\" src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140\" width=\"20\">\n          #6: Bring it all back here\n        </a>\n      </div>\n      <button class='btn btn-block btn-primary'>\n        <i class=\"fa fa-plus\"></i> Add a task\n      </button>\n    </div><!-- end next up -->\n  </div><!-- end le tasks -->\n\n  <!-- le task modal -->\n  <div class=\"modal fade\" id=\"itemDetail\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n          <h4 class=\"modal-title\">#3: Cocoon 'em in gaffer tape</h4>\n        </div>\n        <div class=\"modal-body\">\n          <div class=\"panel-group\" id=\"accordion\">\n            <div class=\"panel panel-default\">\n              <div class=\"panel-heading\">\n                <h4 class=\"panel-title\">\n                  <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\">\n                    Description\n                  </a>\n                </h4>\n              </div>\n              <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n                <div class=\"panel-body\">\n                  <div contenteditable>\n                    <p>\n                      i am a big believer of starting with the html/css for features before\n                      plugging in the functionality. that way, you can agree to the interface\n                      before worrying about functionality.\n                    </p>\n                    <p>\n                      include:\n                    </p>\n                    <ul>\n                      <li>basic app layout</li>\n                      <li>multiple boards with add/remove/rename</li>\n                      <li>multiple columns for lists with add/remove/rename</li>\n                      <li>collapsed items in lists</li>\n                      <li>item detail modal</li>\n                    </ul>\n                    <p>more as we flesh out the first milestone features</p>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"panel panel-default\">\n              <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\">\n                <div class=\"panel-heading\">\n                  <h4 class=\"panel-title\">\n                    Details\n                  </h4>\n                </div>\n              </a>\n              <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n                <div class=\"panel-body\">\n                  <form class=\"form-horizontal\" role=\"form\">\n                    <div class=\"form-group\">\n                      <label for=\"selectAssignee\" class=\"col-lg-2 control-label\">Assignee</label>\n                      <div class=\"col-lg-10\">\n                        <select id=\"selectAssignee\" class=\"chosen-select\">\n                          <option>Adam Neary</option>\n                          <option>Sinisa</option>\n                          <option>Aleksey</option>\n                          <option>Daniel</option>\n                        </select>\n                      </div>\n                    </div>\n                    <div class=\"form-group\">\n                      <label for=\"selectMilestone\" class=\"col-lg-2 control-label\">Milestone</label>\n                      <div class=\"col-lg-10\">\n                        <select id=\"selectMilestone\" class=\"chosen-select\">\n                          <option>Milestone 1</option>\n                          <option>Milestone 2</option>\n                          <option>Milestone 3</option>\n                        </select>\n                      </div>\n                    </div>\n                    <div class=\"form-group\">\n                      <label for=\"multiLabels\" class=\"col-lg-2 control-label\">Labels</label>\n                      <div class=\"col-lg-10\">\n                        <select id=\"selectMilestone\" class=\"chosen-select\" multiple width=\"300\">\n                          <option>Label 1</option>\n                          <option>Label 2</option>\n                          <option>Label 3</option>\n                        </select>\n                      </div>\n                    </div>\n                  </form>\n                </div>\n              </div>\n            </div>\n            <div class=\"panel panel-default\">\n              <div class=\"panel-heading\">\n                <h4 class=\"panel-title\">\n                  <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\">\n                    Comments\n                  </a>\n                </h4>\n              </div>\n              <div id=\"collapseThree\" class=\"panel-collapse collapse\">\n                <div class=\"panel-body\">\n                  <textarea class=\"form-control\" rows=\"3\"></textarea>\n                  <div class=\"media\">\n                    <a class=\"pull-left\" href=\"#\">\n                      <img class=\"media-object\" src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=40\">\n                    </a>\n                    <div class=\"media-body\">\n                      <h4 class=\"media-heading\">adamneary</h4>\n                     <p>\n                       <span class=\"label label-primary\">@kusic</span>\n                       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                    </div>\n                  </div>\n                  <div class=\"media\">\n                    <a class=\"pull-left\" href=\"#\">\n                      <img class=\"media-object\" src=\"https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=40\">\n                    </a>\n                    <div class=\"media-body\">\n                      <h4 class=\"media-heading\">kusic</h4>\n                      <p>\n                        <span class=\"label label-primary\">@adamneary</span>\n                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div><!-- end .modal-body -->\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-success\">Save changes</button>\n          <button type=\"button\" class=\"btn btn-danger\">Close</button>\n        </div><!-- end .modal-footer -->\n      </div><!-- end .modal-content -->\n    </div><!-- end .modal-dialog -->\n  </div><!-- end .modal -->\n\n  <!-- le notification modal -->\n  <div class=\"modal fade\" id=\"notifications\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n          <h4 class=\"modal-title\">Notifications</h4>\n        </div>\n        <div class=\"modal-body\">\n          <div class=\"media\">\n            <a class=\"pull-left\" href=\"#\">\n              <img class=\"media-object\" src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=40\">\n            </a>\n            <div class=\"media-body\">\n              <h4 class=\"media-heading\"><span class=\"label label-primary\">adamneary</span> commented on a tasks\n                <a data-toggle=\"modal\" href=\"#itemDetail\">#1 Jack-in-the-box lorem</a></h4>\n              <hr>\n             <p>\n               <span class=\"label label-primary\">@kusic</span>\n               Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                <span title=\"11/8/2013 7:30:07 PM\">Nov 8 at 7:30 pm</span>\n            </div>\n          </div>\n          <div class=\"media\">\n            <a class=\"pull-left\" href=\"#\">\n              <img class=\"media-object\" src=\"https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=40\">\n            </a>\n            <div class=\"media-body\">\n              <h4 class=\"media-heading\"><span class=\"label label-primary\">@kusic</span> commented on a tasks\n                <a data-toggle=\"modal\" href=\"#itemDetail\">#1 Jack-in-the-box lorem</a></h4>\n              <hr>\n              <p>\n                <span class=\"label label-primary\">@adamneary</span>\n                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n              <span title=\"11/8/2013 7:32:07 PM\">Nov 8 at 7:32 pm</span>\n            </div>\n        </div><!-- end .modal-body -->\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-danger\">Close</button>\n        </div><!-- end .modal-footer -->\n      </div><!-- end .modal-content -->\n    </div><!-- end .modal-dialog -->\n  </div><!-- end .modal -->\n\n</div><!-- end .container -->");
   
 });
 

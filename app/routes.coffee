@@ -4,12 +4,12 @@ VirtualOffice.Router.map ->
     
   @route "index",
     path: "/"
-  
-  @route "boards",
-    path: "/boards"
-  
-  @route "recipes",
-    path: "/recipes"
+    
+  @resource "boards", ->
+    @route "show"
+    
+  @resource "recipes", ->
+    @route "show"
     
   @route "resources",
     path: "/resources"
