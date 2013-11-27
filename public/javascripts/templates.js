@@ -264,7 +264,7 @@ function program5(depth0,data) {
 function program7(depth0,data) {
   
   
-  data.buffer.push("\n            <i class=\"fa fa-thumbs-up\"></i>\n            Discount\n          ");
+  data.buffer.push("\n            <i class=\"fa fa-star\"></i>\n            Discount: 0%\n          ");
   }
 
   data.buffer.push("<!-- le main nav -->\n<header class=\"navbar navbar-inverse navbar-fixed-top bs-docs-nav\" role=\"banner\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button class=\"navbar-toggle collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"http://www.activecell.com\">Activecell Virtual Office</a>\n    </div>\n    <nav class=\"navbar-collapse bs-navbar-collapse collapse\" role=\"navigation\" style=\"height: 1px;\">\n      <ul class=\"nav navbar-nav\">\n        <li>\n          ");
@@ -285,13 +285,13 @@ function program7(depth0,data) {
   options = {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "resources", options) : helperMissing.call(depth0, "link-to", "resources", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n        </li>\n        <li>\n          ");
+  data.buffer.push("\n        </li>\n        <li class=\"discount-link\">\n          ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "discounts", options) : helperMissing.call(depth0, "link-to", "discounts", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n        </li>\n      </ul>\n        <div class=\"nav navbar-text progress\" style=\"width: 100px; margin-bottom: 0px;\">\n          <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 60%;\">\n          <span class=\"sr-only\">60% Complete</span>\n        </div>\n      </div>\n    </nav>\n  </div>\n</header>");
+  data.buffer.push("\n          <div class=\"progress progress-striped\" style=\"width: 100px; margin-bottom: 0px;\">\n            <div class=\"progress-bar progress-bar-success\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 60%;\"></div>\n            <span class=\"sr-only\">60% Complete</span>\n          </div>\n        </li>\n      </ul>\n    </nav>\n  </div>\n</header>");
   return buffer;
   
 });

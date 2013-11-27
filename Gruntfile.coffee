@@ -35,7 +35,7 @@ module.exports = (grunt) ->
     sass:
       compile:
         files:
-          'public/stylesheets/application.css': ['app/stylesheets/**/*.scss']
+          'public/stylesheets/application.css': ['app/stylesheets/application.scss']
     
     concat:
       vendor_js:
