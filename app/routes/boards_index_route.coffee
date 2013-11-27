@@ -1,6 +1,6 @@
 class VirtualOffice.BoardsIndexRoute extends Ember.Route
   model: ->
-    @store.find('board')
+    @store.findAll('board')
     
   setupController: (controller, board) ->
     controller.set 'model', board

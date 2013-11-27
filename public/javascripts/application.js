@@ -14,7 +14,9 @@
       path: "/"
     });
     this.resource("boards", function() {
-      return this.route("show");
+      return this.route("show", {
+        path: '/:board_id'
+      });
     });
     this.resource("recipes", function() {
       return this.route("show");
@@ -43,13 +45,16 @@
     {
       id: 1,
       name: "October 2013",
-      status: "Completed",
+      status: "Completed"
+    }, {
       id: 2,
       name: "Virtual assistant tasks",
-      status: "Ongoing",
+      status: "Ongoing"
+    }, {
       id: 3,
       name: "September 2013",
-      status: "Complete",
+      status: "Complete"
+    }, {
       id: 4,
       name: "August 2013",
       status: "Complete"
@@ -117,6 +122,8 @@
       return _ref;
     }
 
+    BoardsIndexController.prototype.itemController = 'boards';
+
     return BoardsIndexController;
 
   })(Ember.ArrayController);
@@ -156,7 +163,7 @@
     }
 
     BoardsIndexRoute.prototype.model = function() {
-      return this.store.find('board');
+      return this.store.findAll('board');
     };
 
     BoardsIndexRoute.prototype.setupController = function(controller, board) {
@@ -193,6 +200,29 @@
     };
 
     return BoardsShowRoute;
+
+  })(Ember.Route);
+
+}).call(this);
+
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  VirtualOffice.IndexRoute = (function(_super) {
+    __extends(IndexRoute, _super);
+
+    function IndexRoute() {
+      _ref = IndexRoute.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    IndexRoute.prototype.redirect = function() {
+      return this.transitionTo('boards');
+    };
+
+    return IndexRoute;
 
   })(Ember.Route);
 

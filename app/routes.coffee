@@ -6,7 +6,7 @@ VirtualOffice.Router.map ->
     path: "/"
     
   @resource "boards", ->
-    @route "show"
+    @route "show", path: '/:board_id'
     
   @resource "recipes", ->
     @route "show"

@@ -40,12 +40,10 @@ function program1(depth0,data) {
   
   var buffer = '', stack1, hashContexts, hashTypes, options;
   data.buffer.push("\n            ");
-  hashContexts = {'name': depth0,'recipe': depth0,'status': depth0};
-  hashTypes = {'name': "ID",'recipe': "ID",'status': "ID"};
+  hashContexts = {'board': depth0};
+  hashTypes = {'board': "ID"};
   options = {hash:{
-    'name': ("name"),
-    'recipe': ("recipe"),
-    'status': ("status")
+    'board': ("controller")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['board-row'] || depth0['board-row']),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "board-row", options))));
   data.buffer.push("\n          ");
@@ -167,14 +165,23 @@ function program6(depth0,data) {
 Ember.TEMPLATES["components/board-row"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', hashTypes, hashContexts, escapeExpression=this.escapeExpression;
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
 
-
-  data.buffer.push("<tr>\n  <td><a href='view.html'>");
+function program1(depth0,data) {
+  
+  var hashTypes, hashContexts;
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</a></td>\n  <td><a href='../recipes/view.html'>Recipe name</a></td>\n  <td><span class=\"label label-");
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "board.name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  }
+
+  data.buffer.push("<tr>\n  <td>");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "boards.show", "board", options) : helperMissing.call(depth0, "linkTo", "boards.show", "board", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("</td>\n  <td><a href='../recipes/view.html'>Recipe name</a></td>\n  <td><span class=\"label label-");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "statusClass", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
