@@ -1,4 +1,13 @@
-.navbar {  
+#header-avatar {
+  padding-top: 8px;
+  padding-bottom: 0px;
+  img {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+  }
+}
+.navbar {
   .discount-link {
     padding-top: 5px;
     padding-right: 10px;
@@ -6,11 +15,11 @@
     margin-bottom: -5px;
     background: url(../images/green-ribbon.png) repeat-x bottom left;
     height: 60px;
-    
+
     a {
       float: left;
     }
-    
+
     .progress {
       width: 100px;
       margin-top: 14px;
