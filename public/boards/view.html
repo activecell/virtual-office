@@ -71,19 +71,20 @@
       <!-- next up -->
       <div class="col-lg-4">
         <h3><i class="fa fa-tasks"></i> Next up</h3>
-        <div class="list-group">
+        <ul id='next-up' class="list-group connectedSortable">
           {{#each itemController="task"}}
             {{#if isEditingName}}
               <input class='editName'>
             {{else}}
-              <a data-toggle="modal" href="#itemDetail" class="list-group-item">
+              <!-- <li data-toggle="modal" href="#itemDetail" class="list-group-item">-->
+              <li class="list-group-item">
                 <span class="badge">{{minutes}}</span>
                 <img {{bindAttr src="avatarSrc"}} height="20" width="20">
                 <span {{action "editTaskName" on="doubleClick"}}>{{name}}</span>
-              </a>
+              </li>
             {{/if}}
           {{/each}}
-        </div>
+        </ul>
 
         {{input class="form-control" type="text" id="new-task" value=newName
           placeholder="What needs to be done?" action="createTask"}}
@@ -93,29 +94,30 @@
       <!-- in progress -->
       <div class="col-lg-4">
         <h3><i class="fa fa-puzzle-piece"></i> In progress</h3>
-        <div class="list-group">
+        <ul id='in-progress' class="list-group connectedSortable">
         {{#each}}
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
+          <li class="list-group-item">
             <span class="badge">{{minutes}}</span>
             <img {{bindAttr src="avatarSrc"}} height="20" width="20">
             {{name}}
-          </a>
+          </li>
         {{/each}}
-        </div>
+        </ul>
       </div><!-- end in progress -->
 
       <!-- complete -->
       <div class="col-lg-4">
         <h3><i class="fa fa-check"></i> Complete</h3>
-        <div class="list-group">
+        <ul id='complete' class="list-group connectedSortable">
         {{#each}}
-          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
+
+          <li class="list-group-item">
             <span class="badge">{{minutes}}</span>
             <img {{bindAttr src="avatarSrc"}} height="20" width="20">
             {{name}}
-          </a>
+          </li>
         {{/each}}
-        </div>
+        </ul>
       </div><!-- end complete -->
 
     </div><!-- end le tasks -->
@@ -308,6 +310,7 @@
 
   <!-- le javascript -->
   <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <script src="../javascripts/vendor/activecell-branding.js"></script>
   <script src="../javascripts/vendor/handlebars-1.0.0.js"></script>
   <script src="../javascripts/vendor/ember.js"></script>
@@ -318,6 +321,16 @@
   <script src="../javascripts/models/task.js"></script>
   <script src="../javascripts/controllers/task_controller.js"></script>
   <script src="../javascripts/controllers/tasks_controller.js"></script>
+
+
+  <script>
+    $(function() {
+      $( "#next-up, #in-progress, #complete" ).sortable({
+        connectWith: ".connectedSortable"
+      }).disableSelection();
+    });
+  </script>
+
 
   <!-- Typekit -->
 <!--  <script type="text/javascript" src="http://use.typekit.net/xff3ece.js"></script> -->

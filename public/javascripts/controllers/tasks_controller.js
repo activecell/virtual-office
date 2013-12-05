@@ -21,3 +21,9 @@ VirtualOffice.TasksController = Ember.ArrayController.extend({
     }
   }
 });
+
+$(function() {
+  $( "#next-up, #in-progress, #complete" ).sortable({
+    connectWith: ".connectedSortable"
+  }).disableSelection();
+});
