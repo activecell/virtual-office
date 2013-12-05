@@ -1,13 +1,17 @@
 <div class="container">
   <h2>
     <i class="fa fa-tasks"></i>
-    Monthly bookkeeping
+    {{name}}
   </h2>
-  <a href='index.html'> <i class="fa fa-arrow-circle-o-left"></i> Back to recipe list</a>
+
+  {{#linkTo 'recipes'}}
+    <i class="fa fa-arrow-circle-o-left"></i>
+    Back to recipe list
+  {{/linkTo}}
 
   <h3>
     Use this recipe to create a task board
-    <select id="frequencySelector" class="form-control" value='Daily' style="display: inline; width: 125px;">
+    <select id="frequencySelector" class="form-control" {{bindAttr value="frequency"}} style="display: inline; width: 125px;">
       <option>Daily</option>
       <option>Weekly</option>
       <option>Monthly</option>
@@ -23,39 +27,16 @@
   <!-- le tasks -->
   <div class="row">
     <!-- next up -->
-    <div class="col-lg-4">
+    <div class="col-xs-4">
       <h3><i class="fa fa-tasks"></i> Tasks to queue each time</h3>
       <div class="list-group">
-        <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-          <span class="badge">8</span>
-          <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-          #1: Jack-in-the-box lorem
-        </a>
-        <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-          <span class="badge">3</span>
-          <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-          #2: Look nasty and stuff
-        </a>
-        <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-          <span class="badge">8</span>
-          <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-          #3: Cocoon 'em in gaffer tape
-        </a>
-        <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-          <span class="badge">1</span>
-          <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-          #4: Nick the van
-        </a>
-        <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-          <span class="badge">2</span>
-          <img height="20" src="https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=140" width="20">
-          #5: Swap the gear
-        </a>
-        <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-          <span class="badge">5</span>
-          <img height="20" src="https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=140" width="20">
-          #6: Bring it all back here
-        </a>
+        {{#each tasks}}
+          <a data-toggle="modal" href="#itemDetail" class="list-group-item">
+            <span class="badge">{{minutes}}</span>
+            <img {{bindAttr src="avatarSrc"}} height="20" width="20">
+            {{name}}
+          </a>
+        {{/each}}
       </div>
       <button class='btn btn-block btn-primary'>
         <i class="fa fa-plus"></i> Add a task
@@ -116,8 +97,8 @@
                 <div class="panel-body">
                   <form class="form-horizontal" role="form">
                     <div class="form-group">
-                      <label for="selectAssignee" class="col-lg-2 control-label">Assignee</label>
-                      <div class="col-lg-10">
+                      <label for="selectAssignee" class="col-xs-2 control-label">Assignee</label>
+                      <div class="col-xs-10">
                         <select id="selectAssignee" class="chosen-select">
                           <option>Adam Neary</option>
                           <option>Sinisa</option>
@@ -127,8 +108,8 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="selectMilestone" class="col-lg-2 control-label">Milestone</label>
-                      <div class="col-lg-10">
+                      <label for="selectMilestone" class="col-xs-2 control-label">Milestone</label>
+                      <div class="col-xs-10">
                         <select id="selectMilestone" class="chosen-select">
                           <option>Milestone 1</option>
                           <option>Milestone 2</option>
@@ -137,8 +118,8 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="multiLabels" class="col-lg-2 control-label">Labels</label>
-                      <div class="col-lg-10">
+                      <label for="multiLabels" class="col-xs-2 control-label">Labels</label>
+                      <div class="col-xs-10">
                         <select id="selectMilestone" class="chosen-select" multiple width="300">
                           <option>Label 1</option>
                           <option>Label 2</option>
