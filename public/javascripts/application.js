@@ -7,29 +7,24 @@
 
 (function() {
   VirtualOffice.Router.map(function() {
-    this.route("login", {
-      path: "/login"
-    });
-    this.route("index", {
-      path: "/"
-    });
-    this.resource("boards", function() {
-      return this.route("show", {
-        path: '/:board_id'
+    this.route("clients");
+    this.resource("client", {
+      path: "/client/:client_slug"
+    }, function() {
+      this.route("recipes");
+      this.resource("recipe", {
+        path: "/recipe/:recipe_id"
       });
+      this.route("resources");
+      return this.route("access");
     });
-    this.resource("recipes", function() {
-      return this.route("show");
+    this.route("recipes");
+    this.resource("recipe", {
+      path: "/recipe/:recipe_id"
     });
-    this.route("resources", {
-      path: "/resources"
-    });
-    this.route("account", {
-      path: "/account"
-    });
-    return this.route("discounts", {
-      path: "/discounts"
-    });
+    this.route("resources");
+    this.route("access");
+    return this.route("account");
   });
 
 }).call(this);
@@ -64,10 +59,82 @@
 }).call(this);
 
 (function() {
+  VirtualOffice.Client = DS.Model.extend({
+    name: DS.attr('string'),
+    slug: DS.attr('string')
+  });
+
+  VirtualOffice.Client.FIXTURES = [
+    {
+      id: 1,
+      name: "Sterling Cooper",
+      slug: "sterling-cooper"
+    }, {
+      id: 2,
+      name: "Client 2",
+      slug: "client2"
+    }, {
+      id: 3,
+      name: "Client 3",
+      slug: "client3"
+    }, {
+      id: 4,
+      name: "Client 4",
+      slug: "client4"
+    }
+  ];
+
+}).call(this);
+
+(function() {
+  VirtualOffice.Recipe = DS.Model.extend({
+    tasks: DS.hasMany('task', {
+      async: true
+    }),
+    name: DS.attr('string'),
+    frequency: DS.attr('string'),
+    timeframe: DS.attr('number')
+  });
+
+  VirtualOffice.Recipe.FIXTURES = [
+    {
+      id: 1,
+      name: "Touch-up (transactions and bills)",
+      frequency: "Weekly",
+      timeframe: 5,
+      tasks: [1, 2, 3, 4, 5, 6]
+    }, {
+      id: 2,
+      name: "Review & reconcile",
+      frequency: "Monthly",
+      timeframe: 5,
+      tasks: [7, 8, 9, 10, 11, 12, 13]
+    }, {
+      id: 3,
+      name: "Forecast review",
+      frequency: "Quarterly",
+      timeframe: 1,
+      tasks: []
+    }, {
+      id: 4,
+      name: "Update competitive analysis",
+      frequency: "Quarterly",
+      timeframe: 15,
+      tasks: []
+    }, {
+      id: 5,
+      name: "Build market survey for a new product",
+      frequency: "As needed",
+      tasks: []
+    }
+  ];
+
+}).call(this);
+
+(function() {
   VirtualOffice.Task = DS.Model.extend({
     board: DS.belongsTo('board'),
     name: DS.attr('string'),
-    status: DS.attr('string'),
     avatarSrc: DS.attr('string'),
     minutes: DS.attr('number')
   });
@@ -75,35 +142,69 @@
   VirtualOffice.Task.FIXTURES = [
     {
       id: 1,
-      name: "Jack-in-the-box",
-      status: "Completed",
-      avatarSrc: "https://1.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&s=20",
-      minutes: 8,
-      id: 2,
-      name: "Look nasty and stuff",
-      status: "Completed",
+      name: "Process Bill.com inbox",
       avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
-      minutes: 1,
+      minutes: 20
+    }, {
+      id: 2,
+      name: "Process accounting email inbox",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 20
+    }, {
       id: 3,
-      name: "Cocoon 'em in gaffer tape",
-      status: "Completed",
-      avatarSrc: "https://1.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&s=20",
-      minutes: 34,
+      name: "Process bills/receipts in Dropbox folder",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 20
+    }, {
       id: 4,
-      name: "Nick the van",
-      status: "Completed",
-      avatarSrc: "https://1.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&s=20",
-      minutes: 4,
+      name: "Code new transactions based on rulebook",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 60
+    }, {
       id: 5,
-      name: "Swap the gear",
-      status: "Completed",
-      avatarSrc: "https://1.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&s=20",
-      minutes: 2,
+      name: "Add alerts about disconnected bank accounts",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 5
+    }, {
       id: 6,
-      name: "Bring it all back here",
-      status: "Completed",
+      name: "Add alerts about unknown/unexpected transactions",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 5
+    }, {
+      id: 7,
+      name: "Download or confirm client's download of all bank statements to reconcile",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 20
+    }, {
+      id: 8,
+      name: "Reconcile bank statements, identifying and resolving variances where possible based on the rulebook",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 60
+    }, {
+      id: 9,
+      name: "Add alerts for any unresolved discrepancies",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 5
+    }, {
+      id: 10,
+      name: "Compare previous month P&L and Balance sheet to current month",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 40
+    }, {
+      id: 11,
+      name: "Submit new P&L, Balance Sheet, and Exception report to manager for review",
       avatarSrc: "https://1.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&s=20",
       minutes: 10
+    }, {
+      id: 12,
+      name: "Resolve known issues, review reports with client, provide feedback to the team",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 30
+    }, {
+      id: 13,
+      name: "Integrate feedback from manager and client",
+      avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20",
+      minutes: 30
     }
   ];
 
@@ -144,6 +245,27 @@
     }
 
     return BoardsShowController;
+
+  })(Ember.ArrayController);
+
+}).call(this);
+
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  VirtualOffice.ClientsIndexController = (function(_super) {
+    __extends(ClientsIndexController, _super);
+
+    function ClientsIndexController() {
+      _ref = ClientsIndexController.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    ClientsIndexController.prototype.itemController = 'clients';
+
+    return ClientsIndexController;
 
   })(Ember.ArrayController);
 
@@ -210,6 +332,33 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
+  VirtualOffice.ClientsIndexRoute = (function(_super) {
+    __extends(ClientsIndexRoute, _super);
+
+    function ClientsIndexRoute() {
+      _ref = ClientsIndexRoute.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    ClientsIndexRoute.prototype.model = function() {
+      return this.store.findAll('clients');
+    };
+
+    ClientsIndexRoute.prototype.setupController = function(controller, client) {
+      return controller.set('model', client);
+    };
+
+    return ClientsIndexRoute;
+
+  })(Ember.Route);
+
+}).call(this);
+
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
   VirtualOffice.IndexRoute = (function(_super) {
     __extends(IndexRoute, _super);
 
@@ -219,10 +368,33 @@
     }
 
     IndexRoute.prototype.redirect = function() {
-      return this.transitionTo('boards');
+      return this.transitionTo('clients');
     };
 
     return IndexRoute;
+
+  })(Ember.Route);
+
+}).call(this);
+
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  VirtualOffice.RecipesRoute = (function(_super) {
+    __extends(RecipesRoute, _super);
+
+    function RecipesRoute() {
+      _ref = RecipesRoute.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    RecipesRoute.prototype.model = function() {
+      return this.store.findAll('recipe');
+    };
+
+    return RecipesRoute;
 
   })(Ember.Route);
 
