@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class = "col-xs-8">
+      <h2><i class="fa fa-briefcase"></i> Your Client List</h2>
+      <p class="lead">Manage your clients in one place. We'll take care of the rest.</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each}}
+            <tr>
+              <td>{{#link-to 'client' id}}{{name}}{{/link-to}}</td>
+              <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Archive</button></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <a data-toggle="modal" href="#addBoard" class='btn btn-primary'>
+        <i class="fa fa-plus"></i> Add a new client
+      </a>
+    </div>
+  </div>
+</div><!-- end .container -->

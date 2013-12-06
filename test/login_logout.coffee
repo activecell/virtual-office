@@ -10,7 +10,7 @@ describe "Login", ->
     it "should create a new user if the login doesn't exist"
     it "should capture name, email upon creating a user"
 
-  describe "Intuit blue dot menu," ->
+  describe "Intuit blue dot menu,", ->
     it "should display the Intuit blue dot menu after login"
     it "should allow the user to switch companies"
     it "should create a company if the user switches to a company that doesn't exist"

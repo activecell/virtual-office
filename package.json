@@ -1,5 +1,5 @@
 {
-  "name": "Activecell Virtual Office",
+  "name": "virtual-office",
   "version": "0.0.1",
   "description": "We'll see",
   "private": true,
@@ -11,7 +11,12 @@
   },
   "dependencies": {
     "grunt": "~0.4.1",
-    "grunt-cli": "~0.1.9"
+    "grunt-contrib-coffee": "~0.6.0",
+    "grunt-contrib-sass": "~0.3.0",
+    "grunt-ember-templates": "~0.4.4",
+    "grunt-contrib-watch": "",
+    "grunt-contrib-concat": "",
+    "grunt-express": "~1.0.0"
   },
   "devDependencies": {
     "testem": "~0.3.27"

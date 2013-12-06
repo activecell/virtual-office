@@ -1,0 +1,25 @@
+#header-avatar {
+  padding-top: 8px;
+  padding-bottom: 0px; }
+  #header-avatar img {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px; }
+
+.navbar .discount-link {
+  padding-top: 5px;
+  padding-right: 10px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  background: url(../images/green-ribbon.png) repeat-x bottom left;
+  height: 60px; }
+  .navbar .discount-link a {
+    float: left; }
+  .navbar .discount-link .progress {
+    width: 100px;
+    margin-top: 14px;
+    margin-bottom: 0;
+    float: right; }
+
+body {
+  padding-top: 60px; }
