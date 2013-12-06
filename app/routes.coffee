@@ -27,5 +27,6 @@ VirtualOffice.Router.map ->
 
   @route "resources"
   @route "access"
+  @route "activity"
 
   @route "account"
