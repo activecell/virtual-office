@@ -1,6 +1,6 @@
 #activecell-header-logo {
   height: 30px;
-  margin: -12px 10px -10px; }
+  margin: -12px 10px -10px 0px; }
 
 .navbar-brand {
   font-family: arno-pro;
@@ -31,3 +31,6 @@
 
 body {
   padding-top: 60px; }
+
+.container {
+  max-width: 800px; }
