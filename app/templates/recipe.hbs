@@ -24,24 +24,19 @@
 </h3>
 
 <!-- le tasks -->
-<div class="row">
-  <!-- next up -->
-  <div class="col-xs-4">
-    <h3><i class="fa fa-tasks"></i> Tasks to queue each time</h3>
-    <div class="list-group">
-      {{#each tasks}}
-        <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-          <span class="badge">{{minutes}}</span>
-          <img {{bindAttr src="avatarSrc"}} height="20" width="20">
-          {{name}}
-        </a>
-      {{/each}}
-    </div>
-    <button class='btn btn-block btn-primary'>
-      <i class="fa fa-plus"></i> Add a task
-    </button>
-  </div><!-- end next up -->
-</div><!-- end le tasks -->
+<h3><i class="fa fa-tasks"></i> Tasks to queue each time</h3>
+<div class="list-group">
+  {{#each tasks}}
+    <a data-toggle="modal" href="#itemDetail" class="list-group-item">
+      <span class="badge">{{minutes}}</span>
+      <img {{bindAttr src="avatarSrc"}} height="20" width="20">
+      {{name}}
+    </a>
+  {{/each}}
+</div>
+<button class='btn btn-block btn-primary'>
+  <i class="fa fa-plus"></i> Add a task
+</button>
 
 <!-- le task modal -->
 <div class="modal fade" id="itemDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
