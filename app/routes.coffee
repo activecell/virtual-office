@@ -13,7 +13,7 @@ VirtualOffice.Router.map ->
 
   @route "clients"
   @resource "client",
-      path: "/client/:client_slug"
+      path: "/client/:client_id"
     , ->
 
       @route "recipes"
@@ -21,6 +21,7 @@ VirtualOffice.Router.map ->
 
       @route "resources"
       @route "access"
+      @route "activity"
 
   @route "recipes"
   @resource "recipe", path: "/recipe/:recipe_id"

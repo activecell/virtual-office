@@ -12,7 +12,10 @@
         </thead>
         <tbody>
           {{#each}}
-            {{client-row client=controller}}
+            <tr>
+              <td>{{#link-to 'client' id}}{{name}}{{/link-to}}</td>
+              <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Archive</button></td>
+            </tr>
           {{/each}}
         </tbody>
       </table>

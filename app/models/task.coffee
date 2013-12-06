@@ -1,5 +1,4 @@
 VirtualOffice.Task = DS.Model.extend
-  board: DS.belongsTo 'board'
   name: DS.attr 'string'
   avatarSrc: DS.attr 'string'
   minutes: DS.attr 'number'

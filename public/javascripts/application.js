@@ -9,14 +9,15 @@
   VirtualOffice.Router.map(function() {
     this.route("clients");
     this.resource("client", {
-      path: "/client/:client_slug"
+      path: "/client/:client_id"
     }, function() {
       this.route("recipes");
       this.resource("recipe", {
         path: "/recipe/:recipe_id"
       });
       this.route("resources");
-      return this.route("access");
+      this.route("access");
+      return this.route("activity");
     });
     this.route("recipes");
     this.resource("recipe", {
@@ -24,37 +25,9 @@
     });
     this.route("resources");
     this.route("access");
+    this.route("activity");
     return this.route("account");
   });
-
-}).call(this);
-
-(function() {
-  VirtualOffice.Board = DS.Model.extend({
-    tasks: DS.hasMany('task'),
-    name: DS.attr('string'),
-    status: DS.attr('string')
-  });
-
-  VirtualOffice.Board.FIXTURES = [
-    {
-      id: 1,
-      name: "October 2013",
-      status: "Completed"
-    }, {
-      id: 2,
-      name: "Virtual assistant tasks",
-      status: "Ongoing"
-    }, {
-      id: 3,
-      name: "September 2013",
-      status: "Complete"
-    }, {
-      id: 4,
-      name: "August 2013",
-      status: "Complete"
-    }
-  ];
 
 }).call(this);
 
@@ -133,7 +106,6 @@
 
 (function() {
   VirtualOffice.Task = DS.Model.extend({
-    board: DS.belongsTo('board'),
     name: DS.attr('string'),
     avatarSrc: DS.attr('string'),
     minutes: DS.attr('number')
@@ -215,84 +187,19 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.BoardsIndexController = (function(_super) {
-    __extends(BoardsIndexController, _super);
+  VirtualOffice.ClientAccessRoute = (function(_super) {
+    __extends(ClientAccessRoute, _super);
 
-    function BoardsIndexController() {
-      _ref = BoardsIndexController.__super__.constructor.apply(this, arguments);
+    function ClientAccessRoute() {
+      _ref = ClientAccessRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    BoardsIndexController.prototype.itemController = 'boards';
-
-    return BoardsIndexController;
-
-  })(Ember.ArrayController);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  VirtualOffice.BoardsShowController = (function(_super) {
-    __extends(BoardsShowController, _super);
-
-    function BoardsShowController() {
-      _ref = BoardsShowController.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    return BoardsShowController;
-
-  })(Ember.ArrayController);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  VirtualOffice.ClientsIndexController = (function(_super) {
-    __extends(ClientsIndexController, _super);
-
-    function ClientsIndexController() {
-      _ref = ClientsIndexController.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    ClientsIndexController.prototype.itemController = 'clients';
-
-    return ClientsIndexController;
-
-  })(Ember.ArrayController);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  VirtualOffice.BoardsIndexRoute = (function(_super) {
-    __extends(BoardsIndexRoute, _super);
-
-    function BoardsIndexRoute() {
-      _ref = BoardsIndexRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    BoardsIndexRoute.prototype.model = function() {
-      return this.store.findAll('board');
+    ClientAccessRoute.prototype.renderTemplate = function() {
+      return this.render('access');
     };
 
-    BoardsIndexRoute.prototype.setupController = function(controller, board) {
-      return controller.set('model', board);
-    };
-
-    return BoardsIndexRoute;
+    return ClientAccessRoute;
 
   })(Ember.Route);
 
@@ -303,25 +210,19 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.BoardsShowRoute = (function(_super) {
-    __extends(BoardsShowRoute, _super);
+  VirtualOffice.ClientActivityRoute = (function(_super) {
+    __extends(ClientActivityRoute, _super);
 
-    function BoardsShowRoute() {
-      _ref = BoardsShowRoute.__super__.constructor.apply(this, arguments);
+    function ClientActivityRoute() {
+      _ref = ClientActivityRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    BoardsShowRoute.prototype.model = function() {
-      var store;
-      store = this.get('store');
-      return store.find('task');
+    ClientActivityRoute.prototype.renderTemplate = function() {
+      return this.render('activity');
     };
 
-    BoardsShowRoute.prototype.setupController = function(controller, task) {
-      return controller.set('model', task);
-    };
-
-    return BoardsShowRoute;
+    return ClientActivityRoute;
 
   })(Ember.Route);
 
@@ -332,23 +233,115 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.ClientsIndexRoute = (function(_super) {
-    __extends(ClientsIndexRoute, _super);
+  VirtualOffice.ClientIndexRoute = (function(_super) {
+    __extends(ClientIndexRoute, _super);
 
-    function ClientsIndexRoute() {
-      _ref = ClientsIndexRoute.__super__.constructor.apply(this, arguments);
+    function ClientIndexRoute() {
+      _ref = ClientIndexRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    ClientsIndexRoute.prototype.model = function() {
-      return this.store.findAll('clients');
+    ClientIndexRoute.prototype.redirect = function() {
+      return this.transitionTo('client.recipes');
     };
 
-    ClientsIndexRoute.prototype.setupController = function(controller, client) {
-      return controller.set('model', client);
+    return ClientIndexRoute;
+
+  })(Ember.Route);
+
+}).call(this);
+
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  VirtualOffice.ClientRecipeRoute = (function(_super) {
+    __extends(ClientRecipeRoute, _super);
+
+    function ClientRecipeRoute() {
+      _ref = ClientRecipeRoute.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    ClientRecipeRoute.prototype.renderTemplate = function() {
+      return this.render('recipe');
     };
 
-    return ClientsIndexRoute;
+    return ClientRecipeRoute;
+
+  })(Ember.Route);
+
+}).call(this);
+
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  VirtualOffice.ClientRecipesRoute = (function(_super) {
+    __extends(ClientRecipesRoute, _super);
+
+    function ClientRecipesRoute() {
+      _ref = ClientRecipesRoute.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    ClientRecipesRoute.prototype.renderTemplate = function() {
+      return this.render('recipes');
+    };
+
+    ClientRecipesRoute.prototype.model = function() {
+      return this.store.findAll('recipe');
+    };
+
+    return ClientRecipesRoute;
+
+  })(Ember.Route);
+
+}).call(this);
+
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  VirtualOffice.ClientResourcesRoute = (function(_super) {
+    __extends(ClientResourcesRoute, _super);
+
+    function ClientResourcesRoute() {
+      _ref = ClientResourcesRoute.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    ClientResourcesRoute.prototype.renderTemplate = function() {
+      return this.render('resources');
+    };
+
+    return ClientResourcesRoute;
+
+  })(Ember.Route);
+
+}).call(this);
+
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  VirtualOffice.ClientsRoute = (function(_super) {
+    __extends(ClientsRoute, _super);
+
+    function ClientsRoute() {
+      _ref = ClientsRoute.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    ClientsRoute.prototype.model = function() {
+      return this.store.findAll('client');
+    };
+
+    return ClientsRoute;
 
   })(Ember.Route);
 
