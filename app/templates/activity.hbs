@@ -5,47 +5,17 @@
       <th></th>
       <th>Action</th>
       <th>Date and time</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>Added <a href='mailto:don.draper@sterlingcooper.com'>Don Draper</a> to <a href='http://www.dropbox.com'>Dropbox</a></td>
-      <td>Oct 1, 2013</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Added <a href='mailto:don.draper@sterlingcooper.com'>Don Draper</a> to <a href='http://www.dropbox.com'>Other service</a></td>
-      <td>Oct 1, 2013</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Added <a href='mailto:don.draper@sterlingcooper.com'>Don Draper</a> to <a href='http://www.dropbox.com'>A different service</a></td>
-      <td>Oct 1, 2013</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Added <a href='mailto:don.draper@sterlingcooper.com'>Don Draper</a> to <a href='http://www.dropbox.com'>Yet another service</a></td>
-      <td>Oct 1, 2013</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Removed <a href='mailto:roger.sterling@sterlingcooper.com'>Roger Sterling</a> from <a href='http://www.dropbox.com'>Dropbox</a></td>
-      <td>Oct 1, 2013</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Removed <a href='mailto:roger.sterling@sterlingcooper.com'>Roger Sterling</a> from <a href='http://www.dropbox.com'>Another service</a></td>
-      <td>Oct 1, 2013</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Created task <a href='http://www.zendesk.com'>Process Bill.com Inbox</a> from recipe <a href='www.activecell.com'>Monthly bookkeeping</a></td>
-      <td>Sep 4, 2013</td>
-    </tr>
-      <td>8</td>
-      <td>Created task <a href='http://www.zendesk.com'>Reconcile bank statements</a> from recipe <a href='www.activecell.com'>Monthly bookkeeping</a></td>
-      <td>Sep 4, 2013</td>
-    </tr>
+    {{#each}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{{description}}}</td>
+        <td>{{dateString}}</td>
+        <td>{{status}}</td>
+      </tr>
+    {{/each}}
   </tbody>
 </table>
