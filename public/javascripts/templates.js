@@ -11,10 +11,26 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 Ember.TEMPLATES["account"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  
+  var buffer = '', stack1, hashTypes, hashContexts, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<h2><i class=\"fa fa-tasks\"></i> Account</h2>\n\n<div class=\"media\">\n  <a class=\"pull-left\" href=\"#\">\n    <img class=\"media-object\" src=\"images/jason.png\" alt=\"Jason Hill\">\n  </a>\n  <div class=\"media-body\">\n    <h4 class=\"media-heading\">Jason Hill</h4>\n    Jason is a badass for this reason and that reason.\n  </div>\n</div>\n<h4>Email settings</h4>\n<form class=\"form-horizontal\" role=\"form\">\n  <div class=\"form-group\">\n    <label for=\"inputEmail3\" class=\"col-sm-1 control-label\">Email</label>\n    <div class=\"col-sm-4\">\n      <input type=\"email\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"Email\">\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <div class=\"col-sm-offset-1 col-sm-10\">\n      <div class=\"checkbox\">\n        <label>\n          <input type=\"checkbox\"> Email me when a board is completed.\n        </label>\n      </div>\n      <div class=\"checkbox\">\n        <label>\n          <input type=\"checkbox\"> Email me when someone references me in a comment.\n        </label>\n      </div>\n      <div class=\"checkbox\">\n        <label>\n          <input type=\"checkbox\"> Email me when someone comments on a task assigned to me.\n        </label>\n      </div>\n    </div>\n  </div>\n</form>\n\n<h2><i class=\"fa fa-tasks\"></i> Your company</h2>\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>User</th>\n      <th>Last logged in</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Don Draper</td>\n      <td>Oct 1, 2013</td>\n    </tr>\n    <tr>\n      <td>Roger Sterling</td>\n      <td>Sep 4, 2013</td>\n    </tr>\n    <tr>\n      <td>Peggy Olson</td>\n      <td><button class=\"btn btn-sm btn-default\">Invite now</button></td>\n    </tr>\n  </tbody>\n</table>\n<div class=\"text-right\">\n  <button class='btn btn-default btn-sm'>Update credit card</button><br />\n  <small>This account is billed to: <strong>Amex 1003</strong></small>\n</div>\n<div class=\"text-left\">\n  <a href=\"#\" class='text-danger'>Close this account…</a>\n</div>");
+  data.buffer.push("<h2><i class=\"fa fa-tasks\"></i> Account</h2>\n\n");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || (depth0 && depth0.outlet)),stack1 ? stack1.call(depth0, "user", options) : helperMissing.call(depth0, "outlet", "user", options))));
+  data.buffer.push("\n");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || (depth0 && depth0.outlet)),stack1 ? stack1.call(depth0, "company", options) : helperMissing.call(depth0, "outlet", "company", options))));
+  data.buffer.push("\n");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || (depth0 && depth0.outlet)),stack1 ? stack1.call(depth0, "billing", options) : helperMissing.call(depth0, "outlet", "billing", options))));
+  data.buffer.push("\n\n");
+  return buffer;
   
 });
 
@@ -48,6 +64,25 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.partial || (depth0 && depth0.partial)),stack1 ? stack1.call(depth0, "partials/footer", options) : helperMissing.call(depth0, "partial", "partials/footer", options))));
   data.buffer.push("\n</div>\n\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["billing"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', hashTypes, hashContexts, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<h3>Billing</h3>\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <p class=\"help-block\">\n            <small>This account is billed to: <strong>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "creditType", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "lastFour", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</strong></small>\n          </p>\n          <button class='btn btn-default btn-sm'>Update credit card</button>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-xs-9 col-sm-offset-3\">\n          <a href=\"#\" class='text-danger'>Close this account…</a>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>");
   return buffer;
   
 });
@@ -165,6 +200,29 @@ function program2(depth0,data) {
   
 });
 
+Ember.TEMPLATES["company"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', hashContexts, hashTypes, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<h3>Your company</h3>\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputCompany\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">\n          <input type=\"text\" class=\"form-control\" id=\"inputCompany\" ");
+  hashContexts = {'value': depth0};
+  hashTypes = {'value': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'value': ("companyName")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputSubdomain\" class=\"col-xs-3 control-label\">Subdomain</label>\n        <div class=\"col-xs-5\">\n          <input type=\"text\" class=\"form-control\" id=\"inputSubdomain\" ");
+  hashContexts = {'value': depth0};
+  hashTypes = {'value': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'value': ("subdomain")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n        </div>\n        <label class='col-xs-4 control-label'>.activecell.com</span>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n");
+  return buffer;
+  
+});
+
 Ember.TEMPLATES["notification"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -181,7 +239,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 
 
-  data.buffer.push("<footer id=\"footer\" role=\"contentinfo\">\n  <div class=\"row\">\n     <div class=\"col-xs-3\">\n       <dl>\n        <dt><a href=\"http://www.activecell.com/about.html\">About Activecell</a></dt>\n        <dd><a href=\"http://www.activecell.com/index.html#features\">Features</a></dd>\n        <dd><a href=\"http://www.activecell.com/index.html#pricing\">Pricing</a></dd>\n        <dd><a href=\"http://www.activecell.com/experts.html\">Experts</a></dd>\n        <dd><a href=\"http://www.activecell.com/blog.html\">The Activecell Method</a></dd>\n        <dd><a href=\"http://www.activecell.com/advisors.html\">For advisors</a></dd>\n        <dd><a href=\"http://www.activecell.com/privacy.html\">Privacy policy</a></dd>\n      </dl>\n    </div>\n    <div class=\"col-xs-3\">\n      <dl>\n        <dt><a href=\"http://success.activecell.com\">Support &amp; feedback</a></dt>\n        <dd><a href=\"http://success.activecell.com/knowledgebase\">Knowledge base</a></dd>\n        <dd><a href=\"http://success.activecell.com/forums/110485-product-feedback\">Product feedback</a></dd>\n        <dd><a href=\"http://success.activecell.com\">Contact support</a></dd>\n      </dl>\n    </div>\n    <div class=\"col-xs-6 copyright\">\n      Brought to you by Profitably, Inc.  © 2013. All rights reserved.\n    </div>\n  </div>\n</footer>");
+  data.buffer.push("<footer id=\"footer\" role=\"contentinfo\">\n  <div class=\"row\">\n     <div class=\"col-xs-3\">\n       <dl>\n        <dt><a href=\"http://www.activecell.com/about.html\">About Activecell</a></dt>\n        <dd><a href=\"http://www.activecell.com/index.html#features\">Features</a></dd>\n        <dd><a href=\"http://www.activecell.com/index.html#pricing\">Pricing</a></dd>\n        <dd><a href=\"http://www.activecell.com/experts.html\">Experts</a></dd>\n        <dd><a href=\"http://www.activecell.com/blog.html\">The Activecell Method</a></dd>\n        <dd><a href=\"http://www.activecell.com/advisors.html\">For advisors</a></dd>\n        <dd><a href=\"http://www.activecell.com/privacy.html\">Privacy policy</a></dd>\n      </dl>\n    </div>\n    <div class=\"col-xs-3\">\n      <dl>\n        <dt><a href=\"http://success.activecell.com\">Support &amp; feedback</a></dt>\n        <dd><a href=\"http://success.activecell.com/knowledgebase\">Knowledge base</a></dd>\n        <dd><a href=\"http://success.activecell.com/forums/110485-product-feedback\">Product feedback</a></dd>\n        <dd><a href=\"http://success.activecell.com\">Contact support</a></dd>\n      </dl>\n    </div>\n    <div class=\"col-xs-6 copyright\">\n      Brought to you by Profitably, Inc.  © 2013. <br />\n      All rights reserved.\n    </div>\n  </div>\n</footer>");
   
 });
 
@@ -385,5 +443,34 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push("<!-- le task modal -->\n<div class=\"modal fade\" id=\"itemDetail\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n        <h4 class=\"modal-title\">#3: Cocoon 'em in gaffer tape</h4>\n      </div>\n      <div class=\"modal-body\">\n        <div class=\"panel-group\" id=\"accordion\">\n          <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">\n              <h4 class=\"panel-title\">\n                <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\">\n                  Description\n                </a>\n              </h4>\n            </div>\n            <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n              <div class=\"panel-body\">\n                <div contenteditable>\n                  <p>\n                    i am a big believer of starting with the html/css for features before\n                    plugging in the functionality. that way, you can agree to the interface\n                    before worrying about functionality.\n                  </p>\n                  <p>\n                    include:\n                  </p>\n                  <ul>\n                    <li>basic app layout</li>\n                    <li>multiple boards with add/remove/rename</li>\n                    <li>multiple columns for lists with add/remove/rename</li>\n                    <li>collapsed items in lists</li>\n                    <li>item detail modal</li>\n                  </ul>\n                  <p>more as we flesh out the first milestone features</p>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"panel panel-default\">\n            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\">\n              <div class=\"panel-heading\">\n                <h4 class=\"panel-title\">\n                  Details\n                </h4>\n              </div>\n            </a>\n            <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n              <div class=\"panel-body\">\n                <form class=\"form-horizontal\" role=\"form\">\n                  <div class=\"form-group\">\n                    <label for=\"selectAssignee\" class=\"col-xs-2 control-label\">Assignee</label>\n                    <div class=\"col-xs-10\">\n                      <select id=\"selectAssignee\" class=\"chosen-select\">\n                        <option>Adam Neary</option>\n                        <option>Sinisa</option>\n                        <option>Aleksey</option>\n                        <option>Daniel</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"selectMilestone\" class=\"col-xs-2 control-label\">Milestone</label>\n                    <div class=\"col-xs-10\">\n                      <select id=\"selectMilestone\" class=\"chosen-select\">\n                        <option>Milestone 1</option>\n                        <option>Milestone 2</option>\n                        <option>Milestone 3</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"multiLabels\" class=\"col-xs-2 control-label\">Labels</label>\n                    <div class=\"col-xs-10\">\n                      <select id=\"selectMilestone\" class=\"chosen-select\" multiple width=\"300\">\n                        <option>Label 1</option>\n                        <option>Label 2</option>\n                        <option>Label 3</option>\n                      </select>\n                    </div>\n                  </div>\n                </form>\n              </div>\n            </div>\n          </div>\n          <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">\n              <h4 class=\"panel-title\">\n                <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\">\n                  Comments\n                </a>\n              </h4>\n            </div>\n            <div id=\"collapseThree\" class=\"panel-collapse collapse\">\n              <div class=\"panel-body\">\n                <textarea class=\"form-control\" rows=\"3\"></textarea>\n                <div class=\"media\">\n                  <a class=\"pull-left\" href=\"#\">\n                    <img class=\"media-object\" src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=40\">\n                  </a>\n                  <div class=\"media-body\">\n                    <h4 class=\"media-heading\">adamneary</h4>\n                   <p>\n                     <span class=\"label label-primary\">@kusic</span>\n                     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                  </div>\n                </div>\n                <div class=\"media\">\n                  <a class=\"pull-left\" href=\"#\">\n                    <img class=\"media-object\" src=\"https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=40\">\n                  </a>\n                  <div class=\"media-body\">\n                    <h4 class=\"media-heading\">kusic</h4>\n                    <p>\n                      <span class=\"label label-primary\">@adamneary</span>\n                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div><!-- end .modal-body -->\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-success\">Save changes</button>\n        <button type=\"button\" class=\"btn btn-danger\">Close</button>\n      </div><!-- end .modal-footer -->\n    </div><!-- end .modal-content -->\n  </div><!-- end .modal-dialog -->\n</div><!-- end .modal -->");
+  
+});
+
+Ember.TEMPLATES["user"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', hashContexts, hashTypes, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<h3>You</h3>\n<div class=\"row\">\n  <div class='col-xs-3'>\n    <div class=\"media\">\n      <a class=\"pull-left\" href=\"http://www.gravatar.com\">\n        <img class=\"media-object\" src=\"images/jason.png\">\n      </a>\n      <div class=\"media-body\">\n        You can update your image at <a href=\"http://www.gravatar.com\">gravatar.com</a>.\n      </div>\n    </div>\n  </div>\n  <div class='col-xs-6'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputName\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">\n          <input type=\"text\" class=\"form-control\" id=\"inputName\" ");
+  hashContexts = {'value': depth0};
+  hashTypes = {'value': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'value': ("name")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputemail\" class=\"col-xs-3 control-label\">Email</label>\n        <div class=\"col-xs-9\">\n          <input type=\"email\" class=\"form-control\" id=\"inputName\" ");
+  hashContexts = {'value': depth0};
+  hashTypes = {'value': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'value': ("email")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <div class=\"checkbox\">\n            <label>\n              <input type=\"checkbox\" ");
+  hashContexts = {'value': depth0};
+  hashTypes = {'value': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'value': ("emailMe")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("> Email me about product updates.\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n\n<h3>Your password</h3>\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputPass1\" class=\"col-xs-3 control-label\">Current</label>\n        <div class=\"col-xs-9\">\n          <input type=\"password\" class=\"form-control\" id=\"inputPass1\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputPass2\" class=\"col-xs-3 control-label\">New</label>\n        <div class=\"col-xs-9\">\n          <input type=\"password\" class=\"form-control\" id=\"inputPass2\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputPass1\" class=\"col-xs-3 control-label\">Confirm</label>\n        <div class=\"col-xs-9\">\n          <input type=\"password\" class=\"form-control\" id=\"inputPass2\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>");
+  return buffer;
   
 });

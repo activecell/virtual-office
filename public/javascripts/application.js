@@ -183,6 +183,75 @@
 }).call(this);
 
 (function() {
+  VirtualOffice.User = DS.Model.extend({
+    name: DS.attr('string'),
+    email: DS.attr('string'),
+    emailMe: DS.attr('boolean'),
+    password: DS.attr('string'),
+    passwordConf: DS.attr('string'),
+    companyName: DS.attr('string'),
+    subdomain: DS.attr('string'),
+    lastFour: DS.attr('number'),
+    creditType: DS.attr('string')
+  });
+
+  VirtualOffice.User.FIXTURES = [
+    {
+      id: 1,
+      name: "Jason Hill",
+      email: "jason@hill.com",
+      emailMe: true,
+      password: "PeachesAndCream01",
+      passwordConf: "PeachesAndCream01",
+      companyName: "Sound Advice",
+      subdomain: 'soundadvice',
+      creditType: 'Amex',
+      lastFour: 1003
+    }
+  ];
+
+}).call(this);
+
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  VirtualOffice.AccountRoute = (function(_super) {
+    __extends(AccountRoute, _super);
+
+    function AccountRoute() {
+      _ref = AccountRoute.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    AccountRoute.prototype.renderTemplate = function() {
+      AccountRoute.__super__.renderTemplate.apply(this, arguments);
+      this.render('user', {
+        into: 'account',
+        outlet: 'user'
+      });
+      this.render('company', {
+        into: 'account',
+        outlet: 'company'
+      });
+      return this.render('billing', {
+        into: 'account',
+        outlet: 'billing'
+      });
+    };
+
+    AccountRoute.prototype.model = function() {
+      return this.store.find('user', 1);
+    };
+
+    return AccountRoute;
+
+  })(Ember.Route);
+
+}).call(this);
+
+(function() {
   var _ref,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
