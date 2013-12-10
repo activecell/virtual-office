@@ -6,8 +6,24 @@
 <table class="table">
   <tbody>
     <tr>
-      <td>[INSERT SLIDER HERE]</td>
-      <td>30 hours</td>
+      <td class="col-lg-4" style="vertical-align: middle;">
+        <div id="slider"></div>
+        <script>
+          $(function() {
+            $( "#slider" ).slider({
+              value: 500,
+              min: 10,
+              max: 500,
+              step: 10,
+              slide: function( event, ui ) {
+                $( ".js-time" ).html(ui.value );
+              }
+            });
+            $( ".js-time" ).html($( "#slider" ).slider( "value" ) );
+          });
+          </script>
+      </td>
+      <td><span class="js-time"></span> <em>hours</em></td>
       <td class='text-right'>$150.00</td>
     </tr>
   </tbody>

@@ -8,17 +8,17 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || (depth0 && depth0.outlet)),stack1 ? stack1.call(depth0, "user", options) : helperMissing.call(depth0, "outlet", "user", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || depth0.outlet),stack1 ? stack1.call(depth0, "user", options) : helperMissing.call(depth0, "outlet", "user", options))));
   data.buffer.push("\n");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || (depth0 && depth0.outlet)),stack1 ? stack1.call(depth0, "company", options) : helperMissing.call(depth0, "outlet", "company", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || depth0.outlet),stack1 ? stack1.call(depth0, "company", options) : helperMissing.call(depth0, "outlet", "company", options))));
   data.buffer.push("\n");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || (depth0 && depth0.outlet)),stack1 ? stack1.call(depth0, "billing", options) : helperMissing.call(depth0, "outlet", "billing", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || depth0.outlet),stack1 ? stack1.call(depth0, "billing", options) : helperMissing.call(depth0, "outlet", "billing", options))));
   data.buffer.push("\n\n");
   return buffer;
   
@@ -104,7 +104,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.partial || (depth0 && depth0.partial)),stack1 ? stack1.call(depth0, "partials/navigation", options) : helperMissing.call(depth0, "partial", "partials/navigation", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.partial || depth0.partial),stack1 ? stack1.call(depth0, "partials/navigation", options) : helperMissing.call(depth0, "partial", "partials/navigation", options))));
   data.buffer.push("\n\n<div class=\"container\">\n  ");
   hashTypes = {};
   hashContexts = {};
@@ -113,7 +113,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.partial || (depth0 && depth0.partial)),stack1 ? stack1.call(depth0, "partials/footer", options) : helperMissing.call(depth0, "partial", "partials/footer", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.partial || depth0.partial),stack1 ? stack1.call(depth0, "partials/footer", options) : helperMissing.call(depth0, "partial", "partials/footer", options))));
   data.buffer.push("\n</div>\n\n");
   return buffer;
   
@@ -131,7 +131,7 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company", "parent.id", options) : helperMissing.call(depth0, "link-to", "company", "parent.id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company", "parent.id", options) : helperMissing.call(depth0, "link-to", "company", "parent.id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n    <i class=\"fa fa-angle-right\"></i>\n  ");
   return buffer;
@@ -154,7 +154,7 @@ function program4(depth0,data) {
     'tagName': ("li"),
     'href': (false)
   },inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.clients", "id", options) : helperMissing.call(depth0, "link-to", "company.clients", "id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.clients", "id", options) : helperMissing.call(depth0, "link-to", "company.clients", "id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n  ");
   return buffer;
@@ -245,7 +245,7 @@ function program13(depth0,data) {
     'tagName': ("li"),
     'href': (false)
   },inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.recipes", "id", options) : helperMissing.call(depth0, "link-to", "company.recipes", "id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.recipes", "id", options) : helperMissing.call(depth0, "link-to", "company.recipes", "id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n\n  ");
   hashContexts = {'tagName': depth0,'href': depth0};
@@ -254,7 +254,7 @@ function program13(depth0,data) {
     'tagName': ("li"),
     'href': (false)
   },inverse:self.noop,fn:self.program(9, program9, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.resources", "id", options) : helperMissing.call(depth0, "link-to", "company.resources", "id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.resources", "id", options) : helperMissing.call(depth0, "link-to", "company.resources", "id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n\n  ");
   hashContexts = {'tagName': depth0,'href': depth0};
@@ -263,7 +263,7 @@ function program13(depth0,data) {
     'tagName': ("li"),
     'href': (false)
   },inverse:self.noop,fn:self.program(11, program11, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.access", "id", options) : helperMissing.call(depth0, "link-to", "company.access", "id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.access", "id", options) : helperMissing.call(depth0, "link-to", "company.access", "id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n\n  ");
   hashContexts = {'tagName': depth0,'href': depth0};
@@ -272,7 +272,7 @@ function program13(depth0,data) {
     'tagName': ("li"),
     'href': (false)
   },inverse:self.noop,fn:self.program(13, program13, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.activity", "id", options) : helperMissing.call(depth0, "link-to", "company.activity", "id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.activity", "id", options) : helperMissing.call(depth0, "link-to", "company.activity", "id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n\n</ul>\n\n<br />\n\n");
   hashTypes = {};
@@ -324,7 +324,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 function program1(depth0,data) {
   
-  var buffer = '', hashTypes, hashContexts;
+  var buffer = '', stack1, hashTypes, hashContexts;
   data.buffer.push("\n      <tr>\n        <td>");
   hashTypes = {};
   hashContexts = {};
@@ -332,9 +332,10 @@ function program1(depth0,data) {
   data.buffer.push("</td>\n        <td>");
   hashContexts = {'unescaped': depth0};
   hashTypes = {'unescaped': "STRING"};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "description", {hash:{
+  stack1 = helpers._triageMustache.call(depth0, "description", {hash:{
     'unescaped': ("true")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</td>\n        <td>");
   hashTypes = {};
   hashContexts = {};
@@ -369,7 +370,7 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company", "id", options) : helperMissing.call(depth0, "link-to", "company", "id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company", "id", options) : helperMissing.call(depth0, "link-to", "company", "id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</td>\n        <td><button class='btn btn-danger btn-xs'><i class=\"fa fa-times-circle-o\"> Archive</button></td>\n      </tr>\n    ");
   return buffer;
@@ -404,7 +405,7 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo || (depth0 && depth0.linkTo)),stack1 ? stack1.call(depth0, "recipe", "id", options) : helperMissing.call(depth0, "linkTo", "recipe", "id", options));
+  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "recipe", "id", options) : helperMissing.call(depth0, "linkTo", "recipe", "id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</td>\n        <td>");
   hashTypes = {};
@@ -445,7 +446,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 
 
-  data.buffer.push("<p class=\"lead\">Assemble a killer team and smart tools to get things done.</p>\n\n<h2>Activecell White Glove Service</h2>\n<p class=\"lead\">Our pool of talented virtual assistants</p>\n\n<table class=\"table\">\n  <tbody>\n    <tr>\n      <td>[INSERT SLIDER HERE]</td>\n      <td>30 hours</td>\n      <td class='text-right'>$150.00</td>\n    </tr>\n  </tbody>\n</table>\n\n<h2>Your tools</h2>\n<p class=\"lead\">Maximize your time by putting smart tools to work.</p>\n\n<table class=\"table\">\n  <tbody>\n    <tr>\n      <td>eSignatures</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Right Signature</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Accounts receivable</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Bill.com</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Accounts payable</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Bill.com</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Project management</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Basecamp</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Payroll</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Quickbooks Payroll</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>$39.00</td>\n    </tr>\n    <tr>\n      <td>File management</td>\n      <td></td>\n      <td><button class='btn btn-default btn-sm'><i class=\"fa fa-plus-circle\"></i> Set up now</button></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <td>Document scanning</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Shoeboxed</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Free</td>\n    </tr>\n  </tbody>\n</table>\n\n<i class=\"fa fa-plus-circle\"></i> <a href=''> Get add-ons</a>\n\n<div class=\"text-right\">\n  <button class='btn btn-default btn-sm'>Apply changes</button><br />\n  <small><strong>Est. monthly cost</small></strong><br />\n  <p class='lead'>$638.99</p>\n</div>");
+  data.buffer.push("<p class=\"lead\">Assemble a killer team and smart tools to get things done.</p>\n\n<h2>Activecell White Glove Service</h2>\n<p class=\"lead\">Our pool of talented virtual assistants</p>\n\n<table class=\"table\">\n  <tbody>\n    <tr>\n      <td class=\"col-lg-4\" style=\"vertical-align: middle;\">\n        <div id=\"slider\"></div>\n        <script>\n          $(function() {\n            $( \"#slider\" ).slider({\n              value: 500,\n              min: 10,\n              max: 500,\n              step: 10,\n              slide: function( event, ui ) {\n                $( \".js-time\" ).html(ui.value );\n              }\n            });\n            $( \".js-time\" ).html($( \"#slider\" ).slider( \"value\" ) );\n          });\n          </script>\n      </td>\n      <td><span class=\"js-time\"></span> <em>hours</em></td>\n      <td class='text-right'>$150.00</td>\n    </tr>\n  </tbody>\n</table>\n\n<h2>Your tools</h2>\n<p class=\"lead\">Maximize your time by putting smart tools to work.</p>\n\n<table class=\"table\">\n  <tbody>\n    <tr>\n      <td>eSignatures</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Right Signature</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Accounts receivable</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Bill.com</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Accounts payable</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Bill.com</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Project management</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Basecamp</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Payroll</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Quickbooks Payroll</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>$39.00</td>\n    </tr>\n    <tr>\n      <td>File management</td>\n      <td></td>\n      <td><button class='btn btn-default btn-sm'><i class=\"fa fa-plus-circle\"></i> Set up now</button></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <td>Document scanning</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Shoeboxed</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Free</td>\n    </tr>\n  </tbody>\n</table>\n\n<i class=\"fa fa-plus-circle\"></i> <a href=''> Get add-ons</a>\n\n<div class=\"text-right\">\n  <button class='btn btn-default btn-sm'>Apply changes</button><br />\n  <small><strong>Est. monthly cost</small></strong><br />\n  <p class='lead'>$638.99</p>\n</div>");
   
 });
 
@@ -514,37 +515,37 @@ function program11(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.clients", 1, options) : helperMissing.call(depth0, "link-to", "company.clients", 1, options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.clients", 1, options) : helperMissing.call(depth0, "link-to", "company.clients", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n                </li>\n                <li>\n                  ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.recipes", 1, options) : helperMissing.call(depth0, "link-to", "company.recipes", 1, options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.recipes", 1, options) : helperMissing.call(depth0, "link-to", "company.recipes", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n                </li>\n                <li>\n                  ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.resources", 1, options) : helperMissing.call(depth0, "link-to", "company.resources", 1, options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.resources", 1, options) : helperMissing.call(depth0, "link-to", "company.resources", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n                </li>\n                <li>\n                  ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.access", 1, options) : helperMissing.call(depth0, "link-to", "company.access", 1, options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.access", 1, options) : helperMissing.call(depth0, "link-to", "company.access", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n                </li>\n                <li>\n                  ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(9, program9, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "company.activity", 1, options) : helperMissing.call(depth0, "link-to", "company.activity", 1, options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "company.activity", 1, options) : helperMissing.call(depth0, "link-to", "company.activity", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n                </li>\n                <li class=\"divider\"></li>\n                <li>\n                  ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(11, program11, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "account", options) : helperMissing.call(depth0, "link-to", "account", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "account", options) : helperMissing.call(depth0, "link-to", "account", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n                </li>\n                <li class=\"divider\"></li>\n                <li><a href=\"javascript:;\"><i class=\"fa fa-power-off fa-fw\"></i> Log out</a></li>\n              </ul>\n            </li>\n          </ul>\n        </nav>\n      </div>\n</header>");
   return buffer;
@@ -591,7 +592,7 @@ function program3(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo || (depth0 && depth0.linkTo)),stack1 ? stack1.call(depth0, "recipes", options) : helperMissing.call(depth0, "linkTo", "recipes", options));
+  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "recipes", options) : helperMissing.call(depth0, "linkTo", "recipes", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n\n<h3>\n  Use this recipe to create a task board\n  <select id=\"frequencySelector\" class=\"form-control\" ");
   hashContexts = {'value': depth0};
