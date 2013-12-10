@@ -15,24 +15,6 @@
     width: 32px;
   }
 }
-.navbar {
-  .discount-link {
-    padding-top: 5px;
-    padding-right: 10px;
-    margin-top: -5px;
-    margin-bottom: -5px;
-    background: url(../images/green-ribbon.png) repeat-x bottom left;
-    height: 60px;
-
-    a {
-      float: left;
-    }
-
-    .progress {
-      width: 100px;
-      margin-top: 14px;
-      margin-bottom: 0;
-      float: right;
-    }
-  }
+.nav-tabs li {
+  cursor: pointer;
 }

@@ -173,6 +173,88 @@
 }).call(this);
 
 (function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  App.Service = (function(_super) {
+    __extends(Service, _super);
+
+    function Service() {
+      _ref = Service.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    Service.prototype.company = DS.belongsTo('company');
+
+    Service.prototype.category = DS.attr('string');
+
+    Service.prototype.name = DS.attr('string');
+
+    Service.prototype.url = DS.attr('string');
+
+    Service.prototype.price = DS.number;
+
+    return Service;
+
+  })(DS.Model);
+
+  App.Service.FIXTURES = [
+    {
+      id: 1,
+      company: 1,
+      category: 'Electronic signatures',
+      name: 'Right Signature',
+      url: 'www.google.com',
+      price: 12.32
+    }, {
+      id: 2,
+      company: 1,
+      category: 'Accounts receivable',
+      name: 'Bill.com',
+      url: 'www.google.com',
+      price: 12.32
+    }, {
+      id: 3,
+      company: 1,
+      category: 'Accounts payable',
+      name: 'Bill.com',
+      url: 'www.google.com',
+      price: 12.32
+    }, {
+      id: 4,
+      company: 1,
+      category: 'Project management',
+      name: 'Basecamp',
+      url: 'www.google.com',
+      price: 12.32
+    }, {
+      id: 5,
+      company: 1,
+      category: 'Payroll',
+      name: 'Zen Payroll',
+      url: 'www.google.com',
+      price: 12.32
+    }, {
+      id: 6,
+      company: 1,
+      category: 'File management',
+      name: 'Dropbox',
+      url: 'www.google.com',
+      price: 12.32
+    }, {
+      id: 7,
+      company: 1,
+      category: 'Document scanning',
+      name: 'Shoeboxed',
+      url: 'www.google.com',
+      price: 12.32
+    }
+  ];
+
+}).call(this);
+
+(function() {
   App.Task = DS.Model.extend({
     name: DS.attr('string'),
     avatarSrc: DS.attr('string'),
@@ -401,7 +483,7 @@
     }
 
     CompanyClientsRoute.prototype.model = function() {
-      return this.store.find('company');
+      return this.modelFor('company').get('clients');
     };
 
     return CompanyClientsRoute;

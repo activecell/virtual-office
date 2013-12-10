@@ -1,3 +1,3 @@
 class App.CompanyClientsRoute extends Ember.Route
   model: ->
-    @store.find('company')
+    @modelFor('company').get('clients')
