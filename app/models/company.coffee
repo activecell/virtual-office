@@ -7,6 +7,7 @@ App.Company = DS.Model.extend
   clients: DS.hasMany 'company', async:true
   parent: DS.belongsTo 'company'
   recipes: DS.hasMany 'recipe', async:true
+  services: DS.hasMany 'service', async:true
 
 App.Company.FIXTURES = [
   id: 1
@@ -17,6 +18,7 @@ App.Company.FIXTURES = [
   users: [1,2,3]
   clients: [2,3,4,5]
   recipes: [1,2,3,4]
+  services: [1,2,3,4,5,6,7]
 ,
   id: 2
   name: "Sterling Cooper"
@@ -24,6 +26,7 @@ App.Company.FIXTURES = [
   users: [4,5,6]
   parent: 1
   recipes: [2,3,5]
+  services: [1,2,6,7]
 ,
   id: 3
   name: "Client 3"

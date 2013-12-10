@@ -442,7 +442,7 @@ function program2(depth0,data) {
 Ember.TEMPLATES["company/resources"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, hashTypes, hashContexts, self=this;
+  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
@@ -450,12 +450,36 @@ function program1(depth0,data) {
   data.buffer.push("\n  <table class=\"table\">\n    <thead>\n      <th>Role</th>\n      <th>Rate</th>\n      <th class=\"col-xs-3\" >Volume</th>\n      <th class=\"col-xs-2 text-right\"></th>\n      <th class=\"col-xs-2 text-right\">Cost</th>\n    </thead>\n    <tbody>\n      <tr>\n        <td>Executive assistant</td>\n        <td>$10.00 / hr</td>\n        <td style=\"vertical-align: middle;\"><div id=\"slider1\"></div></td>\n        <td class='text-right'><span class=\"js-time1\"></span> <em>hours</em></td>\n        <td class='text-right'>$<span class=\"js-amt1\"></span>.00</td>\n      </tr>\n      <tr>\n        <td>Bookkeeper (Global)</td>\n        <td>$25.00 / hr</td>\n        <td style=\"vertical-align: middle;\"><div id=\"slider2\"></div></td>\n        <td class='text-right'><span class=\"js-time2\"></span> <em>hours</em></td>\n        <td class='text-right'>$<span class=\"js-amt2\"></span>.00</td>\n      </tr>\n      <tr>\n        <td>Bookkeeper (North America)</td>\n        <td>$50.00 / hr</td>\n        <td style=\"vertical-align: middle;\"><div id=\"slider3\"></div></td>\n        <td class='text-right'><span class=\"js-time3\"></span> <em>hours</em></td>\n        <td class='text-right'>$<span class=\"js-amt3\"></span>.00</td>\n      </tr>\n      <tr>\n        <td>CFO</td>\n        <td>$100.00 / hr</td>\n        <td style=\"vertical-align: middle;\"><div id=\"slider4\"></div></td>\n        <td class='text-right'><span class=\"js-time4\"></span> <em>hours</em></td>\n        <td class='text-right'>$<span class=\"js-amt4\"></span>.00</td>\n      </tr>\n    </tbody>\n  </table>\n");
   }
 
+function program3(depth0,data) {
+  
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n      <tr>\n        <td>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "category", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</td>\n        <td>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</td>\n        <td><a href=''>Take me there</a></td>\n        <td class='text-right'>$");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "price", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</td>\n      </tr>\n    ");
+  return buffer;
+  }
+
   data.buffer.push("<p class=\"lead\">Assemble a killer team and smart tools to get things done.</p>\n\n<h2><i class=\"fa fa-gift\"></i> Activecell White Glove Service™</h2>\n<p class=\"lead\">Our talented pool of on-demand team members</p>\n\n");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.view.call(depth0, "App.StaffSliderTable", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n\n<button class='btn btn-primary'>Learn mode about Activecell White Glove Service™</button>\n\n<h2><i class=\"fa fa-cloud\"></i> Integrated cloud services</h2>\n<p class=\"lead\">Maximize your time by putting smart tools to work.</p>\n\n<table class=\"table\">\n  <tbody>\n    <tr>\n      <td>eSignatures</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Right Signature</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Accounts receivable</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Bill.com</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Accounts payable</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Bill.com</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Project management</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Basecamp</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Included</td>\n    </tr>\n    <tr>\n      <td>Payroll</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Quickbooks Payroll</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>$39.00</td>\n    </tr>\n    <tr>\n      <td>File management</td>\n      <td></td>\n      <td><button class='btn btn-default btn-sm'><i class=\"fa fa-plus-circle\"></i> Set up now</button></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <td>Document scanning</td>\n      <td><img src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=30\"></td>\n      <td>Shoeboxed</td>\n      <td><a href=''>Take me there</a></td>\n      <td class='text-right'>Free</td>\n    </tr>\n  </tbody>\n</table>\n\n<i class=\"fa fa-plus-circle\"></i> <a href=''> Get add-ons</a>\n\n<div class=\"text-right\">\n  <button class='btn btn-default btn-sm'>Apply changes</button><br />\n  <small><strong>Est. monthly cost</small></strong><br />\n  <p class='lead'>$638.99</p>\n</div>");
+  data.buffer.push("\n\n<button class='btn btn-primary'>Learn mode about Activecell White Glove Service™</button>\n\n<h2><i class=\"fa fa-cloud\"></i> Integrated cloud services</h2>\n<p class=\"lead\">Maximize your time by putting smart tools to work.</p>\n\n<table class=\"table\">\n  <tbody>\n    ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.each.call(depth0, "services", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n  </tbody>\n</table>\n\n<i class=\"fa fa-plus-circle\"></i> <a href=''> Get add-ons</a>\n\n<div class=\"text-right\">\n  <button class='btn btn-default btn-sm'>Apply changes</button><br />\n  <small><strong>Est. monthly cost</small></strong><br />\n  <p class='lead'>$638.99</p>\n</div>");
   return buffer;
   
 });

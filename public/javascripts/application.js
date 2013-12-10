@@ -92,6 +92,9 @@
     parent: DS.belongsTo('company'),
     recipes: DS.hasMany('recipe', {
       async: true
+    }),
+    services: DS.hasMany('service', {
+      async: true
     })
   });
 
@@ -104,14 +107,16 @@
       lastFour: 1003,
       users: [1, 2, 3],
       clients: [2, 3, 4, 5],
-      recipes: [1, 2, 3, 4]
+      recipes: [1, 2, 3, 4],
+      services: [1, 2, 3, 4, 5, 6, 7]
     }, {
       id: 2,
       name: "Sterling Cooper",
       slug: "sterling-cooper",
       users: [4, 5, 6],
       parent: 1,
-      recipes: [2, 3, 5]
+      recipes: [2, 3, 5],
+      services: [1, 2, 6, 7]
     }, {
       id: 3,
       name: "Client 3",
@@ -186,31 +191,13 @@
 }).call(this);
 
 (function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  App.Service = (function(_super) {
-    __extends(Service, _super);
-
-    function Service() {
-      _ref = Service.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    Service.prototype.company = DS.belongsTo('company');
-
-    Service.prototype.category = DS.attr('string');
-
-    Service.prototype.name = DS.attr('string');
-
-    Service.prototype.url = DS.attr('string');
-
-    Service.prototype.price = DS.number;
-
-    return Service;
-
-  })(DS.Model);
+  App.Service = DS.Model.extend({
+    company: DS.belongsTo('company'),
+    category: DS.attr('string'),
+    name: DS.attr('string'),
+    url: DS.attr('string'),
+    price: DS.attr('number')
+  });
 
   App.Service.FIXTURES = [
     {
@@ -638,6 +625,10 @@
       _ref = CompanyResourcesRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
+
+    CompanyResourcesRoute.prototype.model = function() {
+      return this.modelFor('company');
+    };
 
     return CompanyResourcesRoute;
 

@@ -1,9 +1,9 @@
-class App.Service extends DS.Model
+App.Service = DS.Model.extend
   company: DS.belongsTo 'company'
   category: DS.attr 'string'
   name: DS.attr 'string'
   url: DS.attr 'string'
-  price: DS.number
+  price: DS.attr 'number'
 
 App.Service.FIXTURES = [
   id: 1
