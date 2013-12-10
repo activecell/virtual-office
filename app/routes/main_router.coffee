@@ -8,6 +8,21 @@ App.Router.map ->
     @resource "access"
     @resource "activity"
 
+App.ApplicationRoute = Ember.Route.extend
+  actions:
+    openModal: (modelName) ->
+      @render modelName,
+        into: 'application'
+        outlet: 'modal'
+
+    closeModal: ->
+      @disconnectOutlet
+        parentView: 'application'
+        outlet: 'modal'
+
+    save: ->
+      alert('Send the message to person')
+
 class App.IndexRoute extends Ember.Route
   redirect: ->
     @transitionTo 'company'

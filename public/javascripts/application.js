@@ -394,6 +394,26 @@
 }).call(this);
 
 (function() {
+  App.ModalView = Ember.View.extend({
+    didInsertElement: function() {
+      var parent;
+      this.$('.modal').modal('show');
+      parent = this.get('parentView');
+      return this.$('.modal').one("hidden.bs.modal", function() {
+        return parent.controller.send('closeModal');
+      });
+    },
+    layoutName: 'modal_layout',
+    actions: {
+      close: function() {
+        return this.$('.modal').modal('hide');
+      }
+    }
+  });
+
+}).call(this);
+
+(function() {
   App.StaffSliderTable = Ember.View.extend({
     didInsertElement: function() {
       $("#slider1").slider({
@@ -620,6 +640,26 @@
       this.resource("access");
       return this.resource("activity");
     });
+  });
+
+  App.ApplicationRoute = Ember.Route.extend({
+    actions: {
+      openModal: function(modelName) {
+        return this.render(modelName, {
+          into: 'application',
+          outlet: 'modal'
+        });
+      },
+      closeModal: function() {
+        return this.disconnectOutlet({
+          parentView: 'application',
+          outlet: 'modal'
+        });
+      },
+      save: function() {
+        return alert('Send the message to person');
+      }
+    }
   });
 
   App.IndexRoute = (function(_super) {

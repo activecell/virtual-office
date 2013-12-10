@@ -11,12 +11,17 @@
     {{#each}}
       <tr>
         <td>{{#link-to 'company' id}}{{name}}{{/link-to}}</td>
-        <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Archive</button></td>
+        <td>
+          <button class='btn btn-danger btn-xs'>
+            <i class="fa fa-times-circle-o"></i>
+            Archive
+          </button>
+        </td>
       </tr>
     {{/each}}
   </tbody>
 </table>
 
-<a data-toggle="modal" href="#addBoard" class='btn btn-primary'>
+<a {{action openModal 'clients/new'}} class='btn btn-primary'>
   <i class="fa fa-plus"></i> Add a new client
 </a>
