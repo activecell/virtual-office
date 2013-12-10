@@ -10,8 +10,9 @@ App.Router.map ->
 
 App.ApplicationRoute = Ember.Route.extend
   actions:
-    openModal: (modelName) ->
-      @render modelName,
+    openModal: (modalName, model) ->
+      @controllerFor(modalName).set "model", model if model
+      @render modalName,
         into: 'application'
         outlet: 'modal'
 
@@ -19,9 +20,6 @@ App.ApplicationRoute = Ember.Route.extend
       @disconnectOutlet
         parentView: 'application'
         outlet: 'modal'
-
-    save: ->
-      alert('Send the message to person')
 
 class App.IndexRoute extends Ember.Route
   redirect: ->

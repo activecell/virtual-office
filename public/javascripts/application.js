@@ -470,6 +470,28 @@
 }).call(this);
 
 (function() {
+  App.ClientCreateController = Ember.ObjectController.extend({
+    actions: {
+      close: function() {
+        return this.send("closeModal");
+      }
+    }
+  });
+
+}).call(this);
+
+(function() {
+  App.ClientDeleteController = Ember.ObjectController.extend({
+    actions: {
+      close: function() {
+        return this.send("closeModal");
+      }
+    }
+  });
+
+}).call(this);
+
+(function() {
   var _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -644,8 +666,11 @@
 
   App.ApplicationRoute = Ember.Route.extend({
     actions: {
-      openModal: function(modelName) {
-        return this.render(modelName, {
+      openModal: function(modalName, model) {
+        if (model) {
+          this.controllerFor(modalName).set("model", model);
+        }
+        return this.render(modalName, {
           into: 'application',
           outlet: 'modal'
         });
@@ -655,9 +680,6 @@
           parentView: 'application',
           outlet: 'modal'
         });
-      },
-      save: function() {
-        return alert('Send the message to person');
       }
     }
   });
