@@ -14,23 +14,25 @@
   </thead>
 </table>
 
-
 <div class="row">
   <div class='col-xs-8 col-sm-offset-4'>
-    <h4>
-      Use this recipe to create a task board
-      <select id="frequencySelector" class="form-control" {{bindAttr value="frequency"}} style="display: inline; width: 125px;">
-        <option>Daily</option>
-        <option>Weekly</option>
-        <option>Monthly</option>
-        <option>Quarterly</option>
-        <option>Annually</option>
-        <option>As needed</option>
-      </select>
-      on day
-      <input type="text" class="form-control" id="onText" value='1' style="display: inline; width: 125px;">
-      of the period.
-    </h4>
+    <form role="form">
+      <div class="form-group">
+        <label for="frequencySelector">How often will this recipe be used?</label>
+        <select id="frequencySelector" class="form-control">
+          <option>Daily</option>
+          <option>Weekly</option>
+          <option>Monthly</option>
+          <option>Quarterly</option>
+          <option>Annually</option>
+          <option>As needed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="onText">One what day of the period?</label>
+        <input type="text" class="form-control" id="onText" value='1'>
+      </div>
+    </form>
   </div>
 </div>
 

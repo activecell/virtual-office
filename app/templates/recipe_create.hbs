@@ -1,0 +1,34 @@
+{{#view App.ModalView}}
+  <div class="modal-header">
+    <button type="button" class="close" {{action close target="view"}}>&times;</button>
+    <h4 class="modal-title">New recipe</h4>
+  </div>
+  <div class="modal-body">
+    <p>Use this form to create a new set of tasks you can use as a recipe…</p>
+    <form role="form">
+      <div class="form-group">
+        <label for="recipeName">Recipe name</label>
+        <input type="text" class="form-control" id="recipeName" placeholder="Enter recipe name">
+      </div>
+      <div class="form-group">
+        <label for="frequencySelector">How often will this recipe be used?</label>
+        <select id="frequencySelector" class="form-control">
+          <option>Daily</option>
+          <option>Weekly</option>
+          <option>Monthly</option>
+          <option>Quarterly</option>
+          <option>Annually</option>
+          <option>As needed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="onText">One what day of the period?</label>
+        <input type="text" class="form-control" id="onText" value='1'>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" {{action close target="view"}}>Close</button>
+    <button type="button" class="btn btn-primary" {{action close target="view"}}>Save changes</button>
+  </div>
+{{/view}}

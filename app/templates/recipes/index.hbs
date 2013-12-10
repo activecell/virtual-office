@@ -20,12 +20,17 @@
             <li {{bind-attr class=":active active:true:false"}}></li>
           </ol>
         </td>
-        <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+        <td class='text-right'>
+          <button {{action openModal 'recipe_delete' this}} class='btn btn-danger btn-xs'>
+            <i class="fa fa-times-circle-o"></i>
+            Remove
+          </button>
+        </td>
       </tr>
     {{/each}}
   </tbody>
 </table>
 
-<a data-toggle="modal" href="#addBoard" class='btn btn-primary'>
+<a {{action openModal 'recipe_create'}} class='btn btn-primary'>
   <i class="fa fa-plus"></i> Add a new recipe
 </a>
