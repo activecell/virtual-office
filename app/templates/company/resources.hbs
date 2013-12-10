@@ -1,35 +1,123 @@
 <p class="lead">Assemble a killer team and smart tools to get things done.</p>
 
-<h2>Activecell White Glove Service</h2>
-<p class="lead">Our pool of talented virtual assistants</p>
+<h3><i class="fa fa-gift"></i> Activecell White Glove Service™</h3>
+<p class="lead">Our talented pool of remote team members</p>
 
 <table class="table">
+  <thead>
+    <td>Role</td>
+    <td>Rate</td>
+    <td class="col-xs-3" >Volume</td>
+    <td class="col-xs-2 text-right"></td>
+    <td class="col-xs-2 text-right">Cost</td>
+  </thead>
   <tbody>
     <tr>
-      <td class="col-lg-4" style="vertical-align: middle;">
-        <div id="slider"></div>
+      <td>Executive assistant</td>
+      <td>$10.00 / hr</td>
+      <td style="vertical-align: middle;">
+        <div id="slider1"></div>
         <script>
           $(function() {
-            $( "#slider" ).slider({
-              value: 500,
-              min: 10,
+            $( "#slider1" ).slider({
+              value: 30,
+              min: 0,
               max: 500,
-              step: 10,
+              step: 5,
               slide: function( event, ui ) {
-                $( ".js-time" ).html(ui.value );
+                $( ".js-time1" ).html(ui.value );
+                $( ".js-amt1" ).html(ui.value * 10 );
               }
             });
-            $( ".js-time" ).html($( "#slider" ).slider( "value" ) );
+            $( ".js-time1" ).html($( "#slider1" ).slider( "value" ) );
+            $( ".js-amt1" ).html(10 * $( "#slider1" ).slider( "value" ) );
           });
           </script>
       </td>
-      <td><span class="js-time"></span> <em>hours</em></td>
-      <td class='text-right'>$150.00</td>
+      <td class='text-right'><span class="js-time1"></span> <em>hours</em></td>
+      <td class='text-right'>$<span class="js-amt1"></span>.00</td>
+    </tr>
+    <tr>
+      <td>Bookkeeper (Global)</td>
+      <td>$25.00 / hr</td>
+      <td style="vertical-align: middle;">
+        <div id="slider2"></div>
+        <script>
+          $(function() {
+            $( "#slider2" ).slider({
+              value: 0,
+              min: 0,
+              max: 500,
+              step: 5,
+              slide: function( event, ui ) {
+                $( ".js-time2" ).html(ui.value );
+                $( ".js-amt2" ).html(ui.value * 25 );
+              }
+            });
+            $( ".js-time2" ).html($( "#slider2" ).slider( "value" ) );
+            $( ".js-amt2" ).html(25 * $( "#slider2" ).slider( "value" ) );
+          });
+          </script>
+      </td>
+      <td class='text-right'><span class="js-time2"></span> <em>hours</em></td>
+      <td class='text-right'>$<span class="js-amt2"></span>.00</td>
+    </tr>
+    <tr>
+      <td>Bookkeeper (North America)</td>
+      <td>$50.00 / hr</td>
+      <td style="vertical-align: middle;">
+        <div id="slider3"></div>
+        <script>
+          $(function() {
+            $( "#slider3" ).slider({
+              value: 0,
+              min: 0,
+              max: 500,
+              step: 5,
+              slide: function( event, ui ) {
+                $( ".js-time3" ).html(ui.value );
+                $( ".js-amt3" ).html(ui.value * 50 );
+              }
+            });
+            $( ".js-time3" ).html($( "#slider3" ).slider( "value" ) );
+            $( ".js-amt3" ).html(50 * $( "#slider3" ).slider( "value" ) );
+          });
+          </script>
+      </td>
+      <td class='text-right'><span class="js-time3"></span> <em>hours</em></td>
+      <td class='text-right'>$<span class="js-amt3"></span>.00</td>
+    </tr>
+    <tr>
+      <td>CFO</td>
+      <td>$100.00 / hr</td>
+      <td style="vertical-align: middle;">
+        <div id="slider4"></div>
+        <script>
+          $(function() {
+            $( "#slider4" ).slider({
+              value: 0,
+              min: 0,
+              max: 500,
+              step: 5,
+              slide: function( event, ui ) {
+                $( ".js-time4" ).html(ui.value );
+                $( ".js-amt4" ).html(ui.value * 100 );
+              }
+            });
+            $( ".js-time4" ).html($( "#slider4" ).slider( "value" ) );
+            $( ".js-amt4" ).html(100 * $( "#slider4" ).slider( "value" ) );
+          });
+          </script>
+      </td>
+      <td class='text-right'><span class="js-time4"></span> <em>hours</em></td>
+      <td class='text-right'>$<span class="js-amt4"></span>.00</td>
     </tr>
   </tbody>
 </table>
 
-<h2>Your tools</h2>
+<button class='btn btn-primary'>Learn mode about Activecell White Glove Service™</button>
+
+<h3><i class="fa fa-cloud"></i> Integrated cloud services</h3>
 <p class="lead">Maximize your time by putting smart tools to work.</p>
 
 <table class="table">
