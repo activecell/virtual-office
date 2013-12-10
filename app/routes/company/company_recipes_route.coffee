@@ -1,3 +1,3 @@
 class App.CompanyRecipesRoute extends Ember.Route
   model: ->
-    @store.findAll('recipe')
+    @modelFor('company').get('recipes')
