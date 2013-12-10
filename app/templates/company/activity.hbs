@@ -1,21 +1,24 @@
 <p class="lead">This is a log of system-generated actions.</p>
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Action</th>
-      <th>Date and time</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each}}
+
+<div class="well">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td>{{id}}</td>
-        <td>{{{description}}}</td>
-        <td>{{dateString}}</td>
-        <td>{{status}}</td>
+        <th></th>
+        <th>Action</th>
+        <th>Date and time</th>
+        <th>Status</th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each}}
+        <tr>
+          <td>{{id}}</td>
+          <td>{{{description}}}</td>
+          <td>{{dateString}}</td>
+          <td>{{status}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

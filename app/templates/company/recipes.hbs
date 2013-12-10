@@ -1,25 +1,29 @@
 <p class="lead">Recipes are recurring sets of task lists.</p>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Recipe</th>
-      <th>Frequency</th>
-      <th>On</th>
-      <th>Active</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each}}
+
+<div class="well">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td>{{#linkTo 'recipe' id}}{{name}}{{/linkTo}}</td>
-        <td>{{frequency}}</td>
-        <td>{{timeframe}}</td>
-        <td>{{active}}</td>
-        <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+        <th>Recipe</th>
+        <th>Frequency</th>
+        <th>On</th>
+        <th>Active</th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each}}
+        <tr>
+          <td>{{#linkTo 'recipe' id}}{{name}}{{/linkTo}}</td>
+          <td>{{frequency}}</td>
+          <td>{{timeframe}}</td>
+          <td>{{active}}</td>
+          <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
 <a data-toggle="modal" href="#addBoard" class='btn btn-primary'>
   <i class="fa fa-plus"></i> Add a new recipe
 </a>
