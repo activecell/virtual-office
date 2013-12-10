@@ -535,7 +535,7 @@ function program3(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h2>\n\n<h4>\n  Use this recipe to create a task board\n  <select id=\"frequencySelector\" class=\"form-control\" ");
+  data.buffer.push("</h2>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th><i class=\"fa fa-cogs\"></i> Recipe settings</th>\n    </tr>\n  </thead>\n</table>\n\n<h4>\n  Use this recipe to create a task board\n  <select id=\"frequencySelector\" class=\"form-control\" ");
   hashContexts = {'value': depth0};
   hashTypes = {'value': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
