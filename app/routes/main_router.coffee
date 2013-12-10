@@ -11,3 +11,7 @@ App.Router.map ->
 class App.IndexRoute extends Ember.Route
   redirect: ->
     @transitionTo 'company'
+
+class App.AccountRoute extends Ember.Route
+  model: ->
+    @store.find('user', 1)

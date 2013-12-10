@@ -450,45 +450,6 @@
 }).call(this);
 
 (function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  App.AccountRoute = (function(_super) {
-    __extends(AccountRoute, _super);
-
-    function AccountRoute() {
-      _ref = AccountRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    AccountRoute.prototype.renderTemplate = function() {
-      AccountRoute.__super__.renderTemplate.apply(this, arguments);
-      this.render('account/user', {
-        into: 'account',
-        outlet: 'user'
-      });
-      this.render('account/company', {
-        into: 'account',
-        outlet: 'company'
-      });
-      return this.render('account/billing', {
-        into: 'account',
-        outlet: 'billing'
-      });
-    };
-
-    AccountRoute.prototype.model = function() {
-      return this.store.find('user', 1);
-    };
-
-    return AccountRoute;
-
-  })(Ember.Route);
-
-}).call(this);
-
-(function() {
   var _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -640,7 +601,7 @@
 }).call(this);
 
 (function() {
-  var _ref,
+  var _ref, _ref1,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -674,6 +635,22 @@
     };
 
     return IndexRoute;
+
+  })(Ember.Route);
+
+  App.AccountRoute = (function(_super) {
+    __extends(AccountRoute, _super);
+
+    function AccountRoute() {
+      _ref1 = AccountRoute.__super__.constructor.apply(this, arguments);
+      return _ref1;
+    }
+
+    AccountRoute.prototype.model = function() {
+      return this.store.find('user', 1);
+    };
+
+    return AccountRoute;
 
   })(Ember.Route);
 

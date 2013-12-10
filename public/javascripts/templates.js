@@ -35,78 +35,10 @@ function program1(depth0,data) {
 Ember.TEMPLATES["account"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, hashTypes, hashContexts, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-
-
-  data.buffer.push("<h1><i class=\"fa fa-tasks\"></i> Account</h1>\n\n");
-  hashTypes = {};
-  hashContexts = {};
-  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || (depth0 && depth0.outlet)),stack1 ? stack1.call(depth0, "user", options) : helperMissing.call(depth0, "outlet", "user", options))));
-  data.buffer.push("\n");
-  hashTypes = {};
-  hashContexts = {};
-  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || (depth0 && depth0.outlet)),stack1 ? stack1.call(depth0, "company", options) : helperMissing.call(depth0, "outlet", "company", options))));
-  data.buffer.push("\n");
-  hashTypes = {};
-  hashContexts = {};
-  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.outlet || (depth0 && depth0.outlet)),stack1 ? stack1.call(depth0, "billing", options) : helperMissing.call(depth0, "outlet", "billing", options))));
-  data.buffer.push("\n\n");
-  return buffer;
-  
-});
-
-Ember.TEMPLATES["account/billing"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', hashTypes, hashContexts, escapeExpression=this.escapeExpression;
-
-
-  data.buffer.push("<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Billing</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <p class=\"help-block\">\n            <small>This account is billed to:\n              <strong>");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "company.creditType", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" ");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "company.lastFour", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</strong></small>\n          </p>\n          <button class='btn btn-default btn-sm'>Update credit card</button>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-xs-9 col-sm-offset-3\">\n          <a href=\"#\" class='text-danger'>Close this account…</a>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>");
-  return buffer;
-  
-});
-
-Ember.TEMPLATES["account/company"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', hashContexts, hashTypes, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Your company</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputCompany\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">\n          <input type=\"text\" class=\"form-control\" id=\"inputCompany\" ");
-  hashContexts = {'value': depth0};
-  hashTypes = {'value': "STRING"};
-  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'value': ("company.name")
-  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputSubdomain\" class=\"col-xs-3 control-label\">Subdomain</label>\n        <div class=\"col-xs-5\">\n          <input type=\"text\" class=\"form-control\" id=\"inputSubdomain\" ");
-  hashContexts = {'value': depth0};
-  hashTypes = {'value': "STRING"};
-  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'value': ("company.slug")
-  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">\n        </div>\n        <label class='col-xs-4 control-label'>.activecell.com</span>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n");
-  return buffer;
-  
-});
-
-Ember.TEMPLATES["account/user"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', hashContexts, hashTypes, escapeExpression=this.escapeExpression;
-
-
-  data.buffer.push("<table class=\"table\">\n  <thead>\n    <tr>\n      <th>You</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-3'>\n    <div class=\"media\">\n      <a class=\"pull-left\" href=\"http://www.gravatar.com\">\n        <img class=\"media-object\" src=\"images/jason.png\">\n      </a>\n      <div class=\"media-body\">\n        You can update your image at <a href=\"http://www.gravatar.com\">gravatar.com</a>.\n      </div>\n    </div>\n  </div>\n  <div class='col-xs-6'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputName\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">\n          <input type=\"text\" class=\"form-control\" id=\"inputName\" ");
+  data.buffer.push("<h1><i class=\"fa fa-tasks\"></i> Account</h1>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>You</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-3'>\n    <div class=\"media\">\n      <a class=\"pull-left\" href=\"http://www.gravatar.com\">\n        <img class=\"media-object\" src=\"images/jason.png\">\n      </a>\n      <div class=\"media-body\">\n        You can update your image at <a href=\"http://www.gravatar.com\">gravatar.com</a>.\n      </div>\n    </div>\n  </div>\n  <div class='col-xs-6'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputName\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">\n          <input type=\"text\" class=\"form-control\" id=\"inputName\" ");
   hashContexts = {'value': depth0};
   hashTypes = {'value': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
@@ -124,7 +56,27 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'value': ("emailMe")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("> Email me about product updates.\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Your password</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputPass1\" class=\"col-xs-3 control-label\">Current</label>\n        <div class=\"col-xs-9\">\n          <input type=\"password\" class=\"form-control\" id=\"inputPass1\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputPass2\" class=\"col-xs-3 control-label\">New</label>\n        <div class=\"col-xs-9\">\n          <input type=\"password\" class=\"form-control\" id=\"inputPass2\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputPass1\" class=\"col-xs-3 control-label\">Confirm</label>\n        <div class=\"col-xs-9\">\n          <input type=\"password\" class=\"form-control\" id=\"inputPass2\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>");
+  data.buffer.push("> Email me about product updates.\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Your password</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputPass1\" class=\"col-xs-3 control-label\">Current</label>\n        <div class=\"col-xs-9\">\n          <input type=\"password\" class=\"form-control\" id=\"inputPass1\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputPass2\" class=\"col-xs-3 control-label\">New</label>\n        <div class=\"col-xs-9\">\n          <input type=\"password\" class=\"form-control\" id=\"inputPass2\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputPass1\" class=\"col-xs-3 control-label\">Confirm</label>\n        <div class=\"col-xs-9\">\n          <input type=\"password\" class=\"form-control\" id=\"inputPass2\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Your company</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputCompany\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">\n          <input type=\"text\" class=\"form-control\" id=\"inputCompany\" ");
+  hashContexts = {'value': depth0};
+  hashTypes = {'value': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'value': ("company.name")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputSubdomain\" class=\"col-xs-3 control-label\">Subdomain</label>\n        <div class=\"col-xs-5\">\n          <input type=\"text\" class=\"form-control\" id=\"inputSubdomain\" ");
+  hashContexts = {'value': depth0};
+  hashTypes = {'value': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'value': ("company.slug")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n        </div>\n        <label class='col-xs-4 control-label'>.activecell.com</span>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Billing</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <p class=\"help-block\">\n            <small>This account is billed to:\n              <strong>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "company.creditType", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "company.lastFour", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</strong></small>\n          </p>\n          <button class='btn btn-default btn-sm'>Update credit card</button>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-xs-9 col-sm-offset-3\">\n          <a href=\"#\" class='text-danger'>Close this account…</a>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n\n");
   return buffer;
   
 });
@@ -535,13 +487,13 @@ function program3(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h2>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th><i class=\"fa fa-cogs\"></i> Recipe settings</th>\n    </tr>\n  </thead>\n</table>\n\n<h4>\n  Use this recipe to create a task board\n  <select id=\"frequencySelector\" class=\"form-control\" ");
+  data.buffer.push("</h2>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th><i class=\"fa fa-cogs\"></i> Recipe settings</th>\n    </tr>\n  </thead>\n</table>\n\n\n<div class=\"row\">\n  <div class='col-xs-8 col-sm-offset-4'>\n    <h4>\n      Use this recipe to create a task board\n      <select id=\"frequencySelector\" class=\"form-control\" ");
   hashContexts = {'value': depth0};
   hashTypes = {'value': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'value': ("frequency")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" style=\"display: inline; width: 125px;\">\n    <option>Daily</option>\n    <option>Weekly</option>\n    <option>Monthly</option>\n    <option>Quarterly</option>\n    <option>Annually</option>\n    <option>As needed</option>\n  </select>\n  on day\n  <input type=\"text\" class=\"form-control\" id=\"onText\" value='1' style=\"display: inline; width: 125px;\">\n  of the period.\n</h4>\n\n<!-- le tasks -->\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th><i class=\"fa fa-tasks\"></i> Tasks to queue each time</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-8 col-sm-offset-2'>\n    <div class=\"list-group\">\n      ");
+  data.buffer.push(" style=\"display: inline; width: 125px;\">\n        <option>Daily</option>\n        <option>Weekly</option>\n        <option>Monthly</option>\n        <option>Quarterly</option>\n        <option>Annually</option>\n        <option>As needed</option>\n      </select>\n      on day\n      <input type=\"text\" class=\"form-control\" id=\"onText\" value='1' style=\"display: inline; width: 125px;\">\n      of the period.\n    </h4>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th><i class=\"fa fa-tasks\"></i> Tasks to queue each time</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-8 col-sm-offset-4'>\n    <div class=\"list-group\">\n      ");
   hashTypes = {};
   hashContexts = {};
   stack2 = helpers.each.call(depth0, "tasks", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});

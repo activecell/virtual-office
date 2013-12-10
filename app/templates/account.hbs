@@ -1,6 +1,153 @@
 <h1><i class="fa fa-tasks"></i> Account</h1>
 
-{{outlet user}}
-{{outlet company}}
-{{outlet billing}}
+<table class="table">
+  <thead>
+    <tr>
+      <th>You</th>
+    </tr>
+  </thead>
+</table>
+
+<div class="row">
+  <div class='col-xs-3'>
+    <div class="media">
+      <a class="pull-left" href="http://www.gravatar.com">
+        <img class="media-object" src="images/jason.png">
+      </a>
+      <div class="media-body">
+        You can update your image at <a href="http://www.gravatar.com">gravatar.com</a>.
+      </div>
+    </div>
+  </div>
+  <div class='col-xs-6'>
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="inputName" class="col-xs-3 control-label">Name</label>
+        <div class="col-xs-9">
+          <input type="text" class="form-control" id="inputName" {{bindAttr value="name"}}>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputemail" class="col-xs-3 control-label">Email</label>
+        <div class="col-xs-9">
+          <input type="email" class="form-control" id="inputName" {{bindAttr value="email"}}>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-xs-9">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" {{bindAttr value="emailMe"}}> Email me about product updates.
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-xs-9">
+          <button type="submit" class="btn btn-default">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Your password</th>
+    </tr>
+  </thead>
+</table>
+
+<div class="row">
+  <div class='col-xs-6 col-sm-offset-3'>
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="inputPass1" class="col-xs-3 control-label">Current</label>
+        <div class="col-xs-9">
+          <input type="password" class="form-control" id="inputPass1">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPass2" class="col-xs-3 control-label">New</label>
+        <div class="col-xs-9">
+          <input type="password" class="form-control" id="inputPass2">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPass1" class="col-xs-3 control-label">Confirm</label>
+        <div class="col-xs-9">
+          <input type="password" class="form-control" id="inputPass2">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-xs-9">
+          <button type="submit" class="btn btn-default">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Your company</th>
+    </tr>
+  </thead>
+</table>
+
+<div class="row">
+  <div class='col-xs-6 col-sm-offset-3'>
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="inputCompany" class="col-xs-3 control-label">Name</label>
+        <div class="col-xs-9">
+          <input type="text" class="form-control" id="inputCompany" {{bindAttr value="company.name"}}>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputSubdomain" class="col-xs-3 control-label">Subdomain</label>
+        <div class="col-xs-5">
+          <input type="text" class="form-control" id="inputSubdomain" {{bindAttr value="company.slug"}}>
+        </div>
+        <label class='col-xs-4 control-label'>.activecell.com</span>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-xs-9">
+          <button type="submit" class="btn btn-default">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Billing</th>
+    </tr>
+  </thead>
+</table>
+
+<div class="row">
+  <div class='col-xs-6 col-sm-offset-3'>
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-xs-9">
+          <p class="help-block">
+            <small>This account is billed to:
+              <strong>{{company.creditType}} {{company.lastFour}}</strong></small>
+          </p>
+          <button class='btn btn-default btn-sm'>Update credit card</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-9 col-sm-offset-3">
+          <a href="#" class='text-danger'>Close this account…</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
