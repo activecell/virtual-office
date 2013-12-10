@@ -20,20 +20,22 @@
         <td class='text-right'><span class="js-time1"></span> <em>hours</em></td>
         <td class='text-right'>$<span class="js-amt1"></span>.00</td>
       </tr>
-      <tr>
-        <td>Bookkeeper (Global)</td>
-        <td>$25.00 / hr</td>
-        <td style="vertical-align: middle;"><div id="slider2"></div></td>
-        <td class='text-right'><span class="js-time2"></span> <em>hours</em></td>
-        <td class='text-right'>$<span class="js-amt2"></span>.00</td>
-      </tr>
-      <tr>
-        <td>Bookkeeper (North America)</td>
-        <td>$50.00 / hr</td>
-        <td style="vertical-align: middle;"><div id="slider3"></div></td>
-        <td class='text-right'><span class="js-time3"></span> <em>hours</em></td>
-        <td class='text-right'>$<span class="js-amt3"></span>.00</td>
-      </tr>
+      {{#unless parent}}
+        <tr>
+          <td>Bookkeeper (Global)</td>
+          <td>$25.00 / hr</td>
+          <td style="vertical-align: middle;"><div id="slider2"></div></td>
+          <td class='text-right'><span class="js-time2"></span> <em>hours</em></td>
+          <td class='text-right'>$<span class="js-amt2"></span>.00</td>
+        </tr>
+        <tr>
+          <td>Bookkeeper (North America)</td>
+          <td>$50.00 / hr</td>
+          <td style="vertical-align: middle;"><div id="slider3"></div></td>
+          <td class='text-right'><span class="js-time3"></span> <em>hours</em></td>
+          <td class='text-right'>$<span class="js-amt3"></span>.00</td>
+        </tr>
+      {{/unless}}
       <tr>
         <td>CFO</td>
         <td>$100.00 / hr</td>

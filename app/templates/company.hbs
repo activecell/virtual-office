@@ -1,6 +1,6 @@
 <h1>
   {{#if parent}}
-    {{#link-to 'company.clients' parent.id}}{{parent.name}}{{/link-to}}
+    {{#link-to 'clients' parent.id}}{{parent.name}}{{/link-to}}
     <i class="fa fa-angle-right"></i>
   {{/if}}
 
@@ -13,7 +13,7 @@
 <ul class="nav nav-tabs">
 
   {{#unless parent}}
-    {{#link-to 'company.clients' id tagName="li" href=false}}
+    {{#link-to 'clients' id tagName="li" href=false}}
       <a {{bindAttr href="view.href"}}>
         <i class="fa fa-briefcase"></i>
         Clients
@@ -21,28 +21,28 @@
     {{/link-to}}
   {{/unless}}
 
-  {{#link-to 'company.recipes' id tagName="li" href=false}}
+  {{#link-to 'recipes' id tagName="li" href=false}}
     <a {{bindAttr href="view.href"}}>
       <i class="fa fa-cutlery"></i>
       Recipes
     </a>
   {{/link-to}}
 
-  {{#link-to 'company.resources' id tagName="li" href=false}}
+  {{#link-to 'resources' id tagName="li" href=false}}
     <a {{bindAttr href="view.href"}}>
       <i class="fa fa-fighter-jet"></i>
       Resources
     </a>
   {{/link-to}}
 
-  {{#link-to 'company.access' id tagName="li" href=false}}
+  {{#link-to 'access' id tagName="li" href=false}}
     <a {{bindAttr href="view.href"}}>
       <i class="fa fa-lock"></i>
       Access
     </a>
   {{/link-to}}
 
-  {{#link-to 'company.activity' id tagName="li" href=false}}
+  {{#link-to 'activity' id tagName="li" href=false}}
     <a {{bindAttr href="view.href"}}>
       <i class="fa fa-truck"></i>
       Activity

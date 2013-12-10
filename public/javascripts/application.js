@@ -6,25 +6,6 @@
 }).call(this);
 
 (function() {
-  App.Router.map(function() {
-    this.route("account");
-    return this.resource("company", {
-      path: "/:company_id"
-    }, function() {
-      this.route("clients");
-      this.route("recipes");
-      this.resource("recipe", {
-        path: "/recipe/:recipe_id"
-      });
-      this.route("resources");
-      this.route("access");
-      return this.route("activity");
-    });
-  });
-
-}).call(this);
-
-(function() {
   App.Activity = DS.Model.extend({
     description: DS.attr('string'),
     dateString: DS.attr('string'),
@@ -95,6 +76,9 @@
     }),
     services: DS.hasMany('service', {
       async: true
+    }),
+    activities: DS.hasMany('activity', {
+      async: true
     })
   });
 
@@ -108,7 +92,8 @@
       users: [1, 2, 3],
       clients: [2, 3, 4, 5],
       recipes: [1, 2, 3, 4],
-      services: [1, 2, 3, 4, 5, 6, 7]
+      services: [1, 2, 3, 4, 5, 6, 7],
+      activities: [1, 2, 3, 4, 5, 6, 7, 8]
     }, {
       id: 2,
       name: "Sterling Cooper",
@@ -116,7 +101,8 @@
       users: [4, 5, 6],
       parent: 1,
       recipes: [2, 3, 5],
-      services: [1, 2, 6, 7]
+      services: [1, 2, 6, 7],
+      activities: [1, 2, 3]
     }, {
       id: 3,
       name: "Client 3",
@@ -503,141 +489,7 @@
 }).call(this);
 
 (function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  App.CompanyActivityRoute = (function(_super) {
-    __extends(CompanyActivityRoute, _super);
-
-    function CompanyActivityRoute() {
-      _ref = CompanyActivityRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    CompanyActivityRoute.prototype.model = function() {
-      return this.store.findAll('activity');
-    };
-
-    return CompanyActivityRoute;
-
-  })(Ember.Route);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  App.CompanyClientsRoute = (function(_super) {
-    __extends(CompanyClientsRoute, _super);
-
-    function CompanyClientsRoute() {
-      _ref = CompanyClientsRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    CompanyClientsRoute.prototype.model = function() {
-      return this.modelFor('company').get('clients');
-    };
-
-    return CompanyClientsRoute;
-
-  })(Ember.Route);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  App.CompanyIndexRoute = (function(_super) {
-    __extends(CompanyIndexRoute, _super);
-
-    function CompanyIndexRoute() {
-      _ref = CompanyIndexRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    CompanyIndexRoute.prototype.redirect = function() {
-      return this.transitionTo('company.recipes');
-    };
-
-    return CompanyIndexRoute;
-
-  })(Ember.Route);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  App.CompanyRecipeRoute = (function(_super) {
-    __extends(CompanyRecipeRoute, _super);
-
-    function CompanyRecipeRoute() {
-      _ref = CompanyRecipeRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    return CompanyRecipeRoute;
-
-  })(Ember.Route);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  App.CompanyRecipesRoute = (function(_super) {
-    __extends(CompanyRecipesRoute, _super);
-
-    function CompanyRecipesRoute() {
-      _ref = CompanyRecipesRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    CompanyRecipesRoute.prototype.model = function() {
-      return this.modelFor('company').get('recipes');
-    };
-
-    return CompanyRecipesRoute;
-
-  })(Ember.Route);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  App.CompanyResourcesRoute = (function(_super) {
-    __extends(CompanyResourcesRoute, _super);
-
-    function CompanyResourcesRoute() {
-      _ref = CompanyResourcesRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    CompanyResourcesRoute.prototype.model = function() {
-      return this.modelFor('company');
-    };
-
-    return CompanyResourcesRoute;
-
-  })(Ember.Route);
-
-}).call(this);
-
-(function() {
-  var _ref,
+  var _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -657,12 +509,157 @@
 
   })(Ember.Route);
 
+  App.CompanyIndexRoute = (function(_super) {
+    __extends(CompanyIndexRoute, _super);
+
+    function CompanyIndexRoute() {
+      _ref1 = CompanyIndexRoute.__super__.constructor.apply(this, arguments);
+      return _ref1;
+    }
+
+    CompanyIndexRoute.prototype.redirect = function() {
+      return this.transitionTo('recipes.index');
+    };
+
+    return CompanyIndexRoute;
+
+  })(Ember.Route);
+
+  App.ClientsRoute = (function(_super) {
+    __extends(ClientsRoute, _super);
+
+    function ClientsRoute() {
+      _ref2 = ClientsRoute.__super__.constructor.apply(this, arguments);
+      return _ref2;
+    }
+
+    ClientsRoute.prototype.model = function() {
+      return this.modelFor('company').get('clients');
+    };
+
+    return ClientsRoute;
+
+  })(Ember.Route);
+
+  App.RecipesRoute = (function(_super) {
+    __extends(RecipesRoute, _super);
+
+    function RecipesRoute() {
+      _ref3 = RecipesRoute.__super__.constructor.apply(this, arguments);
+      return _ref3;
+    }
+
+    RecipesRoute.prototype.model = function() {
+      return this.modelFor('company').get('recipes');
+    };
+
+    return RecipesRoute;
+
+  })(Ember.Route);
+
+  App.RecipesIndexRoute = (function(_super) {
+    __extends(RecipesIndexRoute, _super);
+
+    function RecipesIndexRoute() {
+      _ref4 = RecipesIndexRoute.__super__.constructor.apply(this, arguments);
+      return _ref4;
+    }
+
+    RecipesIndexRoute.prototype.model = function() {
+      return this.modelFor('company').get('recipes');
+    };
+
+    return RecipesIndexRoute;
+
+  })(Ember.Route);
+
+  App.RecipeRoute = (function(_super) {
+    __extends(RecipeRoute, _super);
+
+    function RecipeRoute() {
+      _ref5 = RecipeRoute.__super__.constructor.apply(this, arguments);
+      return _ref5;
+    }
+
+    RecipeRoute.prototype.model = function(params) {
+      return this.store.find('recipe', params.recipe_id);
+    };
+
+    return RecipeRoute;
+
+  })(Ember.Route);
+
+  App.ResourcesRoute = (function(_super) {
+    __extends(ResourcesRoute, _super);
+
+    function ResourcesRoute() {
+      _ref6 = ResourcesRoute.__super__.constructor.apply(this, arguments);
+      return _ref6;
+    }
+
+    ResourcesRoute.prototype.model = function() {
+      return this.modelFor('company');
+    };
+
+    return ResourcesRoute;
+
+  })(Ember.Route);
+
+  App.AccessRoute = (function(_super) {
+    __extends(AccessRoute, _super);
+
+    function AccessRoute() {
+      _ref7 = AccessRoute.__super__.constructor.apply(this, arguments);
+      return _ref7;
+    }
+
+    AccessRoute.prototype.model = function() {
+      return this.modelFor('company').get('users');
+    };
+
+    return AccessRoute;
+
+  })(Ember.Route);
+
+  App.ActivityRoute = (function(_super) {
+    __extends(ActivityRoute, _super);
+
+    function ActivityRoute() {
+      _ref8 = ActivityRoute.__super__.constructor.apply(this, arguments);
+      return _ref8;
+    }
+
+    ActivityRoute.prototype.model = function() {
+      return this.modelFor('company').get('activities');
+    };
+
+    return ActivityRoute;
+
+  })(Ember.Route);
+
 }).call(this);
 
 (function() {
   var _ref,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  App.Router.map(function() {
+    this.resource("account");
+    return this.resource("company", {
+      path: "/:company_id"
+    }, function() {
+      this.resource("clients");
+      this.resource("recipes", function() {
+        return this.resource("recipe", {
+          path: "/:recipe_id"
+        });
+      });
+      this.resource("resources");
+      this.resource("access");
+      return this.resource("activity");
+    });
+  });
 
   App.IndexRoute = (function(_super) {
     __extends(IndexRoute, _super);

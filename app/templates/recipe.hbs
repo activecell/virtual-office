@@ -1,14 +1,12 @@
-<h2>
-  <i class="fa fa-tasks"></i>
-  {{name}}
-</h2>
-
 {{#linkTo 'recipes'}}
   <i class="fa fa-arrow-circle-o-left"></i>
   Back to recipe list
 {{/linkTo}}
 
-<h3>
+<br />
+<h2>{{name}}</h2>
+
+<h4>
   Use this recipe to create a task board
   <select id="frequencySelector" class="form-control" {{bindAttr value="frequency"}} style="display: inline; width: 125px;">
     <option>Daily</option>
@@ -21,19 +19,31 @@
   on day
   <input type="text" class="form-control" id="onText" value='1' style="display: inline; width: 125px;">
   of the period.
-</h3>
+</h4>
 
 <!-- le tasks -->
-<h3><i class="fa fa-tasks"></i> Tasks to queue each time</h3>
-<div class="list-group">
-  {{#each tasks}}
-    <a data-toggle="modal" href="#itemDetail" class="list-group-item">
-      <span class="badge">{{minutes}}</span>
-      <img {{bindAttr src="avatarSrc"}} height="20" width="20">
-      {{name}}
-    </a>
-  {{/each}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><i class="fa fa-tasks"></i> Tasks to queue each time</th>
+    </tr>
+  </thead>
+</table>
+
+<div class="row">
+  <div class='col-xs-8 col-sm-offset-2'>
+    <div class="list-group">
+      {{#each tasks}}
+        <a data-toggle="modal" href="#itemDetail" class="list-group-item">
+          <span class="badge">{{minutes}}</span>
+          <img {{bindAttr src="avatarSrc"}} height="20" width="20">
+          {{name}}
+        </a>
+      {{/each}}
+    </div>
+    <button class='btn btn-block btn-primary'>
+      <i class="fa fa-plus"></i> Add a task
+    </button>
+  </div>
 </div>
-<button class='btn btn-block btn-primary'>
-  <i class="fa fa-plus"></i> Add a task
-</button>
