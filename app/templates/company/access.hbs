@@ -1,27 +1,25 @@
 <p class="lead">Team members do not have access to clients until added!</p>
 
-<div class="well">
-  <table class="table table-striped">
-    <thead>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Team member</th>
+      <th>Role</th>
+      <th>Last logged in</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
       <tr>
-        <th>Team member</th>
-        <th>Role</th>
-        <th>Last logged in</th>
-        <th></th>
+        <td>{{name}}</td>
+        <td>{{role}}</td>
+        <td>{{lastLoggedInString}}</td>
+        <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
       </tr>
-    </thead>
-    <tbody>
-      {{#each users}}
-        <tr>
-          <td>{{name}}</td>
-          <td>{{role}}</td>
-          <td>{{lastLoggedInString}}</td>
-          <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
+    {{/each}}
+  </tbody>
+</table>
 
 <a data-toggle="modal" href="#addBoard" class='btn btn-primary'>
   <i class="fa fa-plus"></i> Invite a new team member

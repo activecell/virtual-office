@@ -1,23 +1,21 @@
 <p class="lead">Manage your clients in one place. We'll take care of the rest.</p>
 
-<div class="well">
-  <table class="table table-striped">
-    <thead>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each}}
       <tr>
-        <th>Client</th>
-        <th></th>
+        <td>{{#link-to 'company' id}}{{name}}{{/link-to}}</td>
+        <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Archive</button></td>
       </tr>
-    </thead>
-    <tbody>
-      {{#each}}
-        <tr>
-          <td>{{#link-to 'company' id}}{{name}}{{/link-to}}</td>
-          <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Archive</button></td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
+    {{/each}}
+  </tbody>
+</table>
 
 <a data-toggle="modal" href="#addBoard" class='btn btn-primary'>
   <i class="fa fa-plus"></i> Add a new client
