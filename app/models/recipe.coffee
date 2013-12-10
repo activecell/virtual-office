@@ -26,7 +26,7 @@ App.Recipe.FIXTURES = [
   frequency: "Quarterly"
   timeframe: 1
   tasks: []
-  active: true
+  active: false
 ,
   id: 4
   name: "Update competitive analysis"

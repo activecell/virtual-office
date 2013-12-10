@@ -16,7 +16,11 @@
         <td>{{#linkTo 'recipe' id}}{{name}}{{/linkTo}}</td>
         <td>{{frequency}}</td>
         <td>{{timeframe}}</td>
-        <td>{{active}}</td>
+        <td>
+          <ol class="switch">
+            <li {{bind-attr class=":active active:true:false"}}></li>
+          </ol>
+        </td>
         <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
       </tr>
     {{/each}}
