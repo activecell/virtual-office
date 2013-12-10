@@ -1,12 +1,11 @@
-<h2><i class="fa fa-tasks"></i> Recipes (Connected Bookkeepers)</h2>
-<p class="lead">Recipes are recurring sets of task lists</p>
+<p class="lead">Recipes are recurring sets of task lists.</p>
 <table class="table">
   <thead>
     <tr>
       <th>Recipe</th>
       <th>Frequency</th>
       <th>On</th>
-      <th></th>
+      <th>Active</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +14,7 @@
         <td>{{#linkTo 'recipe' id}}{{name}}{{/linkTo}}</td>
         <td>{{frequency}}</td>
         <td>{{timeframe}}</td>
+        <td>{{active}}</td>
         <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
       </tr>
     {{/each}}

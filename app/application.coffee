@@ -1,2 +1,2 @@
-window.VirtualOffice = Ember.Application.create()
-VirtualOffice.ApplicationAdapter = DS.FixtureAdapter.extend()
+window.App = Ember.Application.create()
+App.ApplicationAdapter = DS.FixtureAdapter.extend()

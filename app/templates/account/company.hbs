@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Your company</th>
+    </tr>
+  </thead>
+</table>
+
+<div class="row">
+  <div class='col-xs-6 col-sm-offset-3'>
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="inputCompany" class="col-xs-3 control-label">Name</label>
+        <div class="col-xs-9">
+          <input type="text" class="form-control" id="inputCompany" {{bindAttr value="company.name"}}>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputSubdomain" class="col-xs-3 control-label">Subdomain</label>
+        <div class="col-xs-5">
+          <input type="text" class="form-control" id="inputSubdomain" {{bindAttr value="company.slug"}}>
+        </div>
+        <label class='col-xs-4 control-label'>.activecell.com</span>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-xs-9">
+          <button type="submit" class="btn btn-default">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

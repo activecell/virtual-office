@@ -1,10 +1,10 @@
-VirtualOffice.Recipe = DS.Model.extend
+App.Recipe = DS.Model.extend
   tasks: DS.hasMany 'task', async:true
   name: DS.attr 'string'
   frequency: DS.attr 'string'
   timeframe: DS.attr 'number'
 
-VirtualOffice.Recipe.FIXTURES = [
+App.Recipe.FIXTURES = [
   id: 1
   name: "Touch-up (transactions and bills)"
   frequency: "Weekly"

@@ -1,9 +1,9 @@
-VirtualOffice.Activity = DS.Model.extend
+App.Activity = DS.Model.extend
   description: DS.attr 'string'
   dateString: DS.attr 'string'
   status: DS.attr 'string'
 
-VirtualOffice.Activity.FIXTURES = [
+App.Activity.FIXTURES = [
   id: 1
   description: "Added <a href='mailto:don.draper@sterlingcooper.com'>Don Draper</a> to <a href='http://www.dropbox.com'>Dropbox</a>"
   dateString: "Oct 1, 2013"

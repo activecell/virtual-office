@@ -1,9 +1,9 @@
-VirtualOffice.Task = DS.Model.extend
+App.Task = DS.Model.extend
   name: DS.attr 'string'
   avatarSrc: DS.attr 'string'
   minutes: DS.attr 'number'
 
-VirtualOffice.Task.FIXTURES = [
+App.Task.FIXTURES = [
   id: 1
   name: "Process Bill.com inbox"
   avatarSrc: "https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=20"

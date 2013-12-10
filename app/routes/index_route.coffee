@@ -1,3 +1,3 @@
-class VirtualOffice.IndexRoute extends Ember.Route
+class App.IndexRoute extends Ember.Route
   redirect: ->
-    @transitionTo 'clients'
+    @transitionTo 'company'

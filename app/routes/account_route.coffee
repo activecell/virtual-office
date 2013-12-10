@@ -1,13 +1,13 @@
-class VirtualOffice.AccountRoute extends Ember.Route
+class App.AccountRoute extends Ember.Route
   renderTemplate: ->
     super
-    @render 'user',
+    @render 'account/user',
       into: 'account'
       outlet: 'user'
-    @render 'company',
+    @render 'account/company',
       into: 'account'
       outlet: 'company'
-    @render 'billing',
+    @render 'account/billing',
       into: 'account'
       outlet: 'billing'
 

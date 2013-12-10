@@ -15,12 +15,6 @@
         </div>
         <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation" style="height: 1px;">
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              {{#link-to 'clients'}}
-                <i class="fa fa-briefcase"></i>
-                Clients
-              {{/link-to}}
-            </li>
             <li><a href='javascript:;'><i class="fa fa-bolt"></i> Add-ons</a></li>
             <li><a href='javascript:;'><i class="fa fa-book"></i> Docs</a></li>
             <li class="dropdown">
@@ -29,27 +23,32 @@
                 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li class="dropdown-header">Your firm:</li>
                 <li>
-                  {{#link-to 'recipes'}}
+                  {{#link-to 'company.clients' 1}}
+                    <i class="fa fa-briefcase fa-fw"></i>
+                    Clients
+                  {{/link-to}}
+                </li>
+                <li>
+                  {{#link-to 'company.recipes' 1}}
                     <i class="fa fa-cutlery fa-fw"></i>
                     Recipes
                   {{/link-to}}
                 </li>
                 <li>
-                  {{#link-to 'resources'}}
+                  {{#link-to 'company.resources' 1}}
                     <i class="fa fa-fighter-jet fa-fw"></i>
                     Resources
                   {{/link-to}}
                 </li>
                 <li>
-                  {{#link-to 'access'}}
+                  {{#link-to 'company.access' 1}}
                     <i class="fa fa-lock fa-fw"></i>
                     Access
                   {{/link-to}}
                 </li>
                 <li>
-                  {{#link-to 'activity'}}
+                  {{#link-to 'company.activity' 1}}
                     <i class="fa fa-truck fa-fw"></i>
                     Activity
                   {{/link-to}}

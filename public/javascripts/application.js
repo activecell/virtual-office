@@ -1,16 +1,17 @@
 (function() {
-  window.VirtualOffice = Ember.Application.create();
+  window.App = Ember.Application.create();
 
-  VirtualOffice.ApplicationAdapter = DS.FixtureAdapter.extend();
+  App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 }).call(this);
 
 (function() {
-  VirtualOffice.Router.map(function() {
-    this.route("clients");
-    this.resource("client", {
-      path: "/client/:client_id"
+  App.Router.map(function() {
+    this.route("account");
+    return this.resource("company", {
+      path: "/:company_id"
     }, function() {
+      this.route("clients");
       this.route("recipes");
       this.resource("recipe", {
         path: "/recipe/:recipe_id"
@@ -19,26 +20,18 @@
       this.route("access");
       return this.route("activity");
     });
-    this.route("recipes");
-    this.resource("recipe", {
-      path: "/recipe/:recipe_id"
-    });
-    this.route("resources");
-    this.route("access");
-    this.route("activity");
-    return this.route("account");
   });
 
 }).call(this);
 
 (function() {
-  VirtualOffice.Activity = DS.Model.extend({
+  App.Activity = DS.Model.extend({
     description: DS.attr('string'),
     dateString: DS.attr('string'),
     status: DS.attr('string')
   });
 
-  VirtualOffice.Activity.FIXTURES = [
+  App.Activity.FIXTURES = [
     {
       id: 1,
       description: "Added <a href='mailto:don.draper@sterlingcooper.com'>Don Draper</a> to <a href='http://www.dropbox.com'>Dropbox</a>",
@@ -85,35 +78,57 @@
 }).call(this);
 
 (function() {
-  VirtualOffice.Client = DS.Model.extend({
+  App.Company = DS.Model.extend({
     name: DS.attr('string'),
-    slug: DS.attr('string')
+    slug: DS.attr('string'),
+    users: DS.hasMany('user', {
+      async: true
+    }),
+    clients: DS.hasMany('company', {
+      async: true
+    }),
+    parent: DS.belongsTo('company'),
+    lastFour: DS.attr('number'),
+    creditType: DS.attr('string')
   });
 
-  VirtualOffice.Client.FIXTURES = [
+  App.Company.FIXTURES = [
     {
       id: 1,
-      name: "Sterling Cooper",
-      slug: "sterling-cooper"
+      name: "Sound Advice",
+      slug: "soundadvice",
+      users: [1, 2, 3],
+      clients: [2, 3, 4, 5],
+      creditType: 'Amex',
+      lastFour: 1003
     }, {
       id: 2,
-      name: "Client 2",
-      slug: "client2"
+      name: "Sterling Cooper",
+      slug: "sterling-cooper",
+      users: [4, 5, 6],
+      parent: 1
     }, {
       id: 3,
       name: "Client 3",
-      slug: "client3"
+      slug: "client3",
+      parent: 1
     }, {
       id: 4,
       name: "Client 4",
-      slug: "client4"
+      slug: "client4",
+      parent: 1
+    }, {
+      id: 5,
+      name: "Client 5",
+      slug: "client5",
+      parent: 1
     }
   ];
 
 }).call(this);
 
 (function() {
-  VirtualOffice.Recipe = DS.Model.extend({
+  App.Recipe = DS.Model.extend({
     tasks: DS.hasMany('task', {
       async: true
     }),
@@ -122,7 +137,7 @@
     timeframe: DS.attr('number')
   });
 
-  VirtualOffice.Recipe.FIXTURES = [
+  App.Recipe.FIXTURES = [
     {
       id: 1,
       name: "Touch-up (transactions and bills)",
@@ -158,13 +173,13 @@
 }).call(this);
 
 (function() {
-  VirtualOffice.Task = DS.Model.extend({
+  App.Task = DS.Model.extend({
     name: DS.attr('string'),
     avatarSrc: DS.attr('string'),
     minutes: DS.attr('number')
   });
 
-  VirtualOffice.Task.FIXTURES = [
+  App.Task.FIXTURES = [
     {
       id: 1,
       name: "Process Bill.com inbox",
@@ -236,30 +251,75 @@
 }).call(this);
 
 (function() {
-  VirtualOffice.User = DS.Model.extend({
+  App.User = DS.Model.extend({
     name: DS.attr('string'),
     email: DS.attr('string'),
     emailMe: DS.attr('boolean'),
     password: DS.attr('string'),
     passwordConf: DS.attr('string'),
-    companyName: DS.attr('string'),
-    subdomain: DS.attr('string'),
-    lastFour: DS.attr('number'),
-    creditType: DS.attr('string')
+    company: DS.belongsTo('company'),
+    role: DS.attr('string'),
+    lastLoggedInString: DS.attr('string')
   });
 
-  VirtualOffice.User.FIXTURES = [
+  App.User.FIXTURES = [
     {
       id: 1,
       name: "Jason Hill",
-      email: "jason@hill.com",
+      email: "hill@soundadvice.jobs",
       emailMe: true,
       password: "PeachesAndCream01",
       passwordConf: "PeachesAndCream01",
-      companyName: "Sound Advice",
-      subdomain: 'soundadvice',
-      creditType: 'Amex',
-      lastFour: 1003
+      company: 1,
+      role: "Admin",
+      lastLoggedInString: "Oct 1, 2013"
+    }, {
+      id: 2,
+      name: "Chris Gibson",
+      email: "cg@soundadvice.jobs",
+      emailMe: true,
+      password: "PeachesAndCream01",
+      passwordConf: "PeachesAndCream01",
+      company: 1,
+      role: "Staff",
+      lastLoggedInString: "Oct 1, 2013"
+    }, {
+      id: 3,
+      name: "Leo Chan",
+      email: "lc@soundadvice.jobs",
+      emailMe: true,
+      password: "PeachesAndCream01",
+      passwordConf: "PeachesAndCream01",
+      company: 1,
+      role: "Staff",
+      lastLoggedInString: "Oct 1, 2013"
+    }, {
+      id: 4,
+      name: "Don Draper",
+      email: "don.draper@sterlingcooper.com",
+      password: "PeachesAndCream01",
+      passwordConf: "PeachesAndCream01",
+      company: 2,
+      role: "Admin",
+      lastLoggedInString: "Oct 1, 2013"
+    }, {
+      id: 5,
+      name: "Roger Sterling",
+      email: "roger.sterling@sterlingcooper.com",
+      password: "PeachesAndCream01",
+      passwordConf: "PeachesAndCream01",
+      company: 2,
+      role: "User",
+      lastLoggedInString: "Oct 1, 2013"
+    }, {
+      id: 6,
+      name: "Peggy Olson",
+      email: "peggy.olson@sterlingcooper.com",
+      password: "PeachesAndCream01",
+      passwordConf: "PeachesAndCream01",
+      company: 2,
+      role: "User",
+      lastLoggedInString: "Oct 1, 2013"
     }
   ];
 
@@ -270,7 +330,7 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.AccountRoute = (function(_super) {
+  App.AccountRoute = (function(_super) {
     __extends(AccountRoute, _super);
 
     function AccountRoute() {
@@ -280,15 +340,15 @@
 
     AccountRoute.prototype.renderTemplate = function() {
       AccountRoute.__super__.renderTemplate.apply(this, arguments);
-      this.render('user', {
+      this.render('account/user', {
         into: 'account',
         outlet: 'user'
       });
-      this.render('company', {
+      this.render('account/company', {
         into: 'account',
         outlet: 'company'
       });
-      return this.render('billing', {
+      return this.render('account/billing', {
         into: 'account',
         outlet: 'billing'
       });
@@ -309,19 +369,19 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.ActivityRoute = (function(_super) {
-    __extends(ActivityRoute, _super);
+  App.CompanyActivityRoute = (function(_super) {
+    __extends(CompanyActivityRoute, _super);
 
-    function ActivityRoute() {
-      _ref = ActivityRoute.__super__.constructor.apply(this, arguments);
+    function CompanyActivityRoute() {
+      _ref = CompanyActivityRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    ActivityRoute.prototype.model = function() {
+    CompanyActivityRoute.prototype.model = function() {
       return this.store.findAll('activity');
     };
 
-    return ActivityRoute;
+    return CompanyActivityRoute;
 
   })(Ember.Route);
 
@@ -332,19 +392,19 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.ClientAccessRoute = (function(_super) {
-    __extends(ClientAccessRoute, _super);
+  App.CompanyClientsRoute = (function(_super) {
+    __extends(CompanyClientsRoute, _super);
 
-    function ClientAccessRoute() {
-      _ref = ClientAccessRoute.__super__.constructor.apply(this, arguments);
+    function CompanyClientsRoute() {
+      _ref = CompanyClientsRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    ClientAccessRoute.prototype.renderTemplate = function() {
-      return this.render('access');
+    CompanyClientsRoute.prototype.model = function() {
+      return this.store.find('company');
     };
 
-    return ClientAccessRoute;
+    return CompanyClientsRoute;
 
   })(Ember.Route);
 
@@ -355,19 +415,19 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.ClientActivityRoute = (function(_super) {
-    __extends(ClientActivityRoute, _super);
+  App.CompanyIndexRoute = (function(_super) {
+    __extends(CompanyIndexRoute, _super);
 
-    function ClientActivityRoute() {
-      _ref = ClientActivityRoute.__super__.constructor.apply(this, arguments);
+    function CompanyIndexRoute() {
+      _ref = CompanyIndexRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    ClientActivityRoute.prototype.renderTemplate = function() {
-      return this.render('activity');
+    CompanyIndexRoute.prototype.redirect = function() {
+      return this.transitionTo('company.recipes');
     };
 
-    return ClientActivityRoute;
+    return CompanyIndexRoute;
 
   })(Ember.Route);
 
@@ -378,19 +438,15 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.ClientIndexRoute = (function(_super) {
-    __extends(ClientIndexRoute, _super);
+  App.CompanyRecipeRoute = (function(_super) {
+    __extends(CompanyRecipeRoute, _super);
 
-    function ClientIndexRoute() {
-      _ref = ClientIndexRoute.__super__.constructor.apply(this, arguments);
+    function CompanyRecipeRoute() {
+      _ref = CompanyRecipeRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    ClientIndexRoute.prototype.redirect = function() {
-      return this.transitionTo('client.recipes');
-    };
-
-    return ClientIndexRoute;
+    return CompanyRecipeRoute;
 
   })(Ember.Route);
 
@@ -401,46 +457,19 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.ClientRecipeRoute = (function(_super) {
-    __extends(ClientRecipeRoute, _super);
+  App.CompanyRecipesRoute = (function(_super) {
+    __extends(CompanyRecipesRoute, _super);
 
-    function ClientRecipeRoute() {
-      _ref = ClientRecipeRoute.__super__.constructor.apply(this, arguments);
+    function CompanyRecipesRoute() {
+      _ref = CompanyRecipesRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    ClientRecipeRoute.prototype.renderTemplate = function() {
-      return this.render('recipe');
-    };
-
-    return ClientRecipeRoute;
-
-  })(Ember.Route);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  VirtualOffice.ClientRecipesRoute = (function(_super) {
-    __extends(ClientRecipesRoute, _super);
-
-    function ClientRecipesRoute() {
-      _ref = ClientRecipesRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    ClientRecipesRoute.prototype.renderTemplate = function() {
-      return this.render('recipes');
-    };
-
-    ClientRecipesRoute.prototype.model = function() {
+    CompanyRecipesRoute.prototype.model = function() {
       return this.store.findAll('recipe');
     };
 
-    return ClientRecipesRoute;
+    return CompanyRecipesRoute;
 
   })(Ember.Route);
 
@@ -451,19 +480,15 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.ClientResourcesRoute = (function(_super) {
-    __extends(ClientResourcesRoute, _super);
+  App.CompanyResourcesRoute = (function(_super) {
+    __extends(CompanyResourcesRoute, _super);
 
-    function ClientResourcesRoute() {
-      _ref = ClientResourcesRoute.__super__.constructor.apply(this, arguments);
+    function CompanyResourcesRoute() {
+      _ref = CompanyResourcesRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    ClientResourcesRoute.prototype.renderTemplate = function() {
-      return this.render('resources');
-    };
-
-    return ClientResourcesRoute;
+    return CompanyResourcesRoute;
 
   })(Ember.Route);
 
@@ -474,19 +499,19 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.ClientsRoute = (function(_super) {
-    __extends(ClientsRoute, _super);
+  App.CompanyRoute = (function(_super) {
+    __extends(CompanyRoute, _super);
 
-    function ClientsRoute() {
-      _ref = ClientsRoute.__super__.constructor.apply(this, arguments);
+    function CompanyRoute() {
+      _ref = CompanyRoute.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    ClientsRoute.prototype.model = function() {
-      return this.store.findAll('client');
+    CompanyRoute.prototype.model = function(params) {
+      return this.store.find('company', params.company_id || 1);
     };
 
-    return ClientsRoute;
+    return CompanyRoute;
 
   })(Ember.Route);
 
@@ -497,7 +522,7 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  VirtualOffice.IndexRoute = (function(_super) {
+  App.IndexRoute = (function(_super) {
     __extends(IndexRoute, _super);
 
     function IndexRoute() {
@@ -506,33 +531,10 @@
     }
 
     IndexRoute.prototype.redirect = function() {
-      return this.transitionTo('clients');
+      return this.transitionTo('company');
     };
 
     return IndexRoute;
-
-  })(Ember.Route);
-
-}).call(this);
-
-(function() {
-  var _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  VirtualOffice.RecipesRoute = (function(_super) {
-    __extends(RecipesRoute, _super);
-
-    function RecipesRoute() {
-      _ref = RecipesRoute.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    RecipesRoute.prototype.model = function() {
-      return this.store.findAll('recipe');
-    };
-
-    return RecipesRoute;
 
   })(Ember.Route);
 
