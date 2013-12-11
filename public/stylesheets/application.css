@@ -1,3 +1,24 @@
+.register .logo {
+  margin-bottom: 16px; }
+.register h2 {
+  margin: 40px 0 40px 0; }
+.register h3 {
+  margin-top: 60px; }
+.register .input-group {
+  margin-bottom: 30px; }
+  .register .input-group .form-control {
+    height: 55px; }
+.register button {
+  margin-top: 10px; }
+.register i {
+  color: #00455b; }
+.register .web-suffix {
+  font-size: 18px;
+  margin-top: 15px;
+  margin-left: -10px; }
+.register .forgot-password {
+  font-size: 16px; }
+
 #activecell-header-logo {
   height: 30px;
   margin: -12px 10px -10px 0px; }
