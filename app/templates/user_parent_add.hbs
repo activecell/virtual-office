@@ -1,0 +1,22 @@
+{{#view App.ModalView}}
+  <div class="modal-header">
+    <button type="button" class="close" {{action close target="view"}}>&times;</button>
+    <h4 class="modal-title">Add {{parent.name}} staff</h4>
+  </div>
+  <div class="modal-body">
+    <p>Use this form to add a {{parent.name}} team member to {{name}}…</p>
+    <form role="form">
+      <div class="form-group">
+        <select id="frequencySelector" class="form-control">
+          <option>Jason Hill</option>
+          <option>Chris Gibson</option>
+          <option>Leo Chan</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" {{action close target="view"}}>Cancel</button>
+    <button type="button" class="btn btn-primary" {{action close target="view"}}>Save changes</button>
+  </div>
+{{/view}}

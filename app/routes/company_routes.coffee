@@ -28,8 +28,7 @@ class App.ResourcesRoute extends Ember.Route
 
 class App.AccessRoute extends Ember.Route
   model: ->
-    users: @modelFor('company').get('users')
-    parentUsers: @modelFor('company').get('parentUsers')
+    @modelFor('company')
 
 class App.ActivityRoute extends Ember.Route
   model: ->

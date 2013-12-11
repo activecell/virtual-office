@@ -1,39 +1,5 @@
 {{#if parentUsers}}
-
-<p class="lead">The following bookkeepers have access to this client:</p>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Team member</th>
-      <th>Role</th>
-      <th class='text-right'>Last logged in</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each parentUsers}}
-      <tr>
-        <td>{{name}}</td>
-        <td>{{role}}</td>
-        <td class='text-right'>{{lastLoggedInString}}</td>
-        <td class='text-right'>
-          <button {{action openModal 'user_delete' this}} class='btn btn-danger btn-xs'>
-            <i class="fa fa-times-circle-o"></i>
-            Remove
-          </button>
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-<a {{action openModal 'user_create'}} class='btn btn-primary'>
-  <i class="fa fa-plus"></i>
-  Add a bookkeeper
-</a>
-
-<br />
+<h2>{{name}} team access</h2>
 {{/if}}
 
 <p class="lead">Add members of the team to ensure they have access to all critical resources!</p>
@@ -68,3 +34,44 @@
   <i class="fa fa-plus"></i>
   Invite a new team member
 </a>
+
+{{#if parentUsers}}
+
+<br />
+
+<h2>{{parent.name}} team access</h2>
+<p class="lead">The following bookkeepers have access to this client:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Team member</th>
+      <th>Role</th>
+      <th class='text-right'>Last logged in</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each parentUsers}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{role}}</td>
+        <td class='text-right'>{{lastLoggedInString}}</td>
+        <td class='text-right'>
+          <button {{action openModal 'user_delete' this}} class='btn btn-danger btn-xs'>
+            <i class="fa fa-times-circle-o"></i>
+            Remove
+          </button>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<a {{action openModal 'user_parent_add' this}} class='btn btn-primary'>
+  <i class="fa fa-plus"></i>
+  Add {{parent.name}} staff
+</a>
+
+<br />
+{{/if}}
