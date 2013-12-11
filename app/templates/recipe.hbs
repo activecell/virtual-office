@@ -41,20 +41,22 @@
     <table class="table">
       <thead>
         <tr>
-          <th><i class="fa fa-tasks"></i> Tasks to queue each time</th>
+          <th><i class="fa fa-tasks"></i> Tasks to queue each time (drag to reorder)</th>
         </tr>
       </thead>
     </table>
 
-    <div class="list-group">
-      {{#each tasks}}
-        <a {{action openModal 'task_edit' this}} class="list-group-item">
-          <span class="badge">{{minutes}}</span>
-          <img {{bindAttr src="avatarSrc"}} height="20" width="20">
-          {{name}}
-        </a>
-      {{/each}}
-    </div>
+    {{#view App.SortableListGroup}}
+      <ul class="sortable list-group">
+        {{#each tasks}}
+          <li class='list-group-item'>
+            <span class="badge">{{minutes}}</span>
+            <img {{bindAttr src="avatarSrc"}} height="20" width="20">
+            <a class='text-primary' {{action openModal 'task_edit' this}}>{{name}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{/view}}
     <button {{action openModal 'task_create'}} class='btn btn-block btn-primary'>
       <i class="fa fa-plus"></i>
       Add a task

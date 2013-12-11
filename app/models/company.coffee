@@ -4,6 +4,7 @@ App.Company = DS.Model.extend
   lastFour: DS.attr 'number'
   creditType: DS.attr 'string'
   users: DS.hasMany 'user', async:true
+  parentUsers: DS.hasMany 'user', async:true
   clients: DS.hasMany 'company', async:true
   parent: DS.belongsTo 'company'
   recipes: DS.hasMany 'recipe', async:true
@@ -27,6 +28,7 @@ App.Company.FIXTURES = [
   slug: "sterling-cooper"
   users: [4,5,6]
   parent: 1
+  parentUsers: [1,2]
   recipes: [2,3,5]
   services: [1,2,6,7]
   activities: [1,2,3]
@@ -35,15 +37,18 @@ App.Company.FIXTURES = [
   name: "Client 3"
   slug: "client3"
   parent: 1
+  parentUsers: [1,3]
   recipes: [3,4]
 ,
   id: 4
   name: "Client 4"
   slug: "client4"
   parent: 1
+  parentUsers: [1,2]
 ,
   id: 5
   name: "Client 5"
   slug: "client5"
   parent: 1
+  parentUsers: [1,2]
 ]

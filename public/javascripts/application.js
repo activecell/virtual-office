@@ -67,6 +67,9 @@
     users: DS.hasMany('user', {
       async: true
     }),
+    parentUsers: DS.hasMany('user', {
+      async: true
+    }),
     clients: DS.hasMany('company', {
       async: true
     }),
@@ -100,6 +103,7 @@
       slug: "sterling-cooper",
       users: [4, 5, 6],
       parent: 1,
+      parentUsers: [1, 2],
       recipes: [2, 3, 5],
       services: [1, 2, 6, 7],
       activities: [1, 2, 3]
@@ -108,17 +112,20 @@
       name: "Client 3",
       slug: "client3",
       parent: 1,
+      parentUsers: [1, 3],
       recipes: [3, 4]
     }, {
       id: 4,
       name: "Client 4",
       slug: "client4",
-      parent: 1
+      parent: 1,
+      parentUsers: [1, 2]
     }, {
       id: 5,
       name: "Client 5",
       slug: "client5",
-      parent: 1
+      parent: 1,
+      parentUsers: [1, 2]
     }
   ];
 
@@ -414,6 +421,15 @@
 }).call(this);
 
 (function() {
+  App.SortableListGroup = Ember.View.extend({
+    didInsertElement: function() {
+      return $('.sortable').sortable();
+    }
+  });
+
+}).call(this);
+
+(function() {
   App.StaffSliderTable = Ember.View.extend({
     didInsertElement: function() {
       $("#slider1").slider({
@@ -683,7 +699,10 @@
     }
 
     AccessRoute.prototype.model = function() {
-      return this.modelFor('company').get('users');
+      return {
+        users: this.modelFor('company').get('users'),
+        parentUsers: this.modelFor('company').get('parentUsers')
+      };
     };
 
     return AccessRoute;

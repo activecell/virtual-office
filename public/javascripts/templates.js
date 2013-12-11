@@ -5,6 +5,21 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 function program1(depth0,data) {
   
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n\n<p class=\"lead\">The following bookkeepers have access to this client:</p>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Team member</th>\n      <th>Role</th>\n      <th>Last logged in</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.each.call(depth0, "parentUsers", {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n  </tbody>\n</table>\n\n<a ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "user_create", {hash:{},contexts:[depth0,depth0],types:["ID","STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class='btn btn-primary'>\n  <i class=\"fa fa-plus\"></i>\n  Add a bookkeeper\n</a>\n\n<br />\n");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
   var buffer = '', hashTypes, hashContexts;
   data.buffer.push("\n      <tr>\n        <td>");
   hashTypes = {};
@@ -26,10 +41,14 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<p class=\"lead\">Team members do not have access to clients until added!</p>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Team member</th>\n      <th>Role</th>\n      <th>Last logged in</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack1 = helpers['if'].call(depth0, "parentUsers", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n\n<p class=\"lead\">Add members of the team to ensure they have access to all critical resources!</p>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Team member</th>\n      <th>Role</th>\n      <th>Last logged in</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.each.call(depth0, "users", {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n  </tbody>\n</table>\n\n<a ");
   hashTypes = {};
@@ -568,26 +587,37 @@ function program1(depth0,data) {
 
 function program3(depth0,data) {
   
-  var buffer = '', hashTypes, hashContexts;
-  data.buffer.push("\n        <a ");
+  var buffer = '', stack1, hashTypes, hashContexts;
+  data.buffer.push("\n      <ul class=\"sortable list-group\">\n        ");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "task_edit", "", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" class=\"list-group-item\">\n          <span class=\"badge\">");
+  stack1 = helpers.each.call(depth0, "tasks", {hash:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n      </ul>\n    ");
+  return buffer;
+  }
+function program4(depth0,data) {
+  
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n          <li class='list-group-item'>\n            <span class=\"badge\">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "minutes", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</span>\n          <img ");
+  data.buffer.push("</span>\n            <img ");
   hashContexts = {'src': depth0};
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'src': ("avatarSrc")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" height=\"20\" width=\"20\">\n          ");
+  data.buffer.push(" height=\"20\" width=\"20\">\n            <a class='text-primary' ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "task_edit", "", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n        </a>\n      ");
+  data.buffer.push("</a>\n          </li>\n        ");
   return buffer;
   }
 
@@ -600,12 +630,12 @@ function program3(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h2>\n\n<div class=\"row\">\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-cogs\"></i> Recipe settings</th>\n        </tr>\n      </thead>\n    </table>\n\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"frequencySelector\">How often will this recipe be used?</label>\n        <select id=\"frequencySelector\" class=\"form-control\">\n          <option>Daily</option>\n          <option>Weekly</option>\n          <option>Monthly</option>\n          <option>Quarterly</option>\n          <option>Annually</option>\n          <option>As needed</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"onText\">One what day of the period?</label>\n        <input type=\"text\" class=\"form-control\" id=\"onText\" value='1'>\n      </div>\n    </form>\n  </div>\n\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-tasks\"></i> Tasks to queue each time</th>\n        </tr>\n      </thead>\n    </table>\n\n    <div class=\"list-group\">\n      ");
+  data.buffer.push("</h2>\n\n<div class=\"row\">\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-cogs\"></i> Recipe settings</th>\n        </tr>\n      </thead>\n    </table>\n\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"frequencySelector\">How often will this recipe be used?</label>\n        <select id=\"frequencySelector\" class=\"form-control\">\n          <option>Daily</option>\n          <option>Weekly</option>\n          <option>Monthly</option>\n          <option>Quarterly</option>\n          <option>Annually</option>\n          <option>As needed</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"onText\">One what day of the period?</label>\n        <input type=\"text\" class=\"form-control\" id=\"onText\" value='1'>\n      </div>\n    </form>\n  </div>\n\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-tasks\"></i> Tasks to queue each time (drag to reorder)</th>\n        </tr>\n      </thead>\n    </table>\n\n    ");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers.each.call(depth0, "tasks", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers.view.call(depth0, "App.SortableListGroup", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n    </div>\n    <button ");
+  data.buffer.push("\n    <button ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "task_create", {hash:{},contexts:[depth0,depth0],types:["ID","STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
