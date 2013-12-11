@@ -7,7 +7,7 @@
     <tr>
       <th>Team member</th>
       <th>Role</th>
-      <th>Last logged in</th>
+      <th class='text-right'>Last logged in</th>
       <th></th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
       <tr>
         <td>{{name}}</td>
         <td>{{role}}</td>
-        <td>{{lastLoggedInString}}</td>
+        <td class='text-right'>{{lastLoggedInString}}</td>
         <td class='text-right'>
           <button {{action openModal 'user_delete' this}} class='btn btn-danger btn-xs'>
             <i class="fa fa-times-circle-o"></i>
@@ -43,7 +43,7 @@
     <tr>
       <th>Team member</th>
       <th>Role</th>
-      <th>Last logged in</th>
+      <th class='text-right'>Last logged in</th>
       <th></th>
     </tr>
   </thead>
@@ -52,7 +52,7 @@
       <tr>
         <td>{{name}}</td>
         <td>{{role}}</td>
-        <td>{{lastLoggedInString}}</td>
+        <td class='text-right'>{{lastLoggedInString}}</td>
         <td class='text-right'>
           <button {{action openModal 'user_delete' this}} class='btn btn-danger btn-xs'>
             <i class="fa fa-times-circle-o"></i>

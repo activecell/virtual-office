@@ -7,15 +7,15 @@
   <table class="table">
     <thead>
       <th>Role</th>
-      <th>Rate</th>
-      <th class="col-xs-3" >Volume</th>
-      <th class="col-xs-2 text-right"></th>
+      <th class='text-right'>Hourly Rate</th>
+      <th class="col-xs-3" ></th>
+      <th class="col-xs-2 text-right">Volume</th>
       <th class="col-xs-2 text-right">Cost</th>
     </thead>
     <tbody>
       <tr>
         <td>Executive assistant</td>
-        <td>$10.00 / hr</td>
+        <td class='text-right'>$10.00</td>
         <td style="vertical-align: middle;"><div id="slider1"></div></td>
         <td class='text-right'><span class="js-time1"></span> <em>hours</em></td>
         <td class='text-right'>$<span class="js-amt1"></span>.00</td>
@@ -23,14 +23,14 @@
       {{#unless parent}}
         <tr>
           <td>Bookkeeper (Global)</td>
-          <td>$25.00 / hr</td>
+          <td class='text-right'>$25.00</td>
           <td style="vertical-align: middle;"><div id="slider2"></div></td>
           <td class='text-right'><span class="js-time2"></span> <em>hours</em></td>
           <td class='text-right'>$<span class="js-amt2"></span>.00</td>
         </tr>
         <tr>
           <td>Bookkeeper (North America)</td>
-          <td>$50.00 / hr</td>
+          <td class='text-right'>$50.00</td>
           <td style="vertical-align: middle;"><div id="slider3"></div></td>
           <td class='text-right'><span class="js-time3"></span> <em>hours</em></td>
           <td class='text-right'>$<span class="js-amt3"></span>.00</td>
@@ -38,7 +38,7 @@
       {{/unless}}
       <tr>
         <td>CFO</td>
-        <td>$100.00 / hr</td>
+        <td class='text-right'>$100.00</td>
         <td style="vertical-align: middle;"><div id="slider4"></div></td>
         <td class='text-right'><span class="js-time4"></span> <em>hours</em></td>
         <td class='text-right'>$<span class="js-amt4"></span>.00</td>
@@ -53,6 +53,12 @@
 <p class="lead">Maximize your time by putting smart tools to work.</p>
 
 <table class="table">
+  <thead>
+    <th>Category</th>
+    <th>Service</th>
+    <th></th>
+    <th class="col-xs-2 text-right">Cost</th>
+  </thead>
   <tbody>
     {{#each services}}
       <tr>

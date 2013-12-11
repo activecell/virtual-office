@@ -7,13 +7,41 @@
     <p>Use this form to add a client to your client list…</p>
     <form role="form">
       <div class="form-group">
-        <label for="exampleInputClientName">Client name</label>
-        <input type="text" class="form-control" id="exampleInputClientName" placeholder="Enter client name">
+        <label for="clientName">Client name</label>
+        <input type="text" class="form-control" id="clientName" placeholder="Enter client name">
       </div>
+      <div class="form-group">
+        <label for="checkboxes">Standard services to set up</label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" disabled checked> <strong>Zendesk</strong> for task management
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> <strong>Dropbox</strong> for file management
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> <strong>Basecamp</strong> for online collaboration
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> <strong>Bill.com</strong> for accounts payable
+        </label>
+      </div>
+
+
+
+
+
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" {{action close target="view"}}>Close</button>
+    <button type="button" class="btn btn-default" {{action close target="view"}}>Cancel</button>
     <button type="button" class="btn btn-primary" {{action close target="view"}}>Save changes</button>
   </div>
 {{/view}}

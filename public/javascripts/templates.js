@@ -6,7 +6,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = '', stack1, hashTypes, hashContexts;
-  data.buffer.push("\n\n<p class=\"lead\">The following bookkeepers have access to this client:</p>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Team member</th>\n      <th>Role</th>\n      <th>Last logged in</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
+  data.buffer.push("\n\n<p class=\"lead\">The following bookkeepers have access to this client:</p>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Team member</th>\n      <th>Role</th>\n      <th class='text-right'>Last logged in</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.each.call(depth0, "parentUsers", {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -29,7 +29,7 @@ function program2(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "role", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</td>\n        <td>");
+  data.buffer.push("</td>\n        <td class='text-right'>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "lastLoggedInString", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -45,7 +45,7 @@ function program2(depth0,data) {
   hashContexts = {};
   stack1 = helpers['if'].call(depth0, "parentUsers", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n\n<p class=\"lead\">Add members of the team to ensure they have access to all critical resources!</p>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Team member</th>\n      <th>Role</th>\n      <th>Last logged in</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
+  data.buffer.push("\n\n<p class=\"lead\">Add members of the team to ensure they have access to all critical resources!</p>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Team member</th>\n      <th>Role</th>\n      <th class='text-right'>Last logged in</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.each.call(depth0, "users", {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -126,11 +126,11 @@ function program1(depth0,data) {
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "description", {hash:{
     'unescaped': ("true")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</td>\n        <td>");
+  data.buffer.push("</td>\n        <td class='text-right'>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "dateString", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</td>\n        <td>");
+  data.buffer.push("</td>\n        <td class='text-right'>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "status", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -138,7 +138,7 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<p class=\"lead\">This is a log of system-generated actions.</p>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th></th>\n      <th>Action</th>\n      <th>Date and time</th>\n      <th>Status</th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
+  data.buffer.push("<p class=\"lead\">This is a log of system-generated actions.</p>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th></th>\n      <th>Action</th>\n      <th class='text-right'>Date</th>\n      <th class='text-right'>Status</th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -190,13 +190,13 @@ function program1(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
     'target': ("view")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">&times;</button>\n    <h4 class=\"modal-title\">New client</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p>Use this form to add a client to your client list…</p>\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"exampleInputClientName\">Client name</label>\n        <input type=\"text\" class=\"form-control\" id=\"exampleInputClientName\" placeholder=\"Enter client name\">\n      </div>\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-default\" ");
+  data.buffer.push(">&times;</button>\n    <h4 class=\"modal-title\">New client</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p>Use this form to add a client to your client list…</p>\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"clientName\">Client name</label>\n        <input type=\"text\" class=\"form-control\" id=\"clientName\" placeholder=\"Enter client name\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"checkboxes\">Standard services to set up</label>\n      </div>\n      <div class=\"checkbox\">\n        <label>\n          <input type=\"checkbox\" disabled checked> <strong>Zendesk</strong> for task management\n        </label>\n      </div>\n      <div class=\"checkbox\">\n        <label>\n          <input type=\"checkbox\"> <strong>Dropbox</strong> for file management\n        </label>\n      </div>\n      <div class=\"checkbox\">\n        <label>\n          <input type=\"checkbox\"> <strong>Basecamp</strong> for online collaboration\n        </label>\n      </div>\n      <div class=\"checkbox\">\n        <label>\n          <input type=\"checkbox\"> <strong>Bill.com</strong> for accounts payable\n        </label>\n      </div>\n\n\n\n\n\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-default\" ");
   hashContexts = {'target': depth0};
   hashTypes = {'target': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
     'target': ("view")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Close</button>\n    <button type=\"button\" class=\"btn btn-primary\" ");
+  data.buffer.push(">Cancel</button>\n    <button type=\"button\" class=\"btn btn-primary\" ");
   hashContexts = {'target': depth0};
   hashTypes = {'target': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
@@ -488,7 +488,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 
 
-  data.buffer.push("<footer id=\"footer\" role=\"contentinfo\">\n  <div class=\"row\">\n     <div class=\"col-xs-3\">\n       <dl>\n        <dt><a href=\"http://www.activecell.com/about.html\">About Activecell</a></dt>\n        <dd><a href=\"http://www.activecell.com/index.html#features\">Features</a></dd>\n        <dd><a href=\"http://www.activecell.com/index.html#pricing\">Pricing</a></dd>\n        <dd><a href=\"http://www.activecell.com/experts.html\">Experts</a></dd>\n        <dd><a href=\"http://www.activecell.com/blog.html\">The Activecell Method</a></dd>\n        <dd><a href=\"http://www.activecell.com/advisors.html\">For advisors</a></dd>\n        <dd><a href=\"http://www.activecell.com/privacy.html\">Privacy policy</a></dd>\n      </dl>\n    </div>\n    <div class=\"col-xs-3\">\n      <dl>\n        <dt><a href=\"http://success.activecell.com\">Support &amp; feedback</a></dt>\n        <dd><a href=\"http://success.activecell.com/knowledgebase\">Knowledge base</a></dd>\n        <dd><a href=\"http://success.activecell.com/forums/110485-product-feedback\">Product feedback</a></dd>\n        <dd><a href=\"http://success.activecell.com\">Contact support</a></dd>\n      </dl>\n    </div>\n    <div class=\"col-xs-6 copyright\">\n      Brought to you by Profitably, Inc.  © 2013. <br />\n      All rights reserved.\n    </div>\n  </div>\n</footer>");
+  data.buffer.push("<footer id=\"footer\" role=\"contentinfo\">\n  <div class=\"row\">\n     <div class=\"col-xs-3\">\n       <dl>\n        <dt><a href=\"http://www.activecell.com/about.html\">About Activecell</a></dt>\n        <dd><a href=\"http://www.activecell.com/index.html#features\">Features</a></dd>\n        <dd><a href=\"http://www.activecell.com/index.html#pricing\">Pricing</a></dd>\n        <dd><a href=\"http://www.activecell.com/experts.html\">Experts</a></dd>\n        <dd><a href=\"http://www.activecell.com/blog.html\">The Activecell Method</a></dd>\n        <dd><a href=\"http://www.activecell.com/advisors.html\">For advisors</a></dd>\n        <dd><a href=\"http://www.activecell.com/privacy.html\">Privacy policy</a></dd>\n      </dl>\n    </div>\n    <div class=\"col-xs-3\">\n      <dl>\n        <dt><a href=\"http://success.activecell.com\">Support &amp; feedback</a></dt>\n        <dd><a href=\"http://success.activecell.com/knowledgebase\">Knowledge base</a></dd>\n        <dd><a href=\"http://success.activecell.com/forums/110485-product-feedback\">Product feedback</a></dd>\n        <dd><a href=\"http://success.activecell.com\">Contact support</a></dd>\n      </dl>\n    </div>\n    <div class=\"col-xs-6 copyright\">\n      Brought to you by Profitably, Inc. © 2013. <br />\n      All rights reserved.\n    </div>\n  </div>\n</footer>");
   
 });
 
@@ -500,76 +500,76 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   
-  data.buffer.push("\n                    <i class=\"fa fa-briefcase fa-fw\"></i>\n                    Clients\n                  ");
+  data.buffer.push("\n                <i class=\"fa fa-briefcase fa-fw\"></i>\n                Clients\n              ");
   }
 
 function program3(depth0,data) {
   
   
-  data.buffer.push("\n                    <i class=\"fa fa-cutlery fa-fw\"></i>\n                    Recipes\n                  ");
+  data.buffer.push("\n                <i class=\"fa fa-cutlery fa-fw\"></i>\n                Recipes\n              ");
   }
 
 function program5(depth0,data) {
   
   
-  data.buffer.push("\n                    <i class=\"fa fa-fighter-jet fa-fw\"></i>\n                    Resources\n                  ");
+  data.buffer.push("\n                <i class=\"fa fa-fighter-jet fa-fw\"></i>\n                Resources\n              ");
   }
 
 function program7(depth0,data) {
   
   
-  data.buffer.push("\n                    <i class=\"fa fa-lock fa-fw\"></i>\n                    Access\n                  ");
+  data.buffer.push("\n                <i class=\"fa fa-lock fa-fw\"></i>\n                Access\n              ");
   }
 
 function program9(depth0,data) {
   
   
-  data.buffer.push("\n                    <i class=\"fa fa-truck fa-fw\"></i>\n                    Activity\n                  ");
+  data.buffer.push("\n                <i class=\"fa fa-truck fa-fw\"></i>\n                Activity\n              ");
   }
 
 function program11(depth0,data) {
   
   
-  data.buffer.push("\n                    <i class=\"fa fa-user fa-fw\"></i>\n                    Account\n                  ");
+  data.buffer.push("\n                <i class=\"fa fa-user fa-fw\"></i>\n                Account\n              ");
   }
 
-  data.buffer.push("<!-- le main nav -->\n<header class=\"navbar navbar-inverse navbar-fixed-top\" role=\"banner\">\n  <div class=\"container\">\n        <div class=\"navbar-header\">\n          <button class=\"navbar-toggle collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a class=\"navbar-brand\" href=\"http://www.activecell.com\">\n            <img id='activecell-header-logo' src=\"images/activecell-full-color-darkBG-small.png\" alt=\"Activecell\">\n            Bookkeeper Tools\n          </a>\n        </div>\n        <nav class=\"navbar-collapse bs-navbar-collapse collapse\" role=\"navigation\" style=\"height: 1px;\">\n          <ul class=\"nav navbar-nav navbar-right\">\n            <li class='active'><a href='javascript:;'><i class=\"fa fa-wrench\"></i> Tools</a></li>\n            <li><a href='javascript:;'><i class=\"fa fa-bolt\"></i> Add-ons</a></li>\n            <li><a href='javascript:;'><i class=\"fa fa-book\"></i> Docs</a></li>\n            <li class=\"dropdown\">\n              <a id=\"header-avatar\" href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                <img src=\"images/jason.png\" alt=\"Jason Hill\">\n                <b class=\"caret\"></b>\n              </a>\n              <ul class=\"dropdown-menu\">\n                <li>\n                  ");
+  data.buffer.push("<!-- le main nav -->\n<header class=\"navbar navbar-inverse navbar-fixed-top\" role=\"banner\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button class=\"navbar-toggle collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"http://www.activecell.com\">\n        <img id='activecell-header-logo' src=\"images/activecell-full-color-darkBG-small.png\" alt=\"Activecell\">\n        Bookkeeper Tools\n      </a>\n    </div>\n    <nav class=\"navbar-collapse bs-navbar-collapse collapse\" role=\"navigation\" style=\"height: 1px;\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li class='active'><a href='javascript:;'><i class=\"fa fa-wrench\"></i> Tools</a></li>\n        <li><a href='javascript:;'><i class=\"fa fa-bolt\"></i> Add-ons</a></li>\n        <li><a href='javascript:;'><i class=\"fa fa-book\"></i> Docs</a></li>\n        <li class=\"dropdown\">\n          <a id=\"header-avatar\" href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n            <img src=\"images/jason.png\" alt=\"Jason Hill\">\n            <b class=\"caret\"></b>\n          </a>\n          <ul class=\"dropdown-menu\">\n            <li>\n              ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "clients", 1, options) : helperMissing.call(depth0, "link-to", "clients", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n                </li>\n                <li>\n                  ");
+  data.buffer.push("\n            </li>\n            <li>\n              ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "recipes", 1, options) : helperMissing.call(depth0, "link-to", "recipes", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n                </li>\n                <li>\n                  ");
+  data.buffer.push("\n            </li>\n            <li>\n              ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "resources", 1, options) : helperMissing.call(depth0, "link-to", "resources", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n                </li>\n                <li>\n                  ");
+  data.buffer.push("\n            </li>\n            <li>\n              ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "access", 1, options) : helperMissing.call(depth0, "link-to", "access", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n                </li>\n                <li>\n                  ");
+  data.buffer.push("\n            </li>\n            <li>\n              ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(9, program9, data),contexts:[depth0,depth0],types:["STRING","INTEGER"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "activity", 1, options) : helperMissing.call(depth0, "link-to", "activity", 1, options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n                </li>\n                <li class=\"divider\"></li>\n                <li>\n                  ");
+  data.buffer.push("\n            </li>\n\n            <li class=\"divider\"></li>\n\n            <li>\n              ");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(11, program11, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || (depth0 && depth0['link-to'])),stack1 ? stack1.call(depth0, "account", options) : helperMissing.call(depth0, "link-to", "account", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n                </li>\n                <li class=\"divider\"></li>\n                <li><a href=\"javascript:;\"><i class=\"fa fa-power-off fa-fw\"></i> Log out</a></li>\n              </ul>\n            </li>\n          </ul>\n        </nav>\n      </div>\n</header>");
+  data.buffer.push("\n            </li>\n\n            <li class=\"divider\"></li>\n\n            <li><a href=\"javascript:;\"><i class=\"fa fa-power-off fa-fw\"></i> Log out</a></li>\n          </ul>\n        </li>\n      </ul>\n    </nav>\n  </div>\n</header>");
   return buffer;
   
 });
@@ -630,7 +630,7 @@ function program4(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h2>\n\n<div class=\"row\">\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-cogs\"></i> Recipe settings</th>\n        </tr>\n      </thead>\n    </table>\n\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"frequencySelector\">How often will this recipe be used?</label>\n        <select id=\"frequencySelector\" class=\"form-control\">\n          <option>Daily</option>\n          <option>Weekly</option>\n          <option>Monthly</option>\n          <option>Quarterly</option>\n          <option>Annually</option>\n          <option>As needed</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"onText\">One what day of the period?</label>\n        <input type=\"text\" class=\"form-control\" id=\"onText\" value='1'>\n      </div>\n    </form>\n  </div>\n\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-tasks\"></i> Tasks to queue each time (drag to reorder)</th>\n        </tr>\n      </thead>\n    </table>\n\n    ");
+  data.buffer.push("</h2>\n\n<div class=\"row\">\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-cogs\"></i> Recipe settings</th>\n        </tr>\n      </thead>\n    </table>\n\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"frequencySelector\">How often will this recipe be used?</label>\n        <select id=\"frequencySelector\" class=\"form-control\">\n          <option>Daily</option>\n          <option>Weekly</option>\n          <option>Monthly</option>\n          <option>Quarterly</option>\n          <option>Annually</option>\n          <option>As needed</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"onText\">One what day of the period?</label>\n        <input type=\"text\" class=\"form-control\" id=\"onText\" value='1'>\n      </div>\n    </form>\n\n    <button class='btn btn-primary btn-block'>\n      <i class=\"fa fa-rocket\"></i>\n      Launch now manually\n    </button>\n\n  </div>\n\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-tasks\"></i> Tasks to queue each time (drag to reorder)</th>\n        </tr>\n      </thead>\n    </table>\n\n    ");
   hashTypes = {};
   hashContexts = {};
   stack2 = helpers.view.call(depth0, "App.SortableListGroup", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -746,7 +746,7 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "frequency", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</td>\n        <td>");
+  data.buffer.push("</td>\n        <td class='text-right'>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "timeframe", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -757,7 +757,7 @@ function program1(depth0,data) {
     'class': (":active active:true:false")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['bind-attr'] || (depth0 && depth0['bind-attr'])),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "bind-attr", options))));
-  data.buffer.push("></li>\n          </ol>\n        </td>\n        <td class='text-right'>\n          <button ");
+  data.buffer.push("></li>\n          </ol>\n        </td>\n        <td class='text-right'>\n          <button class='btn btn-primary btn-xs'>\n            <i class=\"fa fa-rocket\"></i>\n            Launch now\n          </button>\n        </td>\n        <td class='text-right'>\n          <button ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "recipe_delete", "", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -772,7 +772,7 @@ function program2(depth0,data) {
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   }
 
-  data.buffer.push("<p class=\"lead\">Recipes are recurring sets of task lists.</p>\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Recipe</th>\n      <th>Frequency</th>\n      <th>On</th>\n      <th>Active</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
+  data.buffer.push("<p class=\"lead\">Recipes are recurring sets of task lists.</p>\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Recipe</th>\n      <th>Frequency</th>\n      <th class='text-right'>On</th>\n      <th>Active</th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    ");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -794,18 +794,18 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = '', stack1, hashTypes, hashContexts;
-  data.buffer.push("\n  <table class=\"table\">\n    <thead>\n      <th>Role</th>\n      <th>Rate</th>\n      <th class=\"col-xs-3\" >Volume</th>\n      <th class=\"col-xs-2 text-right\"></th>\n      <th class=\"col-xs-2 text-right\">Cost</th>\n    </thead>\n    <tbody>\n      <tr>\n        <td>Executive assistant</td>\n        <td>$10.00 / hr</td>\n        <td style=\"vertical-align: middle;\"><div id=\"slider1\"></div></td>\n        <td class='text-right'><span class=\"js-time1\"></span> <em>hours</em></td>\n        <td class='text-right'>$<span class=\"js-amt1\"></span>.00</td>\n      </tr>\n      ");
+  data.buffer.push("\n  <table class=\"table\">\n    <thead>\n      <th>Role</th>\n      <th class='text-right'>Hourly Rate</th>\n      <th class=\"col-xs-3\" ></th>\n      <th class=\"col-xs-2 text-right\">Volume</th>\n      <th class=\"col-xs-2 text-right\">Cost</th>\n    </thead>\n    <tbody>\n      <tr>\n        <td>Executive assistant</td>\n        <td class='text-right'>$10.00</td>\n        <td style=\"vertical-align: middle;\"><div id=\"slider1\"></div></td>\n        <td class='text-right'><span class=\"js-time1\"></span> <em>hours</em></td>\n        <td class='text-right'>$<span class=\"js-amt1\"></span>.00</td>\n      </tr>\n      ");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.unless.call(depth0, "parent", {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n      <tr>\n        <td>CFO</td>\n        <td>$100.00 / hr</td>\n        <td style=\"vertical-align: middle;\"><div id=\"slider4\"></div></td>\n        <td class='text-right'><span class=\"js-time4\"></span> <em>hours</em></td>\n        <td class='text-right'>$<span class=\"js-amt4\"></span>.00</td>\n      </tr>\n    </tbody>\n  </table>\n");
+  data.buffer.push("\n      <tr>\n        <td>CFO</td>\n        <td class='text-right'>$100.00</td>\n        <td style=\"vertical-align: middle;\"><div id=\"slider4\"></div></td>\n        <td class='text-right'><span class=\"js-time4\"></span> <em>hours</em></td>\n        <td class='text-right'>$<span class=\"js-amt4\"></span>.00</td>\n      </tr>\n    </tbody>\n  </table>\n");
   return buffer;
   }
 function program2(depth0,data) {
   
   
-  data.buffer.push("\n        <tr>\n          <td>Bookkeeper (Global)</td>\n          <td>$25.00 / hr</td>\n          <td style=\"vertical-align: middle;\"><div id=\"slider2\"></div></td>\n          <td class='text-right'><span class=\"js-time2\"></span> <em>hours</em></td>\n          <td class='text-right'>$<span class=\"js-amt2\"></span>.00</td>\n        </tr>\n        <tr>\n          <td>Bookkeeper (North America)</td>\n          <td>$50.00 / hr</td>\n          <td style=\"vertical-align: middle;\"><div id=\"slider3\"></div></td>\n          <td class='text-right'><span class=\"js-time3\"></span> <em>hours</em></td>\n          <td class='text-right'>$<span class=\"js-amt3\"></span>.00</td>\n        </tr>\n      ");
+  data.buffer.push("\n        <tr>\n          <td>Bookkeeper (Global)</td>\n          <td class='text-right'>$25.00</td>\n          <td style=\"vertical-align: middle;\"><div id=\"slider2\"></div></td>\n          <td class='text-right'><span class=\"js-time2\"></span> <em>hours</em></td>\n          <td class='text-right'>$<span class=\"js-amt2\"></span>.00</td>\n        </tr>\n        <tr>\n          <td>Bookkeeper (North America)</td>\n          <td class='text-right'>$50.00</td>\n          <td style=\"vertical-align: middle;\"><div id=\"slider3\"></div></td>\n          <td class='text-right'><span class=\"js-time3\"></span> <em>hours</em></td>\n          <td class='text-right'>$<span class=\"js-amt3\"></span>.00</td>\n        </tr>\n      ");
   }
 
 function program4(depth0,data) {
@@ -832,7 +832,7 @@ function program4(depth0,data) {
   hashContexts = {};
   stack1 = helpers.view.call(depth0, "App.StaffSliderTable", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n\n<button class='btn btn-primary'>Learn mode about Activecell White Glove Service™</button>\n\n<h2><i class=\"fa fa-cloud\"></i> Integrated cloud services</h2>\n<p class=\"lead\">Maximize your time by putting smart tools to work.</p>\n\n<table class=\"table\">\n  <tbody>\n    ");
+  data.buffer.push("\n\n<button class='btn btn-primary'>Learn mode about Activecell White Glove Service™</button>\n\n<h2><i class=\"fa fa-cloud\"></i> Integrated cloud services</h2>\n<p class=\"lead\">Maximize your time by putting smart tools to work.</p>\n\n<table class=\"table\">\n  <thead>\n    <th>Category</th>\n    <th>Service</th>\n    <th></th>\n    <th class=\"col-xs-2 text-right\">Cost</th>\n  </thead>\n  <tbody>\n    ");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.each.call(depth0, "services", {hash:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
@@ -942,7 +942,7 @@ function program1(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
     'target': ("view")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Close</button>\n    <button type=\"button\" class=\"btn btn-primary\" ");
+  data.buffer.push(">Cancel</button>\n    <button type=\"button\" class=\"btn btn-primary\" ");
   hashContexts = {'target': depth0};
   hashTypes = {'target': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
