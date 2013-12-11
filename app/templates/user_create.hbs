@@ -1,0 +1,23 @@
+{{#view App.ModalView}}
+  <div class="modal-header">
+    <button type="button" class="close" {{action close target="view"}}>&times;</button>
+    <h4 class="modal-title">New team member</h4>
+  </div>
+  <div class="modal-body">
+    <p>Use this form to add a team member to your company…</p>
+    <form role="form">
+      <div class="form-group">
+        <label for="inputName">Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Enter team members' name">
+      </div>
+      <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="Enter team member's email address">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" {{action close target="view"}}>Close</button>
+    <button type="button" class="btn btn-primary" {{action close target="view"}}>Save changes</button>
+  </div>
+{{/view}}

@@ -18,7 +18,11 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "lastLoggedInString", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</td>\n        <td><button class='btn btn-danger btn-xs'><i class=\"fa fa-times-circle-o\"> Remove</button></td>\n      </tr>\n    ");
+  data.buffer.push("</td>\n        <td class='text-right'>\n          <button ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "user_delete", "", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class='btn btn-danger btn-xs'>\n            <i class=\"fa fa-times-circle-o\"></i>\n            Remove\n          </button>\n        </td>\n      </tr>\n    ");
   return buffer;
   }
 
@@ -27,7 +31,11 @@ function program1(depth0,data) {
   hashContexts = {};
   stack1 = helpers.each.call(depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n  </tbody>\n</table>\n\n<a data-toggle=\"modal\" href=\"#addBoard\" class='btn btn-primary'>\n  <i class=\"fa fa-plus\"></i> Invite a new team member\n</a>");
+  data.buffer.push("\n  </tbody>\n</table>\n\n<a ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "user_create", {hash:{},contexts:[depth0,depth0],types:["ID","STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class='btn btn-primary'>\n  <i class=\"fa fa-plus\"></i>\n  Invite a new team member\n</a>");
   return buffer;
   
 });
@@ -271,7 +279,7 @@ function program2(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "client_create", {hash:{},contexts:[depth0,depth0],types:["ID","STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" class='btn btn-primary'>\n  <i class=\"fa fa-plus\"></i> Add a new client\n</a>");
+  data.buffer.push(" class='btn btn-primary'>\n  <i class=\"fa fa-plus\"></i>\n  Add a new client\n</a>");
   return buffer;
   
 });
@@ -561,7 +569,11 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
-  data.buffer.push("\n        <a data-toggle=\"modal\" href=\"#itemDetail\" class=\"list-group-item\">\n          <span class=\"badge\">");
+  data.buffer.push("\n        <a ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "task_edit", "", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"list-group-item\">\n          <span class=\"badge\">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "minutes", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -588,12 +600,16 @@ function program3(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h2>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th><i class=\"fa fa-cogs\"></i> Recipe settings</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-8 col-sm-offset-4'>\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"frequencySelector\">How often will this recipe be used?</label>\n        <select id=\"frequencySelector\" class=\"form-control\">\n          <option>Daily</option>\n          <option>Weekly</option>\n          <option>Monthly</option>\n          <option>Quarterly</option>\n          <option>Annually</option>\n          <option>As needed</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"onText\">One what day of the period?</label>\n        <input type=\"text\" class=\"form-control\" id=\"onText\" value='1'>\n      </div>\n    </form>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th><i class=\"fa fa-tasks\"></i> Tasks to queue each time</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-8 col-sm-offset-4'>\n    <div class=\"list-group\">\n      ");
+  data.buffer.push("</h2>\n\n<div class=\"row\">\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-cogs\"></i> Recipe settings</th>\n        </tr>\n      </thead>\n    </table>\n\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"frequencySelector\">How often will this recipe be used?</label>\n        <select id=\"frequencySelector\" class=\"form-control\">\n          <option>Daily</option>\n          <option>Weekly</option>\n          <option>Monthly</option>\n          <option>Quarterly</option>\n          <option>Annually</option>\n          <option>As needed</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"onText\">One what day of the period?</label>\n        <input type=\"text\" class=\"form-control\" id=\"onText\" value='1'>\n      </div>\n    </form>\n  </div>\n\n  <div class='col-xs-6'>\n\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th><i class=\"fa fa-tasks\"></i> Tasks to queue each time</th>\n        </tr>\n      </thead>\n    </table>\n\n    <div class=\"list-group\">\n      ");
   hashTypes = {};
   hashContexts = {};
   stack2 = helpers.each.call(depth0, "tasks", {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n    </div>\n    <button class='btn btn-block btn-primary'>\n      <i class=\"fa fa-plus\"></i> Add a task\n    </button>\n  </div>\n</div>");
+  data.buffer.push("\n    </div>\n    <button ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openModal", "task_create", {hash:{},contexts:[depth0,depth0],types:["ID","STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class='btn btn-block btn-primary'>\n      <i class=\"fa fa-plus\"></i>\n      Add a task\n    </button>\n\n  </div>\n</div>");
   return buffer;
   
 });
@@ -796,12 +812,166 @@ function program4(depth0,data) {
   
 });
 
-Ember.TEMPLATES["task"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+Ember.TEMPLATES["task_create"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
   
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n  <div class=\"modal-header\">\n    <button type=\"button\" class=\"close\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">&times;</button>\n    <h4 class=\"modal-title\">New task</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p>Use this form to create a new task…</p>\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"taskName\">Task name</label>\n        <input type=\"text\" class=\"form-control\" id=\"taskName\" placeholder=\"Enter task name\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"selectAssignee\">Assignee</label>\n        <select id=\"selectAssignee\" class=\"chosen-select\">\n          <option>Adam Neary</option>\n          <option>Sinisa</option>\n          <option>Aleksey</option>\n          <option>Daniel</option>\n        </select>\n      </div>\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-select\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Close</button>\n    <button type=\"button\" class=\"btn btn-primary\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Save changes</button>\n  </div>\n");
+  return buffer;
+  }
 
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.view.call(depth0, "App.ModalView", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  else { data.buffer.push(''); }
+  
+});
 
-  data.buffer.push("<!-- le task modal -->\n<div class=\"modal fade\" id=\"itemDetail\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n        <h4 class=\"modal-title\">#3: Cocoon 'em in gaffer tape</h4>\n      </div>\n      <div class=\"modal-body\">\n        <div class=\"panel-group\" id=\"accordion\">\n          <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">\n              <h4 class=\"panel-title\">\n                <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\">\n                  Description\n                </a>\n              </h4>\n            </div>\n            <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n              <div class=\"panel-body\">\n                <div contenteditable>\n                  <p>\n                    i am a big believer of starting with the html/css for features before\n                    plugging in the functionality. that way, you can agree to the interface\n                    before worrying about functionality.\n                  </p>\n                  <p>\n                    include:\n                  </p>\n                  <ul>\n                    <li>basic app layout</li>\n                    <li>multiple boards with add/remove/rename</li>\n                    <li>multiple columns for lists with add/remove/rename</li>\n                    <li>collapsed items in lists</li>\n                    <li>item detail modal</li>\n                  </ul>\n                  <p>more as we flesh out the first milestone features</p>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"panel panel-default\">\n            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\">\n              <div class=\"panel-heading\">\n                <h4 class=\"panel-title\">\n                  Details\n                </h4>\n              </div>\n            </a>\n            <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n              <div class=\"panel-body\">\n                <form class=\"form-horizontal\" role=\"form\">\n                  <div class=\"form-group\">\n                    <label for=\"selectAssignee\" class=\"col-xs-2 control-label\">Assignee</label>\n                    <div class=\"col-xs-10\">\n                      <select id=\"selectAssignee\" class=\"chosen-select\">\n                        <option>Adam Neary</option>\n                        <option>Sinisa</option>\n                        <option>Aleksey</option>\n                        <option>Daniel</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"selectMilestone\" class=\"col-xs-2 control-label\">Milestone</label>\n                    <div class=\"col-xs-10\">\n                      <select id=\"selectMilestone\" class=\"chosen-select\">\n                        <option>Milestone 1</option>\n                        <option>Milestone 2</option>\n                        <option>Milestone 3</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"multiLabels\" class=\"col-xs-2 control-label\">Labels</label>\n                    <div class=\"col-xs-10\">\n                      <select id=\"selectMilestone\" class=\"chosen-select\" multiple width=\"300\">\n                        <option>Label 1</option>\n                        <option>Label 2</option>\n                        <option>Label 3</option>\n                      </select>\n                    </div>\n                  </div>\n                </form>\n              </div>\n            </div>\n          </div>\n          <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">\n              <h4 class=\"panel-title\">\n                <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\">\n                  Comments\n                </a>\n              </h4>\n            </div>\n            <div id=\"collapseThree\" class=\"panel-collapse collapse\">\n              <div class=\"panel-body\">\n                <textarea class=\"form-control\" rows=\"3\"></textarea>\n                <div class=\"media\">\n                  <a class=\"pull-left\" href=\"#\">\n                    <img class=\"media-object\" src=\"https://2.gravatar.com/avatar/8a81be5788345ffdf759aeae606ff716?d=https%3A%2F%2Fidenticons.github.com%2F0fd1f4d6a647daf66b2a3f79ecd7eb36.png&amp;s=40\">\n                  </a>\n                  <div class=\"media-body\">\n                    <h4 class=\"media-heading\">adamneary</h4>\n                   <p>\n                     <span class=\"label label-primary\">@kusic</span>\n                     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                  </div>\n                </div>\n                <div class=\"media\">\n                  <a class=\"pull-left\" href=\"#\">\n                    <img class=\"media-object\" src=\"https://1.gravatar.com/avatar/e55c09439e68fbaaf1231c9e725a8bdc?d=https%3A%2F%2Fidenticons.github.com%2F6789e600d8abaf5d52d427355d513fd2.png&s=40\">\n                  </a>\n                  <div class=\"media-body\">\n                    <h4 class=\"media-heading\">kusic</h4>\n                    <p>\n                      <span class=\"label label-primary\">@adamneary</span>\n                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div><!-- end .modal-body -->\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-success\">Save changes</button>\n        <button type=\"button\" class=\"btn btn-danger\">Close</button>\n      </div><!-- end .modal-footer -->\n    </div><!-- end .modal-content -->\n  </div><!-- end .modal-dialog -->\n</div><!-- end .modal -->");
+Ember.TEMPLATES["task_edit"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n  <div class=\"modal-header\">\n    <button type=\"button\" class=\"close\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">&times;</button>\n    <h4 class=\"modal-title\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</h4>\n  </div>\n  <div class=\"modal-body\">\n    <div class=\"panel-group\" id=\"accordion\">\n      <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">\n          <h4 class=\"panel-title\">\n            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\">\n              Description\n            </a>\n          </h4>\n        </div>\n        <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n          <div class=\"panel-body\">\n            <div contenteditable>\n              <p>\n                i am a big believer of starting with the html/css for features before\n                plugging in the functionality. that way, you can agree to the interface\n                before worrying about functionality.\n              </p>\n              <p>\n                include:\n              </p>\n              <ul>\n                <li>basic app layout</li>\n                <li>multiple boards with add/remove/rename</li>\n                <li>multiple columns for lists with add/remove/rename</li>\n                <li>collapsed items in lists</li>\n                <li>item detail modal</li>\n              </ul>\n              <p>more as we flesh out the first milestone features</p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"panel panel-default\">\n        <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\">\n          <div class=\"panel-heading\">\n            <h4 class=\"panel-title\">\n              Details\n            </h4>\n          </div>\n        </a>\n        <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n          <div class=\"panel-body\">\n            <form role=\"form\">\n              <div class=\"form-group\">\n                <label for=\"selectAssignee\">Assignee</label>\n                <select id=\"selectAssignee\" class=\"chosen-select\">\n                  <option>Adam Neary</option>\n                  <option>Sinisa</option>\n                  <option>Aleksey</option>\n                  <option>Daniel</option>\n                </select>\n              </div>\n              <div class=\"form-group\">\n                <label for=\"selectMilestone\">Milestone</label>\n                <select id=\"selectMilestone\" class=\"chosen-select\">\n                  <option>Milestone 1</option>\n                  <option>Milestone 2</option>\n                  <option>Milestone 3</option>\n                </select>\n              </div>\n              <div class=\"form-group\">\n                <label for=\"multiLabels\" >Labels</label>\n                <select id=\"selectMilestone\" class=\"chosen-select\" multiple width=\"300\">\n                  <option>Label 1</option>\n                  <option>Label 2</option>\n                  <option>Label 3</option>\n                </select>\n              </div>\n            </form>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div><!-- end .modal-body -->\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-select\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Close</button>\n    <button type=\"button\" class=\"btn btn-primary\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Save changes</button>\n  </div><!-- end .modal-footer -->\n");
+  return buffer;
+  }
+
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.view.call(depth0, "App.ModalView", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  else { data.buffer.push(''); }
+  
+});
+
+Ember.TEMPLATES["user_create"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n  <div class=\"modal-header\">\n    <button type=\"button\" class=\"close\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">&times;</button>\n    <h4 class=\"modal-title\">New team member</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p>Use this form to add a team member to your company…</p>\n    <form role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"inputName\">Name</label>\n        <input type=\"text\" class=\"form-control\" id=\"inputName\" placeholder=\"Enter team members' name\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"inputEmail\">Email</label>\n        <input type=\"email\" class=\"form-control\" id=\"inputEmail\" placeholder=\"Enter team member's email address\">\n      </div>\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-default\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Close</button>\n    <button type=\"button\" class=\"btn btn-primary\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Save changes</button>\n  </div>\n");
+  return buffer;
+  }
+
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.view.call(depth0, "App.ModalView", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  else { data.buffer.push(''); }
+  
+});
+
+Ember.TEMPLATES["user_delete"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n  <div class=\"modal-header\">\n    <button type=\"button\" class=\"close\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">&times;</button>\n    <h4 class=\"modal-title\">Remove ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p>Are you sure that you would like to delete ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("?</p>\n    <p>This person will be removed from all resources.</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-default\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Cancel</button>\n    <button type=\"button\" class=\"btn btn-danger\" ");
+  hashContexts = {'target': depth0};
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{
+    'target': ("view")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Remove</button>\n  </div>\n");
+  return buffer;
+  }
+
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers.view.call(depth0, "App.ModalView", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  else { data.buffer.push(''); }
   
 });

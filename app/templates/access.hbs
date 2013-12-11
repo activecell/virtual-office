@@ -15,12 +15,18 @@
         <td>{{name}}</td>
         <td>{{role}}</td>
         <td>{{lastLoggedInString}}</td>
-        <td><button class='btn btn-danger btn-xs'><i class="fa fa-times-circle-o"> Remove</button></td>
+        <td class='text-right'>
+          <button {{action openModal 'user_delete' this}} class='btn btn-danger btn-xs'>
+            <i class="fa fa-times-circle-o"></i>
+            Remove
+          </button>
+        </td>
       </tr>
     {{/each}}
   </tbody>
 </table>
 
-<a data-toggle="modal" href="#addBoard" class='btn btn-primary'>
-  <i class="fa fa-plus"></i> Invite a new team member
+<a {{action openModal 'user_create'}} class='btn btn-primary'>
+  <i class="fa fa-plus"></i>
+  Invite a new team member
 </a>

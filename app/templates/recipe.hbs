@@ -6,16 +6,17 @@
 <br />
 <h2>{{name}}</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th><i class="fa fa-cogs"></i> Recipe settings</th>
-    </tr>
-  </thead>
-</table>
-
 <div class="row">
-  <div class='col-xs-8 col-sm-offset-4'>
+  <div class='col-xs-6'>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th><i class="fa fa-cogs"></i> Recipe settings</th>
+        </tr>
+      </thead>
+    </table>
+
     <form role="form">
       <div class="form-group">
         <label for="frequencySelector">How often will this recipe be used?</label>
@@ -34,29 +35,30 @@
       </div>
     </form>
   </div>
-</div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th><i class="fa fa-tasks"></i> Tasks to queue each time</th>
-    </tr>
-  </thead>
-</table>
+  <div class='col-xs-6'>
 
-<div class="row">
-  <div class='col-xs-8 col-sm-offset-4'>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><i class="fa fa-tasks"></i> Tasks to queue each time</th>
+        </tr>
+      </thead>
+    </table>
+
     <div class="list-group">
       {{#each tasks}}
-        <a data-toggle="modal" href="#itemDetail" class="list-group-item">
+        <a {{action openModal 'task_edit' this}} class="list-group-item">
           <span class="badge">{{minutes}}</span>
           <img {{bindAttr src="avatarSrc"}} height="20" width="20">
           {{name}}
         </a>
       {{/each}}
     </div>
-    <button class='btn btn-block btn-primary'>
-      <i class="fa fa-plus"></i> Add a task
+    <button {{action openModal 'task_create'}} class='btn btn-block btn-primary'>
+      <i class="fa fa-plus"></i>
+      Add a task
     </button>
+
   </div>
 </div>
