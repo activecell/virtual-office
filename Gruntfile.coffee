@@ -36,6 +36,7 @@ module.exports = (grunt) ->
       compile:
         files:
           'public/stylesheets/application.css': ['app/stylesheets/application.scss']
+          'public/stylesheets/branded.css': ['app/stylesheets/branded.scss']
     
     concat:
       vendor_js:
