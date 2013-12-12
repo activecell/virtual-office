@@ -125,39 +125,7 @@
 }).call(this);
 
 (function() {
-  describe("Login", function() {
-    describe("Quickbooks SSO", function() {
-      it("should display Intuit's SSO link on the login page");
-      it("should process Intuit's SSO for authentication");
-      return it("should identify the user and current company without connecting to data");
-    });
-    describe("Create user as required", function() {
-      it("should log the user in if the user exists");
-      it("should create a new user if the login doesn't exist");
-      return it("should capture name, email upon creating a user");
-    });
-    describe("Intuit blue dot menu,", function() {
-      it("should display the Intuit blue dot menu after login");
-      it("should allow the user to switch companies");
-      return it("should create a company if the user switches to a company that doesn't exist");
-    });
-    return describe("Company creation", function() {
-      describe("Create company as required", function() {
-        it("should log the user into the current company if it exists");
-        it("should create a new company if the current company doesn't exist");
-        return it("should capture company name upon creating a company");
-      });
-      return describe("Creat onboarding task board on create", function() {
-        it("should create the onboarding task board when the company is created");
-        return it("should include onboarding tasks");
-      });
-    });
-  });
-
-  describe("Logout", function() {
-    it("should allow the user to log out using the blue dot menu");
-    return it("should allow the user to log out from the gear menu");
-  });
+  describe('create account', function() {});
 
 }).call(this);
 
