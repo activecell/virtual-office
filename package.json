@@ -4,7 +4,7 @@
   "description": "We'll see",
   "private": true,
   "scripts": {
-    "test": "grunt && ./node_modules/testem/testem.js -f test/testem.json ci && grunt clean:ghpages"
+    "test": "grunt && testem -f test/testem.json ci && grunt clean:ghpages"
   },
   "engines": {
     "node": "0.10.x"
