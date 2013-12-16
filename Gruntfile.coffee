@@ -5,19 +5,19 @@ module.exports = (grunt) ->
       sass:
         files: ['app/stylesheets/**/*.scss']
         tasks: ['sass']
-      
+
       templates:
         files: ['app/templates/**/*.hbs']
         tasks: ['emberTemplates']
-      
+
       coffee:
         files: ['app/**/*.coffee', 'test/**/*.coffee']
         tasks: ['coffee']
-      
+
       vendor:
         files: ['vendor/javascripts/**/*.js', 'vendor/stylesheets/**/*.css']
         tasks: ['concat']
-    
+
     emberTemplates:
       compile:
         options:
@@ -25,18 +25,18 @@ module.exports = (grunt) ->
           templateBasePath: /app\/templates\//
           templateFileExtensions: /\.hbs/
         files: 'public/javascripts/templates.js': 'app/templates/**/*.hbs'
-      
+
     coffee:
       compile:
         files:
           'public/javascripts/application.js': ['app/*.coffee', 'app/models/**/*.coffee', 'app/views/**/*.coffee', 'app/controllers/**/*.coffee', 'app/routes/**/*.coffee']
           'public/javascripts/tests.js': ['test/**/*.coffee']
-    
+
     sass:
       compile:
         files:
           'public/stylesheets/application.css': ['app/stylesheets/application.scss']
-    
+
     concat:
       vendor_js:
         src: [
@@ -51,19 +51,24 @@ module.exports = (grunt) ->
           'vendor/stylesheets/profitably-branding.css'
         ]
         dest: 'public/stylesheets/vendor.css'
-    
+
     express:
       server:
         options:
           port: 9000
           bases: 'public'
-    
+
+    'gh-pages':
+      options:
+        base: 'public'
+      src: ['**']
+
     grunt.loadNpmTasks 'grunt-contrib-concat'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-sass'
     grunt.loadNpmTasks 'grunt-ember-templates'
     grunt.loadNpmTasks 'grunt-express'
-    
-    
+    grunt.loadNpmTasks('grunt-gh-pages')
+
     grunt.registerTask 'default', ['emberTemplates', 'coffee', 'sass', 'concat', 'express', 'watch']
