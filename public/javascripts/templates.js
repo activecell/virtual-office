@@ -254,7 +254,7 @@ function program27(depth0,data) {
 function program29(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
-  data.buffer.push("\n          <div class=\"form-control-static pull-left\">");
+  data.buffer.push("\n          <div class=\"form-control-static pull-left\" style=\"padding-left:15px;\">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "company.slug", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
