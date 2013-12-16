@@ -16,7 +16,8 @@
     "grunt-ember-templates": "~0.4.4",
     "grunt-contrib-watch": "",
     "grunt-contrib-concat": "",
-    "grunt-express": "~1.0.0"
+    "grunt-express": "~1.0.0",
+    "grunt-gh-pages":""
   },
   "devDependencies": {
     "testem": "~0.3.27"
