@@ -486,6 +486,35 @@
 }).call(this);
 
 (function() {
+  App.AccountController = Ember.ObjectController.extend({
+    actions: {
+      editYou: function() {
+        return this.set('isYouEditing', true);
+      },
+      editPassword: function() {
+        return this.set('isPasswordEditing', true);
+      },
+      editCompany: function() {
+        return this.set('isCompanyEditing', true);
+      },
+      saveYou: function() {
+        return this.set('isYouEditing', false);
+      },
+      savePassword: function() {
+        return this.set('isPasswordEditing', false);
+      },
+      saveCompany: function() {
+        return this.set('isCompanyEditing', false);
+      }
+    },
+    isYouEditing: false,
+    isPasswordEditing: false,
+    isCompanyEditing: false
+  });
+
+}).call(this);
+
+(function() {
   App.ClientCreateController = Ember.ObjectController.extend({
     actions: {
       close: function() {
