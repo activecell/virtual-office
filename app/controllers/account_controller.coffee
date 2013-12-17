@@ -8,6 +8,4 @@ App.AccountController = Ember.ObjectController.extend
       @set 'isEditingSubdomain', false
       @get("model").save()
 
-
   isEditingSubdomain: false
-
