@@ -87,167 +87,75 @@ function program5(depth0,data) {
 Ember.TEMPLATES["account"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
-  var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n            ");
-  hashContexts = {'valueBinding': depth0,'id': depth0,'class': depth0,'action': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING",'class': "STRING",'action': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("name"),
-    'id': ("user_name"),
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n          <div class=\"col-xs-5\">\n            ");
+  hashContexts = {'valueBinding': depth0,'class': depth0,'action': depth0};
+  hashTypes = {'valueBinding': "STRING",'class': "STRING",'action': "STRING"};
+  options = {hash:{
+    'valueBinding': ("company.slug"),
     'class': ("form-control"),
     'action': ("acceptChanges")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n          ");
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['focused-text-field'] || (depth0 && depth0['focused-text-field'])),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "focused-text-field", options))));
+  data.buffer.push("\n          </div>\n          <div class=\"form-control-static pull-left\">.activecell.com</div>\n        ");
   return buffer;
   }
 
 function program3(depth0,data) {
   
-  var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n            <div class=\"form-control-static\" ");
-  hashContexts = {'on': depth0};
-  hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "editAccount", {hash:{
-    'on': ("doubleClick")
-  },contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">");
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n          <div class=\"col-xs-9\">\n            <div class=\"form-control-static editable pull-left\" ");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</div>\n          ");
-  return buffer;
-  }
-
-function program5(depth0,data) {
-  
-  var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n            ");
-  hashContexts = {'valueBinding': depth0,'id': depth0,'class': depth0,'action': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING",'class': "STRING",'action': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("email"),
-    'id': ("user_email"),
-    'class': ("form-control"),
-    'action': ("acceptChanges")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n          ");
-  return buffer;
-  }
-
-function program7(depth0,data) {
-  
-  var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n            <div class=\"form-control-static\" ");
-  hashContexts = {'on': depth0};
-  hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "editAccount", {hash:{
-    'on': ("doubleClick")
-  },contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "email", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</div>\n          ");
-  return buffer;
-  }
-
-function program9(depth0,data) {
-  
-  var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n            ");
-  hashContexts = {'valueBinding': depth0,'id': depth0,'class': depth0,'action': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING",'class': "STRING",'action': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("company.name"),
-    'id': ("user_company_name"),
-    'class': ("form-control"),
-    'action': ("acceptChanges")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n          ");
-  return buffer;
-  }
-
-function program11(depth0,data) {
-  
-  var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n            <div class=\"form-control-static\" ");
-  hashContexts = {'on': depth0};
-  hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "editAccount", {hash:{
-    'on': ("doubleClick")
-  },contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "company.name", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</div>\n          ");
-  return buffer;
-  }
-
-function program13(depth0,data) {
-  
-  var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n          <div class=\"col-xs-5\">\n            ");
-  hashContexts = {'valueBinding': depth0,'id': depth0,'class': depth0,'action': depth0};
-  hashTypes = {'valueBinding': "STRING",'id': "STRING",'class': "STRING",'action': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("company.slug"),
-    'id': ("user_company_slug"),
-    'class': ("form-control"),
-    'action': ("acceptChanges")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n          </div>\n        ");
-  return buffer;
-  }
-
-function program15(depth0,data) {
-  
-  var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n          <div class=\"form-control-static pull-left\" style=\"padding-left:15px\" ");
-  hashContexts = {'on': depth0};
-  hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "editAccount", {hash:{
-    'on': ("doubleClick")
-  },contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "editSubdomain", {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push(">");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "company.slug", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</div>\n        ");
+  data.buffer.push("</div>\n            <div class=\"form-control-static pull-left\">.activecell.com</div>\n          </div>\n        ");
   return buffer;
   }
 
-  data.buffer.push("<h1>Account</h1>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>You</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-3'>\n    <div class=\"media\">\n      <a class=\"pull-left\" href=\"http://www.gravatar.com\">\n        <img class=\"media-object\" src=\"images/jason.png\">\n      </a>\n      <div class=\"media-body\">\n        You can update your image at <a href=\"http://www.gravatar.com\">gravatar.com</a>.\n      </div>\n    </div>\n  </div>\n  <div class='col-xs-6'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"user_name\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">\n          ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "isEditing", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label class=\"col-xs-3 control-label\">Email</label>\n        <div class=\"col-xs-9\">\n          ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "isEditing", {hash:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <div class=\"checkbox\">\n            <label>\n              ");
+  data.buffer.push("<h1>Account</h1>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>You</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-3'>\n    <div class=\"media\">\n      <a class=\"pull-left\" href=\"http://www.gravatar.com\">\n        <img class=\"media-object\" src=\"images/jason.png\">\n      </a>\n      <div class=\"media-body\">\n        You can update your image at <a href=\"http://www.gravatar.com\">gravatar.com</a>.\n      </div>\n    </div>\n  </div>\n  <div class='col-xs-6'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"user_name\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">");
+  hashContexts = {'field': depth0,'action': depth0};
+  hashTypes = {'field': "ID",'action': "STRING"};
+  options = {hash:{
+    'field': ("name"),
+    'action': ("acceptChanges")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['click-to-edit'] || (depth0 && depth0['click-to-edit'])),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "click-to-edit", options))));
+  data.buffer.push("</div>\n      </div>\n      <div class=\"form-group\">\n        <label class=\"col-xs-3 control-label\">Email</label>\n        <div class=\"col-xs-9\">");
+  hashContexts = {'field': depth0,'action': depth0};
+  hashTypes = {'field': "ID",'action': "STRING"};
+  options = {hash:{
+    'field': ("email"),
+    'action': ("acceptChanges")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['click-to-edit'] || (depth0 && depth0['click-to-edit'])),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "click-to-edit", options))));
+  data.buffer.push("</div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <div class=\"checkbox\">\n            <label>\n              ");
   hashContexts = {'checkedBinding': depth0};
   hashTypes = {'checkedBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.Checkbox", {hash:{
     'checkedBinding': ("emailMe")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(" Email me about product updates.\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button class='btn btn-default btn-sm'>Update password</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Your company</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"user_company_name\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">\n          ");
+  data.buffer.push(" Email me about product updates.\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <button class='btn btn-default btn-sm'>Update password</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Your company</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <label for=\"user_company_name\" class=\"col-xs-3 control-label\">Name</label>\n        <div class=\"col-xs-9\">");
+  hashContexts = {'field': depth0,'action': depth0};
+  hashTypes = {'field': "ID",'action': "STRING"};
+  options = {hash:{
+    'field': ("company.name"),
+    'action': ("acceptChanges")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['click-to-edit'] || (depth0 && depth0['click-to-edit'])),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "click-to-edit", options))));
+  data.buffer.push("</div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"user_company_slug\" class=\"col-xs-3 control-label\">Subdomain</label>\n        ");
   hashTypes = {};
   hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "isEditing", {hash:{},inverse:self.program(11, program11, data),fn:self.program(9, program9, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"user_company_slug\" class=\"col-xs-3 control-label\">Subdomain</label>\n        ");
-  hashTypes = {};
-  hashContexts = {};
-  stack1 = helpers['if'].call(depth0, "isEditing", {hash:{},inverse:self.program(15, program15, data),fn:self.program(13, program13, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n        <div class=\"form-control-static pull-left\">.activecell.com</div>\n      </div>\n    </form>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Billing</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <p class=\"help-block\">\n            <small>This account is billed to:\n              <strong>");
+  stack2 = helpers['if'].call(depth0, "isEditingSubdomain", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n      </div>\n    </form>\n  </div>\n</div>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Billing</th>\n    </tr>\n  </thead>\n</table>\n\n<div class=\"row\">\n  <div class='col-xs-6 col-sm-offset-3'>\n    <form class=\"form-horizontal\" role=\"form\">\n      <div class=\"form-group\">\n        <div class=\"col-sm-offset-3 col-xs-9\">\n          <p class=\"help-block\">\n            <small>This account is billed to:\n              <strong>");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "company.creditType", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -614,6 +522,51 @@ function program13(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["components/click-to-edit"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashTypes, hashContexts, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, hashContexts, hashTypes, options;
+  data.buffer.push("\n  ");
+  hashContexts = {'valueBinding': depth0,'class': depth0,'action': depth0};
+  hashTypes = {'valueBinding': "STRING",'class': "STRING",'action': "STRING"};
+  options = {hash:{
+    'valueBinding': ("field"),
+    'class': ("form-control"),
+    'action': ("acceptChanges")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers['focused-text-field'] || (depth0 && depth0['focused-text-field'])),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "focused-text-field", options))));
+  data.buffer.push("\n");
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n  <div class=\"form-control-static editable\" ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "editMe", {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "field", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</div>\n");
+  return buffer;
+  }
+
+  hashTypes = {};
+  hashContexts = {};
+  stack1 = helpers['if'].call(depth0, "isEditing", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n");
   return buffer;
   

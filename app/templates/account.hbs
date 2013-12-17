@@ -23,23 +23,11 @@
     <form class="form-horizontal" role="form">
       <div class="form-group">
         <label for="user_name" class="col-xs-3 control-label">Name</label>
-        <div class="col-xs-9">
-          {{#if isEditing}}
-            {{view Ember.TextField valueBinding="name" id="user_name" class="form-control" action="acceptChanges"}}
-          {{else}}
-            <div class="form-control-static" {{action "editAccount" on="doubleClick"}}>{{name}}</div>
-          {{/if}}
-        </div>
+        <div class="col-xs-9">{{click-to-edit field=name action="acceptChanges"}}</div>
       </div>
       <div class="form-group">
         <label class="col-xs-3 control-label">Email</label>
-        <div class="col-xs-9">
-          {{#if isEditing}}
-            {{view Ember.TextField valueBinding="email" id="user_email" class="form-control" action="acceptChanges"}}
-          {{else}}
-            <div class="form-control-static" {{action "editAccount" on="doubleClick"}}>{{email}}</div>
-          {{/if}}
-        </div>
+        <div class="col-xs-9">{{click-to-edit field=email action="acceptChanges"}}</div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-3 col-xs-9">
@@ -72,24 +60,21 @@
     <form class="form-horizontal" role="form">
       <div class="form-group">
         <label for="user_company_name" class="col-xs-3 control-label">Name</label>
-        <div class="col-xs-9">
-          {{#if isEditing}}
-            {{view Ember.TextField valueBinding="company.name" id="user_company_name" class="form-control" action="acceptChanges"}}
-          {{else}}
-            <div class="form-control-static" {{action "editAccount" on="doubleClick"}}>{{company.name}}</div>
-          {{/if}}
-        </div>
+        <div class="col-xs-9">{{click-to-edit field=company.name action="acceptChanges"}}</div>
       </div>
       <div class="form-group">
         <label for="user_company_slug" class="col-xs-3 control-label">Subdomain</label>
-        {{#if isEditing}}
+        {{#if isEditingSubdomain}}
           <div class="col-xs-5">
-            {{view Ember.TextField valueBinding="company.slug" id="user_company_slug" class="form-control" action="acceptChanges"}}
+            {{focused-text-field valueBinding="company.slug" class="form-control" action="acceptChanges"}}
           </div>
+          <div class="form-control-static pull-left">.activecell.com</div>
         {{else}}
-          <div class="form-control-static pull-left" style="padding-left:15px" {{action "editAccount" on="doubleClick"}}>{{company.slug}}</div>
+          <div class="col-xs-9">
+            <div class="form-control-static editable pull-left" {{action "editSubdomain"}}>{{company.slug}}</div>
+            <div class="form-control-static pull-left">.activecell.com</div>
+          </div>
         {{/if}}
-        <div class="form-control-static pull-left">.activecell.com</div>
       </div>
     </form>
   </div>

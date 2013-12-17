@@ -401,6 +401,33 @@
 }).call(this);
 
 (function() {
+  App.ClickToEditComponent = Ember.Component.extend({
+    isEditing: false,
+    actions: {
+      editMe: function() {
+        return this.set('isEditing', true);
+      },
+      acceptChanges: function() {
+        this.set('isEditing', false);
+        return this.sendAction();
+      }
+    }
+  });
+
+}).call(this);
+
+(function() {
+  App.FocusedTextFieldView = Ember.TextField.extend({
+    didInsertElement: function() {
+      return this.$().focus();
+    }
+  });
+
+  Ember.Handlebars.helper("focused-text-field", App.FocusedTextFieldView);
+
+}).call(this);
+
+(function() {
   App.ModalView = Ember.View.extend({
     didInsertElement: function() {
       var parent;
@@ -488,16 +515,15 @@
 (function() {
   App.AccountController = Ember.ObjectController.extend({
     actions: {
-      editAccount: function() {
-        return this.set('isEditing', true);
+      editSubdomain: function() {
+        return this.set('isEditingSubdomain', true);
       },
       acceptChanges: function() {
-        this.set('isEditing', false);
-        console.log('Saving');
+        this.set('isEditingSubdomain', false);
         return this.get("model").save();
       }
     },
-    isEditing: false
+    isEditingSubdomain: false
   });
 
 }).call(this);
