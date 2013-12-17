@@ -29,7 +29,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'public/javascripts/application.js': ['app/*.coffee', 'app/models/**/*.coffee', 'app/views/**/*.coffee', 'app/controllers/**/*.coffee', 'app/routes/**/*.coffee']
+          'public/javascripts/application.js': ['app/*.coffee', 'app/models/**/*.coffee', 'app/components/**/*.coffee', 'app/views/**/*.coffee', 'app/controllers/**/*.coffee', 'app/routes/**/*.coffee']
           'public/javascripts/tests.js': ['test/**/*.coffee']
 
     sass:

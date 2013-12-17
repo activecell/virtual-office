@@ -22,67 +22,25 @@
   <div class='col-xs-6'>
     <form class="form-horizontal" role="form">
       <div class="form-group">
-        <label for="inputName" class="col-xs-3 control-label">Name</label>
-        <div class="col-xs-9">
-          <input type="text" class="form-control" id="inputName" {{bindAttr value="name"}}>
-        </div>
+        <label for="user_name" class="col-xs-3 control-label">Name</label>
+        <div class="col-xs-9">{{click-to-edit field=name action="acceptChanges"}}</div>
       </div>
       <div class="form-group">
-        <label for="inputemail" class="col-xs-3 control-label">Email</label>
-        <div class="col-xs-9">
-          <input type="email" class="form-control" id="inputName" {{bindAttr value="email"}}>
-        </div>
+        <label class="col-xs-3 control-label">Email</label>
+        <div class="col-xs-9">{{click-to-edit field=email action="acceptChanges"}}</div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-3 col-xs-9">
           <div class="checkbox">
             <label>
-              <input type="checkbox" {{bindAttr value="emailMe"}}> Email me about product updates.
+              {{view Ember.Checkbox checkedBinding="emailMe"}} Email me about product updates.
             </label>
           </div>
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-3 col-xs-9">
-          <button type="submit" class="btn btn-default">Save</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Your password</th>
-    </tr>
-  </thead>
-</table>
-
-<div class="row">
-  <div class='col-xs-6 col-sm-offset-3'>
-    <form class="form-horizontal" role="form">
-      <div class="form-group">
-        <label for="inputPass1" class="col-xs-3 control-label">Current</label>
-        <div class="col-xs-9">
-          <input type="password" class="form-control" id="inputPass1">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputPass2" class="col-xs-3 control-label">New</label>
-        <div class="col-xs-9">
-          <input type="password" class="form-control" id="inputPass2">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputPass1" class="col-xs-3 control-label">Confirm</label>
-        <div class="col-xs-9">
-          <input type="password" class="form-control" id="inputPass2">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-xs-9">
-          <button type="submit" class="btn btn-default">Save</button>
+          <button class='btn btn-default btn-sm'>Update password</button>
         </div>
       </div>
     </form>
@@ -101,22 +59,22 @@
   <div class='col-xs-6 col-sm-offset-3'>
     <form class="form-horizontal" role="form">
       <div class="form-group">
-        <label for="inputCompany" class="col-xs-3 control-label">Name</label>
-        <div class="col-xs-9">
-          <input type="text" class="form-control" id="inputCompany" {{bindAttr value="company.name"}}>
-        </div>
+        <label for="user_company_name" class="col-xs-3 control-label">Name</label>
+        <div class="col-xs-9">{{click-to-edit field=company.name action="acceptChanges"}}</div>
       </div>
       <div class="form-group">
-        <label for="inputSubdomain" class="col-xs-3 control-label">Subdomain</label>
-        <div class="col-xs-5">
-          <input type="text" class="form-control" id="inputSubdomain" {{bindAttr value="company.slug"}}>
-        </div>
-        <label class='col-xs-4 control-label'>.activecell.com</span>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-xs-9">
-          <button type="submit" class="btn btn-default">Save</button>
-        </div>
+        <label for="user_company_slug" class="col-xs-3 control-label">Subdomain</label>
+        {{#if isEditingSubdomain}}
+          <div class="col-xs-5">
+            {{focused-text-field valueBinding="company.slug" class="form-control" action="acceptChanges"}}
+          </div>
+          <div class="form-control-static pull-left">.activecell.com</div>
+        {{else}}
+          <div class="col-xs-9">
+            <div class="form-control-static editable pull-left" {{action "editSubdomain"}}>{{company.slug}}</div>
+            <div class="form-control-static pull-left">.activecell.com</div>
+          </div>
+        {{/if}}
       </div>
     </form>
   </div>
@@ -150,4 +108,3 @@
     </form>
   </div>
 </div>
-
