@@ -488,28 +488,16 @@
 (function() {
   App.AccountController = Ember.ObjectController.extend({
     actions: {
-      editYou: function() {
-        return this.set('isYouEditing', true);
+      editAccount: function() {
+        return this.set('isEditing', true);
       },
-      editPassword: function() {
-        return this.set('isPasswordEditing', true);
-      },
-      editCompany: function() {
-        return this.set('isCompanyEditing', true);
-      },
-      saveYou: function() {
-        return this.set('isYouEditing', false);
-      },
-      savePassword: function() {
-        return this.set('isPasswordEditing', false);
-      },
-      saveCompany: function() {
-        return this.set('isCompanyEditing', false);
+      acceptChanges: function() {
+        this.set('isEditing', false);
+        console.log('Saving');
+        return this.get("model").save();
       }
     },
-    isYouEditing: false,
-    isPasswordEditing: false,
-    isCompanyEditing: false
+    isEditing: false
   });
 
 }).call(this);

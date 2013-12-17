@@ -1,21 +1,13 @@
 App.AccountController = Ember.ObjectController.extend
   actions:
-    # edit actions
-    editYou: ->
-      @set 'isYouEditing', true
-    editPassword: ->
-      @set 'isPasswordEditing', true
-    editCompany: ->
-      @set 'isCompanyEditing', true
-    
-    # save actions
-    saveYou: ->
-      @set 'isYouEditing', false
-    savePassword: ->
-      @set 'isPasswordEditing', false
-    saveCompany: ->
-      @set 'isCompanyEditing', false
+    editAccount: ->
+      @set 'isEditing', true
+    acceptChanges: ->
+      @set 'isEditing', false
+      console.log 'Saving'
+      @get("model").save()
+      
   
-  isYouEditing: false
-  isPasswordEditing: false
-  isCompanyEditing: false
+  isEditing: false
+  
+  
